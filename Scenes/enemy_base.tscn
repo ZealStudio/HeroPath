@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0xonda5le2oq"]
+
+[ext_resource type="Script" path="res://Code/enemyCode/EnemyBase.gd" id="1_hh3uw"]
+[ext_resource type="Resource" uid="uid://bms7bnk13dvaf" path="res://Code/enemyCode/MonsterStats/slime.tres" id="2_poeeo"]
+
+[node name="EnemyBase" type="Node2D"]
+script = ExtResource("1_hh3uw")
+Stat = ExtResource("2_poeeo")
+metadata/_edit_group_ = true
+
+[node name="MonsterImage" type="Sprite2D" parent="."]
+scale = Vector2(0.997373, 0.949901)
