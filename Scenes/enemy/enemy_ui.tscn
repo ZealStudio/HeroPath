@@ -1,0 +1,35 @@
+[gd_scene load_steps=4 format=3 uid="uid://3y0rpxpn7vlv"]
+
+[ext_resource type="Script" path="res://Code/enemyCode/enemy_ui.gd" id="1_ffysa"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="1_of8do"]
+[ext_resource type="Resource" uid="uid://bms7bnk13dvaf" path="res://Code/enemyCode/MonsterStats/slime.tres" id="2_e01b4"]
+
+[node name="EnemyUi" type="Control" node_paths=PackedStringArray("NameLabel")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 96.0
+offset_bottom = 112.0
+script = ExtResource("1_ffysa")
+Stats = ExtResource("2_e01b4")
+NameLabel = NodePath("LabelHolder/Name")
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 96.0
+offset_bottom = 112.0
+color = Color(0, 0, 0, 1)
+
+[node name="LabelHolder" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Name" type="RichTextLabel" parent="LabelHolder"]
+layout_mode = 0
+offset_right = 70.0
+offset_bottom = 28.0
+theme = ExtResource("1_of8do")
+bbcode_enabled = true
+text = "Lv 14: Slime"
+fit_content = true
+scroll_active = false

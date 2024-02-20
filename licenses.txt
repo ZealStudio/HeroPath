@@ -3,3 +3,10 @@ Author: mackatap
 Diamond-based Screen Transition
 Link:https://godotshaders.com/shader/diamond-based-screen-transition/
 License: MIT
+
+
+2.
+Author: somepx
+font-passage
+https://somepx.itch.io/pixel-font-passage
+License: https://somepx.itch.io/pixel-font-passage

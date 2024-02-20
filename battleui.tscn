@@ -1,11 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=5 format=3 uid="uid://bm5xr01g7158p"]
 
+[ext_resource type="PackedScene" uid="uid://3y0rpxpn7vlv" path="res://Scenes/enemy/enemy_ui.tscn" id="1_seqsp"]
 [ext_resource type="Shader" path="res://Diamond-based Screen Transition.gdshader" id="1_v5pq0"]
 [ext_resource type="Script" path="res://Screen Transition OverLay.gd" id="2_nf5p5"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc1qx"]
 shader = ExtResource("1_v5pq0")
-shader_parameter/progress = 0.59
+shader_parameter/progress = 0.0
 shader_parameter/multiplier = 3.0
 shader_parameter/angle = 45.0
 shader_parameter/anchor = Vector2(0.5, 0.5)
@@ -20,8 +21,45 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="UI" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 360.0
+
+[node name="button" type="Control" parent="UI"]
+anchors_preset = 0
+offset_top = 281.0
+offset_right = 640.0
+offset_bottom = 358.0
+
+[node name="EnemyUIHolder" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 640.0
+offset_bottom = 358.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EnemyUIHolder"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -248.0
+offset_right = 248.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme_override_constants/separation = 200
+
+[node name="EnemyUi" parent="EnemyUIHolder/HBoxContainer" instance=ExtResource("1_seqsp")]
+layout_mode = 2
+
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_uc1qx")
+layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 color = Color(0, 0, 0, 1)
