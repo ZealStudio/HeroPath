@@ -1,5 +1,8 @@
 extends Area2D
 
+
+
+@onready var MoveTimer = $MoveTimer
 @onready var ray = $RayCast2D
 @export var tile_size = 64
 @export var inputs = {"right": Vector2.RIGHT,
@@ -18,7 +21,7 @@ func _unhandled_input(event):
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
 			move(dir)
-
+			print_debug(dir)
 
 
 func move(dir):

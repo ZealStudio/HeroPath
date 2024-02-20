@@ -19,3 +19,6 @@ shape = SubResource("RectangleShape2D_mt8v4")
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(0, 150)
+
+[node name="MoveTimer" type="Timer" parent="."]
+wait_time = 0.2
