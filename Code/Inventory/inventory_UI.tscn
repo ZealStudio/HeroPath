@@ -1,0 +1,46 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0y4rtv8xujqb"]
+
+[ext_resource type="Script" path="res://Code/Inventory/inventory_UI.gd" id="1_rxfxn"]
+[ext_resource type="PackedScene" uid="uid://d1pjmndfn7rmj" path="res://Code/Inventory/inventory_slots.tscn" id="2_4jdqv"]
+
+[node name="InventoryUi" type="Control"]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -257.0
+offset_top = -158.0
+offset_right = 257.0
+offset_bottom = 158.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rxfxn")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = -150.0
+offset_right = 250.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.8, 0.631373, 0.360784, 0.560784)
+
+[node name="GridContainer" type="GridContainer" parent="ColorRect"]
+layout_mode = 0
+offset_right = 499.0
+offset_bottom = 298.0
+columns = 4
+
+[node name="InventorySlots" parent="ColorRect/GridContainer" instance=ExtResource("2_4jdqv")]
+layout_mode = 2
+
+[node name="InventorySlots2" parent="ColorRect/GridContainer" instance=ExtResource("2_4jdqv")]
+layout_mode = 2
