@@ -1,0 +1,32 @@
+[gd_scene load_steps=3 format=3 uid="uid://3lnhapbqd8lh"]
+
+[ext_resource type="Script" path="res://Control.gd" id="1_septy"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_mpr4d"]
+
+[node name="AttackHolder" type="ColorRect" node_paths=PackedStringArray("DamageLabel", "ButtonLabel") groups=["PlayerButton"]]
+offset_right = 255.0
+offset_bottom = 47.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_septy")
+DamageLabel = NodePath("damageLabel")
+ButtonLabel = NodePath("Name")
+SelectedColor = Color(1, 1, 1, 1)
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_right = 78.0
+offset_bottom = 48.0
+theme = ExtResource("2_mpr4d")
+theme_override_font_sizes/font_size = 48
+text = "Slash"
+
+[node name="damageLabel" type="Label" parent="."]
+offset_left = 150.0
+offset_top = -18.0
+offset_right = 241.0
+offset_bottom = 62.0
+theme = ExtResource("2_mpr4d")
+theme_override_font_sizes/font_size = 80
+text = "10"
+horizontal_alignment = 1
+vertical_alignment = 1
