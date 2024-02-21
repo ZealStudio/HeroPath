@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="EverythingInArea" load_steps=3 format=3 uid="uid://dexty0c6bme8n"]
+
+[ext_resource type="Resource" uid="uid://bms7bnk13dvaf" path="res://Code/enemyCode/MonsterStats/slime.tres" id="1_xboo6"]
+[ext_resource type="Script" path="res://Code/AreaEntrance/everything_in_area.gd" id="1_yhdia"]
+
+[resource]
+script = ExtResource("1_yhdia")
+enemy_types = Array[Resource("res://Code/enemyCode/EnemyStats.gd")]([ExtResource("1_xboo6")])
+enemy_spawn_chance = 20

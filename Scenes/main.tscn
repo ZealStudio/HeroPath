@@ -1,6 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://bbsldorqxh778"]
+[gd_scene load_steps=5 format=3 uid="uid://bbsldorqxh778"]
 
 [ext_resource type="PackedScene" uid="uid://cmlvniw5qjq4j" path="res://Scenes/player.tscn" id="1_be1nw"]
+[ext_resource type="PackedScene" uid="uid://cbs6xco01k3as" path="res://Code/AreaEntrance/test_world_for_area_entrance.tscn" id="2_jf6kw"]
+[ext_resource type="PackedScene" uid="uid://doi5pr67hi2ld" path="res://Code/AreaEntrance/entrance_to_area_template.tscn" id="3_jvin8"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm4ej"]
 size = Vector2(146, 60)
@@ -20,3 +22,7 @@ position = Vector2(63, 20)
 shape = SubResource("RectangleShape2D_bm4ej")
 
 [node name="Node2D" type="Node2D" parent="StaticBody2D"]
+
+[node name="TestWorldForAreaEntrance" parent="." instance=ExtResource("2_jf6kw")]
+
+[node name="EntranceToAreaTemplate" parent="." instance=ExtResource("3_jvin8")]
