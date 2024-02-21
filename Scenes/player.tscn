@@ -6,7 +6,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt8v4"]
 size = Vector2(62, 61)
 
-[node name="player" type="Area2D" groups=["Player"]]
+[node name="player" type="Area2D"]
 script = ExtResource("1_m42du")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -23,7 +23,5 @@ target_position = Vector2(0, 150)
 [node name="MoveTimer" type="Timer" parent="."]
 wait_time = 0.1
 one_shot = true
-
-[node name="StatHolder" type="Node2D" parent="."]
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

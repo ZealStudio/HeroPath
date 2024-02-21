@@ -6,7 +6,7 @@ extends Control
 @onready var slots: Array = grid_container.get_children()
 
 var Currentindex = 0
-var Buttons : Array
+var Items : Array
 var GridChildren
 var CurrentSelectedButton: ItemSlotBase
 var bIsOpen: bool = false
@@ -41,11 +41,13 @@ func update_slots():
 func open():
 	visible = true
 	bIsOpen = true
+	GameManager.state = GameManager.GameState.IN_MENU
 
 
 func close():
 	visible = false
 	bIsOpen = false
+	GameManager.state = GameManager.GameState.FREEWALK
 
 
 
@@ -71,35 +73,45 @@ func _unhandled_input(event):
 				Currentindex -= 1
 			if dir =="right":
 				Currentindex += 1
-				pass
+			if dir == "up":
+				Currentindex -= grid_container.columns
+			if dir == "down":
+				Currentindex += grid_container.columns
 			UpdateIndex()
 
 
 func GetButtonsForMenu(Grid):
-	Buttons = []
+	Items = []
 	GridChildren = Grid.get_children()
 	for item in GridChildren:
 		#if item.is_in_group("PlayerButton"):
-		Buttons.append(item)
-	CurrentSelectedButton = Buttons[0]
+		Items.append(item)
+	CurrentSelectedButton = Items[0]
 	SelectButton()
 
 
 func UpdateIndex():
-	if Currentindex >Buttons.size() -1:
+	if Currentindex == Items.size():
 		Currentindex = 0
+	elif Currentindex > Items.size() - 1:
+		Currentindex = Currentindex - Items.size()
 	if Currentindex < 0 :
-		Currentindex = Buttons.size() - 1
+		print(Currentindex)
+		Currentindex = Currentindex + Items.size()
+	
 	SelectButton()
 
+#0 1 2 3
+
+#8 9 10 11
 
 func SelectButton():
-	if Buttons.size() ==1:
+	if Items.size() ==1:
 		Currentindex = 0
-	for item in Buttons:
+	for item in Items:
 		item.bIsSelected = false
 		item.Selected()
-	CurrentSelectedButton= Buttons[Currentindex]
+	CurrentSelectedButton = Items[Currentindex]
 	CurrentSelectedButton.bIsSelected = true
 	CurrentSelectedButton.Selected()
 

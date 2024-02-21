@@ -11,11 +11,10 @@ var bCanMove = true
 			"down": Vector2.DOWN}
 
 
-
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
-
+	GameManager.state = GameManager.GameState.FREEWALK
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Interact"):
@@ -23,11 +22,12 @@ func _unhandled_input(event):
 			print_debug("pick up")
 
 	for dir in inputs.keys():
-		if event.is_action_pressed(dir) and bCanMove:
-			move(dir)
-			print_debug(dir)
-			bCanMove = false
-			MoveTimer.start()
+		if GameManager.state == GameManager.GameState.FREEWALK:
+			if event.is_action_pressed(dir) and bCanMove:
+				move(dir)
+				print_debug(dir)
+				bCanMove = false
+				MoveTimer.start()
 
 func move(dir):
 	ray.target_position = inputs[dir] * tile_size

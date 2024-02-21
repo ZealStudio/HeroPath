@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="Script" path="res://Code/Ui/MenuControlInputManger.gd" id="2_2mg2b"]
 [ext_resource type="PackedScene" uid="uid://3y0rpxpn7vlv" path="res://Scenes/enemy/enemy_ui.tscn" id="3_db2q8"]
-[ext_resource type="PackedScene" uid="uid://celt2q8n1sg4h" path="res://Scenes/ButtonBase.tscn" id="3_kurd8"]
+[ext_resource type="PackedScene" uid="uid://b8o2cf1agybma" path="res://Scenes/ButtonBase.tscn" id="3_kurd8"]
 [ext_resource type="Script" path="res://Code/MenuControler.gd" id="3_vmn4x"]
 [ext_resource type="Script" path="res://Code/Ui/BaseMenu.gd" id="4_16vgc"]
 [ext_resource type="Shader" path="res://shaders/Diamond-based Screen Transition.gdshader" id="4_m5v3j"]
