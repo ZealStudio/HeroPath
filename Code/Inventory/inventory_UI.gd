@@ -1,6 +1,11 @@
 extends Control
 
 @export var grid_container: GridContainer
+@export var inputs = {"right": Vector2.RIGHT,
+			"left": Vector2.LEFT,
+			"up": Vector2.UP,
+			"down": Vector2.DOWN}
+@export var item_slot_preload: PackedScene
 
 @onready var inv: Inventory = preload("res://Code/Inventory/inventory.tres")
 @onready var slots: Array = grid_container.get_children()
@@ -12,12 +17,24 @@ var CurrentSelectedButton: ItemSlotBase
 var bIsOpen: bool = false
 
 #for testing insert inventory
-@export var test_item: InventoryItem
+@export var test_item: Array[InventoryItem]
 func _ready():
-	#for testing insert inventory
-	inv.insert(test_item)
-	#inv.insert(test_item)
+	inv.connect("resize", add_item_slots)
 	inv.connect("update", update_slots)
+	
+	#for testing insert inventory
+	inv.insert(test_item[0])
+	inv.insert(test_item[1])
+	inv.insert(test_item[2])
+	inv.insert(test_item[2])
+	inv.insert(test_item[2])
+	inv.insert(test_item[2])
+	inv.insert(test_item[2])
+	inv.insert(test_item[2])
+	inv.insert(test_item[3])
+	inv.insert(test_item[4])
+	
+	
 	update_slots()
 	close()
 	GetButtonsForMenu(grid_container)
@@ -34,6 +51,8 @@ func _input(event):
 
 
 func update_slots():
+	print("update")
+	slots = grid_container.get_children()
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i])
 
@@ -48,15 +67,6 @@ func close():
 	visible = false
 	bIsOpen = false
 	GameManager.state = GameManager.GameState.FREEWALK
-
-
-
-
-@export var inputs = {"right": Vector2.RIGHT,
-			"left": Vector2.LEFT,
-			"up": Vector2.UP,
-			"down": Vector2.DOWN}
-# Called when the node enters the scene tree for the first time.
 
 
 func _unhandled_input(event):
@@ -80,6 +90,12 @@ func _unhandled_input(event):
 			UpdateIndex()
 
 
+func add_item_slots():
+	for i in grid_container.columns:
+		var new_slot = item_slot_preload.instantiate()
+		grid_container.add_child(new_slot)
+
+
 func GetButtonsForMenu(Grid):
 	Items = []
 	GridChildren = Grid.get_children()
@@ -96,14 +112,10 @@ func UpdateIndex():
 	elif Currentindex > Items.size() - 1:
 		Currentindex = Currentindex - Items.size()
 	if Currentindex < 0 :
-		print(Currentindex)
 		Currentindex = Currentindex + Items.size()
 	
 	SelectButton()
 
-#0 1 2 3
-
-#8 9 10 11
 
 func SelectButton():
 	if Items.size() ==1:

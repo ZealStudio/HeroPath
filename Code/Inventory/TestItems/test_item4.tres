@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://dqnedb3apqsco"]
+
+[ext_resource type="Script" path="res://Code/Inventory/inventory_items.gd" id="1_hegro"]
+[ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="2_qrmjd"]
+
+[resource]
+script = ExtResource("1_hegro")
+name = "Testitem"
+texture = ExtResource("2_qrmjd")

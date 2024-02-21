@@ -1,7 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0y4rtv8xujqb"]
+[gd_scene load_steps=8 format=3 uid="uid://d0y4rtv8xujqb"]
 
 [ext_resource type="Script" path="res://Code/Inventory/inventory_UI.gd" id="1_rxfxn"]
 [ext_resource type="PackedScene" uid="uid://d1pjmndfn7rmj" path="res://Code/Inventory/inventory_slots.tscn" id="2_4jdqv"]
+[ext_resource type="Resource" uid="uid://blcvolxij7oka" path="res://Code/Inventory/TestItems/test_item.tres" id="2_jfhpp"]
+[ext_resource type="Resource" uid="uid://djiky7c2xvm" path="res://Code/Inventory/TestItems/test_item2.tres" id="3_y6u2f"]
+[ext_resource type="Resource" uid="uid://dmydvjqo368xx" path="res://Code/Inventory/TestItems/test_item3.tres" id="4_o1fd7"]
+[ext_resource type="Resource" uid="uid://dqnedb3apqsco" path="res://Code/Inventory/TestItems/test_item4.tres" id="5_t5vei"]
+[ext_resource type="Resource" uid="uid://dfmfn7prx4pub" path="res://Code/Inventory/TestItems/test_item5.tres" id="6_thfe0"]
 
 [node name="InventoryUi" type="Control" node_paths=PackedStringArray("grid_container")]
 layout_mode = 3
@@ -18,6 +23,8 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_rxfxn")
 grid_container = NodePath("BG/ItemGridContainer")
+item_slot_preload = ExtResource("2_4jdqv")
+test_item = Array[Resource("res://Code/Inventory/inventory_items.gd")]([ExtResource("2_jfhpp"), ExtResource("3_y6u2f"), ExtResource("4_o1fd7"), ExtResource("5_t5vei"), ExtResource("6_thfe0")])
 metadata/_edit_group_ = true
 
 [node name="BG" type="ColorRect" parent="."]
@@ -40,39 +47,3 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
-
-[node name="InventorySlots" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots2" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots3" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots4" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots5" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots6" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots7" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots8" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots9" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots10" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots11" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2
-
-[node name="InventorySlots12" parent="BG/ItemGridContainer" instance=ExtResource("2_4jdqv")]
-layout_mode = 2

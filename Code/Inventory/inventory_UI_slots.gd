@@ -15,7 +15,8 @@ signal  OnUse(MenuToOpen)
 
 var bIsSelected = false
 
-#func _ready():
+func _ready():
+	item_visual.visible = false
 	#ButtonLabel.text = TextInLabel
 
 

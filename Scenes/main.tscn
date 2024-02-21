@@ -27,3 +27,5 @@ offset_left = 435.0
 offset_top = 210.0
 offset_right = 640.0
 offset_bottom = 358.0
+
+[editable path="InventoryUi"]
