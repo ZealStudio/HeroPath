@@ -7,6 +7,7 @@
 script = ExtResource("2_grm4k")
 enemy_types = Array[Resource("res://Code/enemyCode/EnemyStats.gd")]([])
 enemy_spawn_chance = 0
+mercy_rule = 0
 
 [node name="TestWorldForAreaEntrance" type="Node2D"]
 script = ExtResource("1_jr03h")

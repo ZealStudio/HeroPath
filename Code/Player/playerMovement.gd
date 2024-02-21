@@ -34,6 +34,7 @@ func move(dir):
 	ray.force_raycast_update()
 	if !ray.is_colliding():
 		position += inputs[dir] * tile_size
+	GameManager.emit_signal("player_moved")
 
 
 func _on_move_timer_timeout():

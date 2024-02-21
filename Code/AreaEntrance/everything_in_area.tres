@@ -7,3 +7,4 @@
 script = ExtResource("1_yhdia")
 enemy_types = Array[Resource("res://Code/enemyCode/EnemyStats.gd")]([ExtResource("1_xboo6")])
 enemy_spawn_chance = 20
+mercy_rule = 10
