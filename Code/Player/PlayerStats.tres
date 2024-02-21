@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=2 format=3 uid="uid://ciq15neo6fmwk"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=4 format=3 uid="uid://ciq15neo6fmwk"]
 
+[ext_resource type="Resource" uid="uid://bqc6tx8rs1oir" path="res://Code/Attacks/Slash.tres" id="1_jcgje"]
 [ext_resource type="Script" path="res://Code/Player/PlayerStats.gd" id="1_yq10n"]
+[ext_resource type="Resource" uid="uid://bygvyh2lv8hux" path="res://Code/Attacks/Stab.tres" id="2_6f7vo"]
 
 [resource]
 script = ExtResource("1_yq10n")
-Name = ""
+Name = "Hero"
 Level = 1
 PhysicalAttack = 0
 MagicAttack = 0
@@ -12,5 +14,5 @@ MaxHealth = 20
 Health = 0
 PhysicalDefense = 0
 MagicDefense = 0
-Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
+Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([ExtResource("1_jcgje"), ExtResource("2_6f7vo")])
 Skills = Array[Resource("res://Code/Attacks/Attacks.gd")]([])

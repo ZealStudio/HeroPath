@@ -2,6 +2,7 @@ extends Area2D
 
 
 var bCanMove = true
+@export var PlayerStat : PlayerBase
 @onready var MoveTimer = $MoveTimer
 @onready var ray = $RayCast2D
 @export var tile_size = 64
@@ -13,12 +14,13 @@ var bCanMove = true
 
 
 func _ready():
+	PlayerStat = $StatHolder
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Interact"):
+	if event.is_action_pressed("I nteract"):
 		if ray.get_collider().is_in_group("Items"):
 			print_debug("pick up")
 

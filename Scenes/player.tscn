@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmlvniw5qjq4j"]
+[gd_scene load_steps=5 format=3 uid="uid://cmlvniw5qjq4j"]
 
 [ext_resource type="Script" path="res://Code/Player/playerMovement.gd" id="1_m42du"]
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="2_02flu"]
+[ext_resource type="PackedScene" uid="uid://dbec5eo5isepm" path="res://Scenes/player_stat_holder.tscn" id="3_ag182"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt8v4"]
 size = Vector2(62, 61)
@@ -24,6 +25,6 @@ target_position = Vector2(0, 150)
 wait_time = 0.1
 one_shot = true
 
-[node name="StatHolder" type="Node2D" parent="."]
+[node name="PlayerStatHolder" parent="." instance=ExtResource("3_ag182")]
 
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=12 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="Script" path="res://Code/Ui/MenuControlInputManger.gd" id="2_2mg2b"]
+[ext_resource type="PackedScene" uid="uid://dbec5eo5isepm" path="res://Scenes/player_stat_holder.tscn" id="2_cq0af"]
 [ext_resource type="PackedScene" uid="uid://3y0rpxpn7vlv" path="res://Scenes/enemy/enemy_ui.tscn" id="3_db2q8"]
 [ext_resource type="PackedScene" uid="uid://celt2q8n1sg4h" path="res://Scenes/ButtonBase.tscn" id="3_kurd8"]
 [ext_resource type="Script" path="res://Code/MenuControler.gd" id="3_vmn4x"]
 [ext_resource type="Script" path="res://Code/Ui/BaseMenu.gd" id="4_16vgc"]
 [ext_resource type="Shader" path="res://shaders/Diamond-based Screen Transition.gdshader" id="4_m5v3j"]
 [ext_resource type="Script" path="res://Code/Ui/Screen Transition OverLay.gd" id="5_wk34d"]
+[ext_resource type="Script" path="res://Scenes/AttackListMenu.gd" id="6_fpknq"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc1qx"]
 shader = ExtResource("4_m5v3j")
@@ -26,6 +28,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_8slk6")
+
+[node name="PlayerStatHolder" parent="." instance=ExtResource("2_cq0af")]
 
 [node name="MenuControler" type="Control" parent="." node_paths=PackedStringArray("CurrentMenu")]
 anchors_preset = 0
@@ -74,12 +78,11 @@ layout_mode = 2
 TextInLabel = "Run"
 
 [node name="AttackList" type="Control" parent="MenuControler/PlayerUi" groups=["BattleMenu"]]
-visible = false
 anchors_preset = 0
 offset_top = 262.0
 offset_right = 640.0
 offset_bottom = 358.0
-script = ExtResource("4_16vgc")
+script = ExtResource("6_fpknq")
 
 [node name="ColorRect" type="ColorRect" parent="MenuControler/PlayerUi/AttackList"]
 layout_mode = 1

@@ -24,6 +24,6 @@ class_name  UnitStats
 @export var  Attack : Array[Attacks]
 
 @export_group("Skill List")
-@export var  Skills : Array[Attacks]
+@export var  Skill : Array[Skills]
 
 
