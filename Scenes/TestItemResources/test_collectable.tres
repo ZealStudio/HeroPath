@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryItem" load_steps=2 format=3 uid="uid://0tgdwo5ihjdt"]
+[gd_resource type="Resource" script_class="InventoryItem" load_steps=3 format=3 uid="uid://0tgdwo5ihjdt"]
 
 [ext_resource type="Script" path="res://Code/Inventory/inventory_items.gd" id="1_fcg34"]
+[ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="2_4svsg"]
 
 [resource]
 script = ExtResource("1_fcg34")
-name = ""
+name = "TestCollectable"
+texture = ExtResource("2_4svsg")

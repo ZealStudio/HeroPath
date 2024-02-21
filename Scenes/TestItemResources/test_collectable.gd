@@ -1,15 +1,10 @@
 extends StaticBody2D
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
-
+@export var item: InventoryItem
+var player = null
 
 func _on_interactable_area_body_entered(body):
-	pass # Replace with function body.
+	if body.name == "player":
+		player = body
+		#needs to be implemented
+		#player.collect(item) <------------
