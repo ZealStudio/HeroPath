@@ -37,9 +37,9 @@ func _unhandled_input(event):
 func GetButtonsForMenu(Menu):
 	Buttons = []
 	MenuChildren = Menu.get_children()
-	for X in MenuChildren:
-		if X.is_in_group("PlayerButton"):
-			Buttons.append(X)
+	for button in MenuChildren:
+		if button.is_in_group("PlayerButton"):
+			Buttons.append(button)
 	CurrentSelectedButton = Buttons[0]
 	SelectButton()
 
@@ -54,9 +54,9 @@ func UpdateIndex():
 func SelectButton():
 	if Buttons.size() ==1:
 		Currentindex = 0
-	for X in Buttons:
-		X.bIsSelected = false
-		X.Selected()
+	for button in Buttons:
+		button.bIsSelected = false
+		button.Selected()
 	CurrentSelectedButton= Buttons[Currentindex]
 	CurrentSelectedButton.bIsSelected = true
 	CurrentSelectedButton.Selected()
