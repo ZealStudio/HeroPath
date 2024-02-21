@@ -3,13 +3,15 @@
 [ext_resource type="Script" path="res://Code/Inventory/inventory_UI_slots.gd" id="1_v1x2x"]
 [ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="2_xkfjo"]
 
-[node name="InventorySlots" type="Panel" node_paths=PackedStringArray("item_visual", "amount_text")]
+[node name="InventorySlots" type="Panel" node_paths=PackedStringArray("item_visual", "amount_text", "BG")]
 custom_minimum_size = Vector2(40, 40)
 offset_right = 40.0
 offset_bottom = 40.0
 script = ExtResource("1_v1x2x")
 item_visual = NodePath("CenterContainer/Panel/ItemDisplay")
 amount_text = NodePath("CenterContainer/Panel/NumberOfItem")
+SelectedColor = Color(0.486275, 0.486275, 0.486275, 1)
+BG = NodePath("ItemBackground")
 
 [node name="ItemBackground" type="ColorRect" parent="."]
 layout_mode = 1
