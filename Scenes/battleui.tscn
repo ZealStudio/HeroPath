@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="Script" path="res://Code/Ui/BattleUi.gd" id="2_2mg2b"]
 [ext_resource type="PackedScene" uid="uid://3y0rpxpn7vlv" path="res://Scenes/enemy/enemy_ui.tscn" id="3_db2q8"]
-[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="3_mx2v3"]
+[ext_resource type="PackedScene" uid="uid://celt2q8n1sg4h" path="res://Scenes/ButtonBase.tscn" id="3_kurd8"]
 [ext_resource type="Shader" path="res://shaders/Diamond-based Screen Transition.gdshader" id="4_m5v3j"]
 [ext_resource type="Script" path="res://Code/Ui/Screen Transition OverLay.gd" id="5_wk34d"]
 
@@ -26,7 +26,6 @@ grow_vertical = 2
 script = ExtResource("1_8slk6")
 
 [node name="BattleUi" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 640.0
 offset_bottom = 360.0
@@ -45,38 +44,25 @@ offset_bottom = 360.0
 
 [node name="ButtonHolder" type="HBoxContainer" parent="BattleUi/PlayerUi"]
 layout_mode = 0
-offset_top = 245.0
-offset_right = 640.0
+offset_top = 320.0
+offset_right = 298.0
 offset_bottom = 360.0
-theme_override_constants/separation = 20
+theme_override_constants/separation = 50
 
-[node name="Attack" type="Button" parent="BattleUi/PlayerUi/ButtonHolder" groups=["PlayerButton"]]
+[node name="Attack" parent="BattleUi/PlayerUi/ButtonHolder" instance=ExtResource("3_kurd8")]
 layout_mode = 2
-theme = ExtResource("3_mx2v3")
-theme_override_font_sizes/font_size = 32
-text = "Attack"
-flat = true
 
-[node name="Skill" type="Button" parent="BattleUi/PlayerUi/ButtonHolder" groups=["PlayerButton"]]
+[node name="Skills" parent="BattleUi/PlayerUi/ButtonHolder" instance=ExtResource("3_kurd8")]
 layout_mode = 2
-theme = ExtResource("3_mx2v3")
-theme_override_font_sizes/font_size = 32
-text = "Skills"
-flat = true
+TextInLabel = "Skills"
 
-[node name="Item" type="Button" parent="BattleUi/PlayerUi/ButtonHolder" groups=["PlayerButton"]]
+[node name="Items" parent="BattleUi/PlayerUi/ButtonHolder" instance=ExtResource("3_kurd8")]
 layout_mode = 2
-theme = ExtResource("3_mx2v3")
-theme_override_font_sizes/font_size = 32
-text = "Items"
-flat = true
+TextInLabel = "Items"
 
-[node name="Run" type="Button" parent="BattleUi/PlayerUi/ButtonHolder" groups=["PlayerButton"]]
+[node name="Run" parent="BattleUi/PlayerUi/ButtonHolder" instance=ExtResource("3_kurd8")]
 layout_mode = 2
-theme = ExtResource("3_mx2v3")
-theme_override_font_sizes/font_size = 32
-text = "Run"
-flat = true
+TextInLabel = "Run"
 
 [node name="EnemyUIHolder" type="Control" parent="BattleUi"]
 anchors_preset = 0
@@ -99,6 +85,7 @@ theme_override_constants/separation = 200
 layout_mode = 2
 
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_uc1qx")
 layout_mode = 0
 offset_right = 640.0

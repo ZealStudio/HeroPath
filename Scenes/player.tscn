@@ -21,4 +21,7 @@ shape = SubResource("RectangleShape2D_mt8v4")
 target_position = Vector2(0, 150)
 
 [node name="MoveTimer" type="Timer" parent="."]
-wait_time = 0.2
+wait_time = 0.1
+one_shot = true
+
+[connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

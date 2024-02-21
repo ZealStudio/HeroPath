@@ -11,6 +11,6 @@ Sprite = ExtResource("1_hpm0p")
 PhysicalAttack = 10
 MagicAttack = 0
 MaxHealth = 10
-Health = 0
+Health = 10
 PhysicalDefense = 0
 MagicDefense = 0
