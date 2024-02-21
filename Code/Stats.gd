@@ -20,4 +20,10 @@ class_name  UnitStats
 @export var PhysicalDefense: int
 @export var MagicDefense: int
 
+@export_group("Attack List")
+@export var  Attack : Array[Attacks]
+
+@export_group("Skill List")
+@export var  Skills : Array[Attacks]
+
 
