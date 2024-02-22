@@ -18,6 +18,7 @@ var bIsSelected = false
 
 func _ready():
 	item_visual.visible = false
+	item_name.visible = false
 	#ButtonLabel.text = TextInLabel
 
 
@@ -41,7 +42,7 @@ func update(slot: InventorySlot):
 	else:
 		item_name.visible = true
 		item_name.text = slot.item.name
-		if slot.amount > 1:
+		if slot.amount >= 1:
 			amount_text.visible = true
 		amount_text.text = str(slot.amount)
 

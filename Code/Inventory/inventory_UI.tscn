@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0y4rtv8xujqb"]
+[gd_scene load_steps=11 format=3 uid="uid://d0y4rtv8xujqb"]
 
 [ext_resource type="Script" path="res://Code/Inventory/inventory_UI.gd" id="1_rxfxn"]
 [ext_resource type="PackedScene" uid="uid://d1pjmndfn7rmj" path="res://Code/Inventory/inventory_slots.tscn" id="2_4jdqv"]
@@ -8,6 +8,8 @@
 [ext_resource type="Resource" uid="uid://dqnedb3apqsco" path="res://Code/Inventory/TestItems/test_item4.tres" id="5_t5vei"]
 [ext_resource type="Resource" uid="uid://dfmfn7prx4pub" path="res://Code/Inventory/TestItems/test_item5.tres" id="6_thfe0"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="8_1jujh"]
+[ext_resource type="Resource" uid="uid://cr14dcfvefmwl" path="res://Code/Inventory/TestItems/test_item6.tres" id="8_xcoyy"]
+[ext_resource type="Resource" uid="uid://bhm8aqx2qyjo6" path="res://Code/Inventory/TestItems/test_item7.tres" id="9_rwxs5"]
 
 [node name="InventoryUi" type="Control" node_paths=PackedStringArray("grid_container", "item_description")]
 layout_mode = 3
@@ -26,7 +28,7 @@ script = ExtResource("1_rxfxn")
 grid_container = NodePath("BG/ItemGridContainer")
 item_slot_preload = ExtResource("2_4jdqv")
 item_description = NodePath("DescriptionBackground/ItemDescription")
-test_item = Array[Resource("res://Code/Inventory/inventory_items.gd")]([ExtResource("2_jfhpp"), ExtResource("3_y6u2f"), ExtResource("4_o1fd7"), ExtResource("5_t5vei"), ExtResource("6_thfe0")])
+test_item = Array[Resource("res://Code/Inventory/inventory_items.gd")]([ExtResource("2_jfhpp"), ExtResource("3_y6u2f"), ExtResource("4_o1fd7"), ExtResource("5_t5vei"), ExtResource("6_thfe0"), ExtResource("8_xcoyy"), ExtResource("9_rwxs5")])
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1

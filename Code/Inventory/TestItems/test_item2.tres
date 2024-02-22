@@ -5,6 +5,6 @@
 
 [resource]
 script = ExtResource("1_ghj4q")
-name = "Testitem"
+name = "Testitem2"
 texture = ExtResource("2_fcwc6")
 description = "this is not the first"

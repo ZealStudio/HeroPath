@@ -5,5 +5,6 @@
 
 [resource]
 script = ExtResource("1_hegro")
-name = "Testitem"
+name = "Testitem4"
 texture = ExtResource("2_qrmjd")
+description = ""

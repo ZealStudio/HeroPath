@@ -7,8 +7,7 @@ extends Control
 			"down": Vector2.DOWN}
 @export var item_slot_preload: PackedScene
 @export var item_description: Label
-
-@onready var inv: Inventory = preload("res://Code/Inventory/inventory.tres")
+@export var inv: Inventory
 @onready var slots: Array = grid_container.get_children()
 
 var Currentindex = 0
@@ -16,6 +15,7 @@ var Items : Array
 var GridChildren
 var CurrentSelectedButton: ItemSlotBase
 var bIsOpen: bool = false
+var num_of_slots := 4
 
 #for testing insert inventory
 @export var test_item: Array[InventoryItem]
@@ -34,6 +34,9 @@ func _ready():
 	inv.insert(test_item[2])
 	inv.insert(test_item[3])
 	inv.insert(test_item[4])
+	inv.insert(test_item[5])
+	inv.insert(test_item[6])
+	#inv.insert(test_item[4])
 	
 	
 	update_slots()
@@ -52,9 +55,18 @@ func _input(event):
 
 
 func update_slots():
+	Currentindex = clamp(Currentindex, 0, inv.slots.size() - 1)
 	slots = grid_container.get_children()
-	for i in range(min(inv.shown_slots.size(), slots.size())):
-		slots[i].update(inv.shown_slots[i])
+	if inv.slots.size() <= num_of_slots:
+		for i in inv.slots.size():
+			slots[i].update(inv.slots[i])
+	elif Currentindex >= num_of_slots:
+		for i in slots.size():
+			slots[i].update(inv.slots[Currentindex - (num_of_slots - 1) + i])
+			print(Currentindex - (num_of_slots + 1) + i)
+	elif Currentindex <= num_of_slots - 1:
+		for i in slots.size():
+			slots[i].update(inv.slots[i])
 
 
 func open():
@@ -91,30 +103,27 @@ func _unhandled_input(event):
 
 
 func add_item_slots():
-	for i in grid_container.columns:
-		var new_slot = item_slot_preload.instantiate()
-		grid_container.add_child(new_slot)
+	if grid_container.get_children().size() < num_of_slots:
+		for i in grid_container.columns:
+			var new_slot = item_slot_preload.instantiate()
+			grid_container.add_child(new_slot)
 
 
 func GetButtonsForMenu(Grid):
 	Items = []
 	GridChildren = Grid.get_children()
 	for item in GridChildren:
-		#if item.is_in_group("PlayerButton"):
 		Items.append(item)
 	CurrentSelectedButton = Items[0]
 	SelectButton()
 
 
 func UpdateIndex():
-	if Currentindex == Items.size():
+	if Currentindex > inv.slots.size() - 1:
 		Currentindex = 0
-	elif Currentindex > Items.size() - 1:
-		Currentindex = Currentindex - Items.size()
 	if Currentindex < 0 :
-		Currentindex = Currentindex + Items.size()
-	if Currentindex >= 4:
-		GameManager.emit_signal("show_slots", Currentindex)
+		Currentindex = Currentindex + inv.slots.size()
+	update_slots()
 	SelectButton()
 
 
@@ -124,7 +133,8 @@ func SelectButton():
 	for item in Items:
 		item.bIsSelected = false
 		item.Selected()
-	CurrentSelectedButton = Items[Currentindex]
+	var clamped_index = clamp(Currentindex, 0, num_of_slots - 1)
+	CurrentSelectedButton = Items[clamped_index]
 	CurrentSelectedButton.bIsSelected = true
 	CurrentSelectedButton.Selected()
 	
