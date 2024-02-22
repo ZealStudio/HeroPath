@@ -47,7 +47,6 @@ offset_right = 86.0
 offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
-columns = 4
 
 [node name="DescriptionBackground" type="ColorRect" parent="."]
 layout_mode = 1

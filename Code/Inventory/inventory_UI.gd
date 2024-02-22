@@ -53,8 +53,8 @@ func _input(event):
 
 func update_slots():
 	slots = grid_container.get_children()
-	for i in range(min(inv.slots.size(), slots.size())):
-		slots[i].update(inv.slots[i])
+	for i in range(min(inv.shown_slots.size(), slots.size())):
+		slots[i].update(inv.shown_slots[i])
 
 
 func open():
@@ -113,7 +113,8 @@ func UpdateIndex():
 		Currentindex = Currentindex - Items.size()
 	if Currentindex < 0 :
 		Currentindex = Currentindex + Items.size()
-	
+	if Currentindex >= 4:
+		GameManager.emit_signal("show_slots", Currentindex)
 	SelectButton()
 
 
@@ -126,6 +127,7 @@ func SelectButton():
 	CurrentSelectedButton = Items[Currentindex]
 	CurrentSelectedButton.bIsSelected = true
 	CurrentSelectedButton.Selected()
+	
 	if inv.slots[Currentindex].item:
 		item_description.text = inv.slots[Currentindex].item.description
 	else:

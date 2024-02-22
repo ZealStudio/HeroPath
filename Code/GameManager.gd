@@ -1,5 +1,7 @@
 extends Node
 
+signal show_slots
+
 enum GameState {FREEWALK, IN_MENU, IN_DIALOG}
 
 var state
