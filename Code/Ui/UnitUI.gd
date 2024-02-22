@@ -3,7 +3,7 @@ extends Node
 class_name  UnitUI
 
 
-@export var Stats : UnitStats
+@export var Stat : UnitStats
 @export var NameLabel : RichTextLabel
 @export var HealthLabel: RichTextLabel
 
@@ -11,9 +11,9 @@ func  _ready():
 	SetLabels()
 
 func SetLabels():
-	NameLabel.text =  "Lv " + str(Stats.Level) + ": " + Stats.Name
-	HealthLabel.text = "Health: " + str(Stats.Health )
+	NameLabel.text =  "Lv " + str(Stat.Level) + ": " + Stat.Name
+	HealthLabel.text = "Health: " + str(Stat.Health )
 
 
 func UpdateLabel():
-	HealthLabel.text = "Health: " + str(Stats.Health )
+	HealthLabel.text = "Health: " + str(Stat.Health )

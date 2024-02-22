@@ -1,22 +1,20 @@
-[gd_scene load_steps=7 format=3 uid="uid://3y0rpxpn7vlv"]
+[gd_scene load_steps=6 format=3 uid="uid://3y0rpxpn7vlv"]
 
-[ext_resource type="Script" path="res://Code/enemyCode/enemy_ui.gd" id="1_ffysa"]
+[ext_resource type="Script" path="res://Code/enemyCode/EnemyBase.gd" id="1_bsnpg"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="1_of8do"]
-[ext_resource type="Resource" uid="uid://bms7bnk13dvaf" path="res://Code/enemyCode/MonsterStats/slime.tres" id="2_e01b4"]
 [ext_resource type="Texture2D" uid="uid://cs74vtdujx3ne" path="res://Art/UI/UiStatHolder-0001.png" id="3_3v4vl"]
 [ext_resource type="Script" path="res://Code/Ui/UIHolder.gd" id="4_jakts"]
 [ext_resource type="Texture2D" uid="uid://b36xcvjtr22h3" path="res://Art/UI/UiStatHolder-0002.png" id="5_petpd"]
 
-[node name="EnemyUi" type="Control" node_paths=PackedStringArray("MonsterSprite", "NameLabel", "HealthLabel") groups=["EnemyUi"]]
+[node name="EnemyUi" type="Control" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") groups=["BattleUnit", "EnemyUi"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 96.0
 offset_bottom = 112.0
-script = ExtResource("1_ffysa")
-MonsterSprite = NodePath("MonsterSprite")
-Stats = ExtResource("2_e01b4")
+script = ExtResource("1_bsnpg")
 NameLabel = NodePath("LabelHolder/Name")
 HealthLabel = NodePath("LabelHolder/HealthLabel")
+MonsterSprite = NodePath("MonsterSprite")
 
 [node name="UIHolder" type="TextureRect" parent="."]
 layout_mode = 1
@@ -60,3 +58,5 @@ offset_top = 112.0
 offset_right = 96.0
 offset_bottom = 209.0
 stretch_mode = 4
+
+[node name="MonsterStatHolder" type="Node2D" parent="."]

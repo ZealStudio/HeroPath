@@ -2,6 +2,7 @@ extends ButtonBase
 
 
 class_name  AttackButtonUi
+var Attack :Attacks
 @export var DamageLabel:Label
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -17,4 +18,6 @@ func Selected():
 	else :
 		DamageLabel.set("theme_override_colors/font_color",SelectedColor)
 func Press():
+	var Player =  get_tree().get_nodes_in_group("PlayerStatHolder")[0]
+	Player.EndTurn()
 	print_debug("Attacked")

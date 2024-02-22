@@ -22,7 +22,7 @@ var num_of_slots := 4
 func _ready():
 	inv.connect("resize", add_item_slots)
 	inv.connect("update", update_slots)
-	
+
 	#for testing insert inventory
 	inv.insert(test_item[0])
 	inv.insert(test_item[1])
@@ -37,8 +37,8 @@ func _ready():
 	inv.insert(test_item[5])
 	inv.insert(test_item[6])
 	#inv.insert(test_item[4])
-	
-	
+
+
 	update_slots()
 	close()
 	GetButtonsForMenu(grid_container)
@@ -137,7 +137,7 @@ func SelectButton():
 	CurrentSelectedButton = Items[clamped_index]
 	CurrentSelectedButton.bIsSelected = true
 	CurrentSelectedButton.Selected()
-	
+
 	if inv.slots[Currentindex].item:
 		item_description.text = inv.slots[Currentindex].item.description
 	else:

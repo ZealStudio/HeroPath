@@ -4,11 +4,11 @@ class_name  UnitBase
 # Called when the node enters the scene tree for the first time.
 
 
-
+signal EndTurnSignal
 @export var Stat :UnitStats
 var CurretTarget :UnitBase
 var bDead = false
-
+var CanAct = false
 
 
 
@@ -35,5 +35,10 @@ func CheckDefense(DamageAmount, Type ,Attacker:UnitStats):
 	else:
 		return 0
 
-
+func EndTurn():
+	emit_signal("EndTurnSignal")
+	print_debug(name +" turn has ended")
+	CanAct = false
+func FinshedAction():
+	pass
 

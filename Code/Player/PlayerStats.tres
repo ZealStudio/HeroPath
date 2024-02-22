@@ -8,6 +8,7 @@
 script = ExtResource("1_yq10n")
 Name = "Hero"
 Level = 1
+Speed = 0
 PhysicalAttack = 5
 MagicAttack = 5
 MaxHealth = 20

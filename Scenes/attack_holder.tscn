@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://3lnhapbqd8lh"]
 
-[ext_resource type="Script" path="res://Control.gd" id="1_septy"]
+[ext_resource type="Script" path="res://AttackHolderButton.gd" id="1_hd4u5"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_mpr4d"]
 
 [node name="AttackHolder" type="ColorRect" node_paths=PackedStringArray("DamageLabel", "ButtonLabel") groups=["PlayerButton"]]
@@ -13,7 +13,7 @@ offset_right = 127.5
 offset_bottom = 47.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
-script = ExtResource("1_septy")
+script = ExtResource("1_hd4u5")
 DamageLabel = NodePath("damageLabel")
 ButtonLabel = NodePath("Name")
 SelectedColor = Color(1, 1, 1, 1)

@@ -6,7 +6,7 @@ var Currentindex = 0
 var Buttons : Array
 var MenuChildren
 var CurrentSelectedButton :ButtonBase
-
+var Player : PlayerBase
 @export var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
 			"up": Vector2.UP,
@@ -16,7 +16,10 @@ var CurrentSelectedButton :ButtonBase
 func _ready():
 	GetButtonsForMenu(CurrentMenu)
 	SelectButton()
+	Player =  get_tree().get_nodes_in_group("PlayerStatHolder")[0]
 func _unhandled_input(event):
+	if !Player.CanAct:
+		return
 	if event.is_action_pressed("Interact"):
 		CurrentSelectedButton.Press()
 		SelectButton()
@@ -35,11 +38,18 @@ func _unhandled_input(event):
 
 
 func GetButtonsForMenu(Menu):
+	#get  the useAble UI part
+
+
 	Buttons = []
 	MenuChildren = Menu.get_children()
 	for button in MenuChildren:
+		var ChildOfButton = button.get_children()
 		if button.is_in_group("PlayerButton"):
 			Buttons.append(button)
+		for Child in ChildOfButton:
+			if Child.is_in_group("PlayerButton"):
+				Buttons.append(Child)
 	CurrentSelectedButton = Buttons[0]
 	SelectButton()
 

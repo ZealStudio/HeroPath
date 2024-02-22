@@ -10,7 +10,7 @@ func _ready():
 func MakeListOfAttacks():
 	PlayerStat = GameManager.GetPlayerStats()
 	for  attack in PlayerStat.Attack:
-		print_debug(attack.Name)
 		var NewAttack = Holder.instantiate()
+		NewAttack.Attack = attack
 		NewAttack.SetLabels(attack.TotalDamage(),attack.Name)
 		add_child(NewAttack)

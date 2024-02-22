@@ -22,4 +22,3 @@ func Selected():
 		ButtonLabel.set("theme_override_colors/font_color",SelectedColor)
 func Press():
 	emit_signal("OnUse",MainMenuToOpen)
-	print_debug("Pressd")
