@@ -1,56 +1,13 @@
-[gd_resource type="Resource" script_class="Inventory" load_steps=15 format=3 uid="uid://db7h2q8j6ilt3"]
+[gd_resource type="Resource" script_class="Inventory" load_steps=4 format=3 uid="uid://db7h2q8j6ilt3"]
 
 [ext_resource type="Script" path="res://Code/Inventory/inventory.gd" id="1_emlqa"]
 [ext_resource type="Script" path="res://Code/Inventory/inventory_slots.gd" id="2_0jcji"]
 
-[sub_resource type="Resource" id="Resource_sxuap"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_yejye"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_gbero"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_l0kje"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_lhjp0"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_sk03x"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_cdhre"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_31hvw"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_7w5ef"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_mnmme"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_f3nul"]
-script = ExtResource("2_0jcji")
-amount = 0
-
-[sub_resource type="Resource" id="Resource_vtooo"]
+[sub_resource type="Resource" id="Resource_24hcn"]
 script = ExtResource("2_0jcji")
 amount = 0
 
 [resource]
 script = ExtResource("1_emlqa")
-slots = Array[ExtResource("2_0jcji")]([SubResource("Resource_sxuap"), SubResource("Resource_yejye"), SubResource("Resource_gbero"), SubResource("Resource_l0kje"), SubResource("Resource_lhjp0"), SubResource("Resource_sk03x"), SubResource("Resource_cdhre"), SubResource("Resource_31hvw"), SubResource("Resource_7w5ef"), SubResource("Resource_mnmme"), SubResource("Resource_f3nul"), SubResource("Resource_vtooo")])
+empty_item_slot = SubResource("Resource_24hcn")
+slots = Array[ExtResource("2_0jcji")]([])

@@ -15,4 +15,4 @@ Health = 10
 PhysicalDefense = 0
 MagicDefense = 0
 Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
-Skill = Array[Resource("res://Code/Skills/Skills.gd")]([])
+Skills = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
