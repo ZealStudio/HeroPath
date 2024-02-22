@@ -12,5 +12,5 @@ func MakeListOfAttacks():
 	for  attack in PlayerStat.Attack:
 		print_debug(attack.Name)
 		var NewAttack = Holder.instantiate()
-		NewAttack.SetLabels(attack.AttackDamage,attack.Name)
+		NewAttack.SetLabels(attack.TotalDamage(),attack.Name)
 		add_child(NewAttack)

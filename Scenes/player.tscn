@@ -27,4 +27,7 @@ one_shot = true
 
 [node name="PlayerStatHolder" parent="." instance=ExtResource("3_ag182")]
 
+[node name="Camera2D" type="Camera2D" parent="."]
+zoom = Vector2(0.75, 0.75)
+
 [connection signal="timeout" from="MoveTimer" to="." method="_on_move_timer_timeout"]

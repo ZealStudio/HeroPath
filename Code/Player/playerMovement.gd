@@ -20,7 +20,7 @@ func _ready():
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("I nteract"):
+	if event.is_action_pressed("Interact"):
 		if ray.get_collider().is_in_group("Items"):
 			print_debug("pick up")
 

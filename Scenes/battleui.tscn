@@ -77,26 +77,16 @@ MainMenuToOpen = NodePath("../../Item")
 layout_mode = 2
 TextInLabel = "Run"
 
-[node name="AttackList" type="Control" parent="MenuControler/PlayerUi" groups=["BattleMenu"]]
-anchors_preset = 0
+[node name="AttackList" type="HBoxContainer" parent="MenuControler/PlayerUi" groups=["BattleMenu"]]
+visible = false
+layout_mode = 0
 offset_top = 262.0
 offset_right = 640.0
-offset_bottom = 358.0
+offset_bottom = 360.0
 script = ExtResource("6_fpknq")
 
-[node name="ColorRect" type="ColorRect" parent="MenuControler/PlayerUi/AttackList"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
-
 [node name="back" parent="MenuControler/PlayerUi/AttackList" node_paths=PackedStringArray("MainMenuToOpen") instance=ExtResource("3_kurd8")]
-layout_mode = 0
-offset_top = 67.0
-offset_bottom = 98.0
+layout_mode = 2
 TextInLabel = "Back"
 MainMenuToOpen = NodePath("../../ButtonHolder")
 
@@ -163,6 +153,7 @@ theme_override_constants/separation = 200
 layout_mode = 2
 
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_uc1qx")
 layout_mode = 0
 offset_right = 640.0
