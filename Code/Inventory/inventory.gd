@@ -16,7 +16,6 @@ func insert(item: InventoryItem):
 		item_slots[0].amount += 1
 	else:
 		var empty_slots = slots.filter(func(slot): return slot.item == null)
-		print(empty_slots)
 		if not empty_slots.is_empty():
 			empty_slots[0].item = item
 			empty_slots[0].amount = 1

@@ -52,7 +52,6 @@ func _input(event):
 
 
 func update_slots():
-	print("update")
 	slots = grid_container.get_children()
 	for i in range(min(inv.slots.size(), slots.size())):
 		slots[i].update(inv.slots[i])
