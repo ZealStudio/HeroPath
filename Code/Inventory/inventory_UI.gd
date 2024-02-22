@@ -6,6 +6,7 @@ extends Control
 			"up": Vector2.UP,
 			"down": Vector2.DOWN}
 @export var item_slot_preload: PackedScene
+@export var item_description: Label
 
 @onready var inv: Inventory = preload("res://Code/Inventory/inventory.tres")
 @onready var slots: Array = grid_container.get_children()
@@ -118,7 +119,7 @@ func UpdateIndex():
 
 
 func SelectButton():
-	if Items.size() ==1:
+	if Items.size() == 1:
 		Currentindex = 0
 	for item in Items:
 		item.bIsSelected = false
@@ -126,6 +127,10 @@ func SelectButton():
 	CurrentSelectedButton = Items[Currentindex]
 	CurrentSelectedButton.bIsSelected = true
 	CurrentSelectedButton.Selected()
+	if inv.slots[Currentindex].item:
+		item_description.text = inv.slots[Currentindex].item.description
+	else:
+		item_description.text = ""
 
 
 func ChangeVisibility(Visibility):

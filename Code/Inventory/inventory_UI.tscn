@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0y4rtv8xujqb"]
+[gd_scene load_steps=9 format=3 uid="uid://d0y4rtv8xujqb"]
 
 [ext_resource type="Script" path="res://Code/Inventory/inventory_UI.gd" id="1_rxfxn"]
 [ext_resource type="PackedScene" uid="uid://d1pjmndfn7rmj" path="res://Code/Inventory/inventory_slots.tscn" id="2_4jdqv"]
@@ -7,8 +7,9 @@
 [ext_resource type="Resource" uid="uid://dmydvjqo368xx" path="res://Code/Inventory/TestItems/test_item3.tres" id="4_o1fd7"]
 [ext_resource type="Resource" uid="uid://dqnedb3apqsco" path="res://Code/Inventory/TestItems/test_item4.tres" id="5_t5vei"]
 [ext_resource type="Resource" uid="uid://dfmfn7prx4pub" path="res://Code/Inventory/TestItems/test_item5.tres" id="6_thfe0"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="8_1jujh"]
 
-[node name="InventoryUi" type="Control" node_paths=PackedStringArray("grid_container")]
+[node name="InventoryUi" type="Control" node_paths=PackedStringArray("grid_container", "item_description")]
 layout_mode = 3
 anchors_preset = 8
 anchor_left = 0.5
@@ -24,8 +25,8 @@ grow_vertical = 2
 script = ExtResource("1_rxfxn")
 grid_container = NodePath("BG/ItemGridContainer")
 item_slot_preload = ExtResource("2_4jdqv")
+item_description = NodePath("DescriptionBackground/ItemDescription")
 test_item = Array[Resource("res://Code/Inventory/inventory_items.gd")]([ExtResource("2_jfhpp"), ExtResource("3_y6u2f"), ExtResource("4_o1fd7"), ExtResource("5_t5vei"), ExtResource("6_thfe0")])
-metadata/_edit_group_ = true
 
 [node name="BG" type="ColorRect" parent="."]
 layout_mode = 1
@@ -47,3 +48,31 @@ offset_bottom = 64.0
 grow_horizontal = 2
 grow_vertical = 2
 columns = 4
+
+[node name="DescriptionBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -74.0
+offset_right = -41.0
+offset_bottom = 74.0
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="ItemDescription" type="Label" parent="DescriptionBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_1jujh")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
+autowrap_mode = 3

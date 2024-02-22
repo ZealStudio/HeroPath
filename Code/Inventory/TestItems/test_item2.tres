@@ -7,3 +7,4 @@
 script = ExtResource("1_ghj4q")
 name = "Testitem"
 texture = ExtResource("2_fcwc6")
+description = "this is not the first"

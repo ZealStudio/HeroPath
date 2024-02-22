@@ -22,8 +22,6 @@ func insert(item: InventoryItem):
 			empty_slots[0].amount = 1
 		else:
 			resize_array(item)
-			
-			
 	update.emit()
 
 
@@ -31,9 +29,5 @@ func resize_array(item: InventoryItem):
 	slots.resize(slots.size() + 4)
 	for i in 4:
 		slots[slots.size() - (i + 1)] = InventorySlot.new()
-
 	emit_signal("resize")
-	#bDoOnce = false
-	#if !bDoOnce:
-		#dotwice = false
 	insert(item)
