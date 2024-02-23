@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://ri5gavtqldn6"]
+
+[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="1_7efsn"]
+[ext_resource type="Script" path="res://Code/Dialog/dialogue.gd" id="1_gv3pk"]
+
+[resource]
+script = ExtResource("1_gv3pk")
+avatar_texture = ExtResource("1_7efsn")
+dialog_slides = Array[String](["Hello", "Put each line of text here!", "This is a default template :)"])
