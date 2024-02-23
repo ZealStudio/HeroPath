@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://bbsldorqxh778"]
 
 [ext_resource type="PackedScene" uid="uid://cmlvniw5qjq4j" path="res://Scenes/player.tscn" id="1_be1nw"]
-[ext_resource type="PackedScene" uid="uid://d0y4rtv8xujqb" path="res://Code/Inventory/inventory_UI.tscn" id="2_mlpxu"]
-[ext_resource type="Resource" uid="uid://db7h2q8j6ilt3" path="res://Code/Inventory/inventory.tres" id="3_frtom"]
+[ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="2_d27pl"]
+[ext_resource type="PackedScene" uid="uid://c1j0pal3ppg25" path="res://Code/Dialog/dialog_ui.tscn" id="4_jmxbn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm4ej"]
 size = Vector2(146, 60)
@@ -11,6 +11,7 @@ size = Vector2(146, 60)
 
 [node name="player" parent="." instance=ExtResource("1_be1nw")]
 position = Vector2(224, 32)
+runtime_data = ExtResource("2_d27pl")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 position = Vector2(10, 12)
@@ -23,12 +24,8 @@ shape = SubResource("RectangleShape2D_bm4ej")
 
 [node name="Node2D" type="Node2D" parent="StaticBody2D"]
 
-[node name="InventoryUi" parent="." instance=ExtResource("2_mlpxu")]
-offset_left = 404.0
-offset_top = 165.0
-offset_right = 609.0
-offset_bottom = 313.0
-inv = ExtResource("3_frtom")
-metadata/_edit_group_ = true
-
-[editable path="InventoryUi"]
+[node name="DialogUI" parent="." instance=ExtResource("4_jmxbn")]
+offset_left = 636.0
+offset_top = 357.0
+offset_right = 636.0
+offset_bottom = 357.0

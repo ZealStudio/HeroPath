@@ -2,6 +2,7 @@ extends Area2D
 
 
 var bCanMove = true
+@export var runtime_data: RuntimeData
 @onready var MoveTimer = $MoveTimer
 @onready var ray = $RayCast2D
 @export var tile_size = 64
@@ -14,15 +15,14 @@ var bCanMove = true
 func _ready():
 	position = position.snapped(Vector2.ONE * tile_size)
 	position += Vector2.ONE * tile_size/2
-	GameManager.state = GameManager.GameState.FREEWALK
 
 func _unhandled_input(event):
 	if event.is_action_pressed("Interact"):
-		if ray.get_collider().is_in_group("Items"):
+		if  ray.get_collider() and ray.get_collider().is_in_group("Items"):
 			print_debug("pick up")
 
 	for dir in inputs.keys():
-		if GameManager.state == GameManager.GameState.FREEWALK:
+		if runtime_data.current_gameplay_state == GameManager.GameState.FREEWALK:
 			if event.is_action_pressed(dir) and bCanMove:
 				move(dir)
 				print_debug(dir)

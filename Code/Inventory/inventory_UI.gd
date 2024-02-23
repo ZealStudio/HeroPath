@@ -1,5 +1,6 @@
 extends Control
 
+@export var runtime_data: RuntimeData
 @export var grid_container: GridContainer
 @export var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
@@ -72,13 +73,13 @@ func update_slots():
 func open():
 	visible = true
 	bIsOpen = true
-	GameManager.state = GameManager.GameState.IN_MENU
+	runtime_data.current_gameplay_state = GameManager.GameState.IN_MENU
 
 
 func close():
 	visible = false
 	bIsOpen = false
-	GameManager.state = GameManager.GameState.FREEWALK
+	runtime_data.current_gameplay_state = GameManager.GameState.FREEWALK
 
 
 func _unhandled_input(event):
