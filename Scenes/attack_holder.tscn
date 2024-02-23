@@ -5,12 +5,13 @@
 
 [node name="AttackHolder" type="ColorRect" node_paths=PackedStringArray("DamageLabel", "ButtonLabel") groups=["PlayerButton"]]
 custom_minimum_size = Vector2(255, 47)
+layout_direction = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -127.5
-offset_right = 127.5
-offset_bottom = 47.0
+offset_left = -127.0
+offset_right = 128.0
+offset_bottom = 85.0
 grow_horizontal = 2
 color = Color(0, 0, 0, 1)
 script = ExtResource("1_hd4u5")

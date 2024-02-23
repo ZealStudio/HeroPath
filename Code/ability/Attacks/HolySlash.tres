@@ -1,10 +1,11 @@
 [gd_resource type="Resource" script_class="Attacks" load_steps=2 format=3 uid="uid://cs6oj685k3bkc"]
 
-[ext_resource type="Script" path="res://Code/Attacks/Attacks.gd" id="1_d1nn3"]
+[ext_resource type="Script" path="res://Code/ability/Attacks/Attacks.gd" id="1_5txjw"]
 
 [resource]
-script = ExtResource("1_d1nn3")
+script = ExtResource("1_5txjw")
 Name = "Holy Slash"
 Type = "Magic"
+Cost = 0
 AttackDamage = 2
 Debuffs = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

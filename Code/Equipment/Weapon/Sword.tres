@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dnrlesgb731aj"]
+
+[ext_resource type="Script" path="res://Code/Equipment/Weapon/WeaponBase.gd" id="1_4oxrb"]
+
+[resource]
+script = ExtResource("1_4oxrb")
+WeaponType = "Sword"
+PhysicalAttack = 3
+MagicAttack = 0
+Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
+Skill = Array[Resource("res://Code/Skills/Skills.gd")]([])
+Name = "Hero Sword"
+description = ""

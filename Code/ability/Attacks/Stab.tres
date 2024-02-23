@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Attacks" load_steps=2 format=3 uid="uid://bygvyh2lv8hux"]
 
-[ext_resource type="Script" path="res://Code/Attacks/Attacks.gd" id="1_deaai"]
+[ext_resource type="Script" path="res://Code/ability/Attacks/Attacks.gd" id="1_deaai"]
 
 [resource]
 script = ExtResource("1_deaai")
@@ -8,3 +8,4 @@ Name = "Stab"
 Type = "Physical"
 AttackDamage = 2
 Debuffs = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])
+StrengthLevel = ""

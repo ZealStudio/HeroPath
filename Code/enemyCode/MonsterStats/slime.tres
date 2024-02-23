@@ -6,14 +6,14 @@
 [resource]
 script = ExtResource("1_20uc2")
 Name = "Slime"
-Level = 1
 Speed = 1505
 Sprite = ExtResource("1_hpm0p")
+Level = 1
 PhysicalAttack = 10
 MagicAttack = 0
 MaxHealth = 10
 Health = 10
+MaxMana = 0
+Mana = 0
 PhysicalDefense = 0
 MagicDefense = 0
-Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
-Skill = Array[Resource("res://Code/Skills/Skills.gd")]([])

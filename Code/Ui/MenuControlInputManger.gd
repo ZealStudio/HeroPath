@@ -1,8 +1,11 @@
 extends Control
 
 
-@export var CurrentMenu : BaseMenu
+var CurrentMenu : BaseMenu
+@export var HomeMenu : BaseMenu
+
 var Currentindex = 0
+var NewMenuIndex = 0
 var Buttons : Array
 var MenuChildren
 var CurrentSelectedButton :ButtonBase
@@ -14,7 +17,7 @@ var Player : PlayerBase
 # Called when the node enters the scene tree for the first time.
 
 func _ready():
-	GetButtonsForMenu(CurrentMenu)
+	GetButtonsForMenu(HomeMenu)
 	SelectButton()
 	Player =  get_tree().get_nodes_in_group("PlayerStatHolder")[0]
 func _unhandled_input(event):
@@ -33,14 +36,12 @@ func _unhandled_input(event):
 				Currentindex -= 1
 			if dir =="right":
 				Currentindex += 1
-				pass
 			UpdateIndex()
 
 
 func GetButtonsForMenu(Menu):
 	#get  the useAble UI part
-
-
+	CurrentMenu = Menu
 	Buttons = []
 	MenuChildren = Menu.get_children()
 	for button in MenuChildren:
@@ -52,6 +53,7 @@ func GetButtonsForMenu(Menu):
 				Buttons.append(Child)
 	CurrentSelectedButton = Buttons[0]
 	SelectButton()
+
 
 
 
