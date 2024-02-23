@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://c1j0pal3ppg25"]
+[gd_scene load_steps=5 format=3 uid="uid://c1j0pal3ppg25"]
 
 [ext_resource type="Script" path="res://Code/Dialog/dialog_ui.gd" id="1_66s40"]
 [ext_resource type="Resource" uid="uid://ri5gavtqldn6" path="res://Code/Dialog/Dialogues/default_dialogue.tres" id="2_ujr8u"]
 [ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="3_foc8g"]
+[ext_resource type="FontFile" uid="uid://cy1wkpyaf1by5" path="res://Art/fonts/Passage 7 Basic.ttf" id="4_eo7yh"]
 
 [node name="DialogUI" type="Control" node_paths=PackedStringArray("avatar", "dialogue_text")]
 layout_mode = 3
@@ -36,6 +37,7 @@ offset_top = 10.0
 offset_right = 280.0
 offset_bottom = 110.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("4_eo7yh")
 text = "dfsfsdfs"
 
 [node name="Avatar" type="TextureRect" parent="TextBG"]
