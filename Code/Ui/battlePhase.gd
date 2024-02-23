@@ -1,9 +1,9 @@
 extends Control
 
 
-
+var Temp =0
 func _ready():
-	StartRound()
+	ProgressBattle()
 
 func RunFromBattle():
 	print_debug("End battle")
@@ -11,15 +11,20 @@ func RunFromBattle():
 
 
 
-func StartRound():
+func ProgressBattle():
 	var UnitsInPlay =  get_tree().get_nodes_in_group("BattleUnit")
 	#UnitsInPlay = sort_units_by_speed(UnitsInPlay).duplicate(false)
-
+	print_debug("new Round started")
 	WholeBattleManager(UnitsInPlay)
 func  WholeBattleManager(Units:Array):
-	for Unit in Units:
-		Unit.CanAct = true
-		await Unit.EndTurnSignal
+	print(Temp)
+	var CurrentUnit = Units[Temp]
+	Temp +=1
+	if Temp == Units.size():
+		Temp =0
+	CurrentUnit.StartTurn()
+
+
 
 
 func sort_units_by_speed(units: Array) -> Array:

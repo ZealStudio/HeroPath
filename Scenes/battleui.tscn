@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=16 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="Script" path="res://Code/Ui/MenuControlInputManger.gd" id="2_2mg2b"]
@@ -11,6 +11,23 @@
 [ext_resource type="Script" path="res://Code/Ui/Screen Transition OverLay.gd" id="5_wk34d"]
 [ext_resource type="Script" path="res://Scenes/AttackListMenu.gd" id="6_fpknq"]
 [ext_resource type="Resource" uid="uid://bms7bnk13dvaf" path="res://Code/enemyCode/MonsterStats/slime.tres" id="9_raa20"]
+[ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="10_webvd"]
+[ext_resource type="Script" path="res://Code/enemyCode/EnemyStats.gd" id="11_n8m8r"]
+
+[sub_resource type="Resource" id="Resource_wav4a"]
+script = ExtResource("11_n8m8r")
+Name = ""
+Level = 1
+Speed = 0
+Sprite = ExtResource("10_webvd")
+PhysicalAttack = 10
+MagicAttack = 0
+MaxHealth = 10
+Health = 10
+PhysicalDefense = 0
+MagicDefense = 0
+Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
+Skill = Array[Resource("res://Code/Skills/Skills.gd")]([])
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc1qx"]
 shader = ExtResource("4_m5v3j")
@@ -21,7 +38,7 @@ shader_parameter/anchor = Vector2(0.5, 0.5)
 shader_parameter/anchorOffset = 1.0
 shader_parameter/diamondPixelSize = 32.0
 
-[node name="BattlePhase" type="Control"]
+[node name="BattlePhase" type="Control" groups=["BattleManager"]]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -153,6 +170,10 @@ theme_override_constants/separation = 200
 [node name="EnemyUi" parent="MenuControler/EnemyUIHolder/HBoxContainer" instance=ExtResource("3_db2q8")]
 layout_mode = 2
 Stat = ExtResource("9_raa20")
+
+[node name="EnemyUi2" parent="MenuControler/EnemyUIHolder/HBoxContainer" instance=ExtResource("3_db2q8")]
+layout_mode = 2
+Stat = SubResource("Resource_wav4a")
 
 [node name="Control" type="Control" parent="MenuControler"]
 anchors_preset = 0

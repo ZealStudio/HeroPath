@@ -35,9 +35,10 @@ func CheckDefense(DamageAmount, Type ,Attacker:UnitStats):
 	else:
 		return 0
 
+func StartTurn():
+	print_debug(Stat.Name + " Starts it's turn")
+	pass
 func EndTurn():
-	emit_signal("EndTurnSignal")
-	print_debug(name +" turn has ended")
 	CanAct = false
 func FinshedAction():
 	pass

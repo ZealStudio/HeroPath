@@ -18,3 +18,9 @@ func UpdateLabel():
 func TakeDamage(Attack: Attacks ,Attacker:UnitStats):
 	super.TakeDamage(Attack,Attacker)
 	UpdateLabel()
+
+func StartTurn():
+	await get_tree().create_timer(1).timeout
+	super.StartTurn()
+	var BattleManager = get_tree().get_nodes_in_group("BattleManager")[0]
+	BattleManager.ProgressBattle()

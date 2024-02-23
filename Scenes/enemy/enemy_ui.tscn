@@ -6,7 +6,7 @@
 [ext_resource type="Script" path="res://Code/Ui/UIHolder.gd" id="4_jakts"]
 [ext_resource type="Texture2D" uid="uid://b36xcvjtr22h3" path="res://Art/UI/UiStatHolder-0002.png" id="5_petpd"]
 
-[node name="EnemyUi" type="Control" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") groups=["BattleUnit", "EnemyUi"]]
+[node name="EnemyUi" type="Control" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") groups=["BattleUnit", "Enemy", "EnemyUi"]]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 96.0
