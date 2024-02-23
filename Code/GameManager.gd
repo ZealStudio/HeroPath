@@ -3,6 +3,8 @@ extends Node
 signal dialog_initiated(dialogue)
 signal dialog_finished
 
+signal npc_interact
+
 enum GameState {FREEWALK, IN_MENU, IN_DIALOG}
 
 func GetPlayer():
