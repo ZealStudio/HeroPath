@@ -17,4 +17,4 @@ func CreateCards():
 			card.CurrentSpotOnBoard  =Positions[Temp]
 			Temp+= 1
 			$"..".GetButtonToUse()
-
+	get_tree().call_group("ability", "SetNeighborCards")

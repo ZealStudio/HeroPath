@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_hxv4b")
+Type = ""
 Name = "Slash"
 ApCost = null
 MaxUse = null

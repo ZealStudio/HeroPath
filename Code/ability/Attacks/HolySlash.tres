@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_5txjw")
-Name = "Holy Slash"
 Type = "Magic"
-Cost = 0
+Name = "Holy Slash"
+ApCost = 0
 MaxUse = 2
 AttackDamage = 2
 SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

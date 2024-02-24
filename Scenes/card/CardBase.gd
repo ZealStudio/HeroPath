@@ -13,7 +13,7 @@ var CurrentSpotOnBoard : Marker2D
 var WhoOwnsThisCard : PlayerBase
 var bIsSelected = false
 var bCanMoveUp =false
-var CardsToEffect ={"CardToRight": Card,
+var NeighborCards ={"CardToRight": Card,
 "CardToleft": Card}
 
 
@@ -42,7 +42,6 @@ func ZoomIn():
 func MoveCard(NewPosition ):
 	self.global_position = lerp(self.global_position, NewPosition ,.1 )
 
-
 func MoveWhenSelected():
 	if bIsSelected:
 		self.global_position.y = lerp(self.global_position.y, global_position.y -  150 ,.1)
@@ -56,6 +55,23 @@ func OnUse():
 	print_debug(NameOfAtack.text + " was used.")
 	emit_signal("Use")
 
+func SetNeighborCards():
+
+	var CardsInHolder = GameManager.GetPlayerGetCardHolder().get_children()
+	var SizeOfArrary = CardsInHolder.size()
+	if FindThisCardPosition() == 0:
+		NeighborCards["CardToleft"] = null
+	else:
+		NeighborCards["CardToleft"] = CardsInHolder[FindThisCardPosition() - 1]
+	if FindThisCardPosition() == SizeOfArrary -1:
+		NeighborCards["CardToRight"] = null
+	else:
+		NeighborCards["CardToRight"] = CardsInHolder[FindThisCardPosition() + 1]
+		print_debug(NeighborCards["CardToRight"].AttackToMakeIntoCard.Name)
+func FindThisCardPosition():
+	var CardHolder = GameManager.GetPlayerGetCardHolder().get_children()
+	var SelfIndex = CardHolder.find(self)
+	return SelfIndex
 
 func _on_hover_timer_timeout():
 	bCanMoveUp = true

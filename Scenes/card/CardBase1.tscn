@@ -16,7 +16,7 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardBase" type="Node2D" node_paths=PackedStringArray("NameOfAtack", "DescriptionOfAtack") groups=["PlayerButton", "PlayerCards"]]
+[node name="CardBase" type="Node2D" node_paths=PackedStringArray("NameOfAtack", "DescriptionOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
 script = ExtResource("1_6xh2s")
 NameOfAtack = NodePath("LabelHolder/NameOfAttack")
 DescriptionOfAtack = NodePath("LabelHolder/RichTextLabel")

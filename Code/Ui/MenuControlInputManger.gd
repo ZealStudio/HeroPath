@@ -62,7 +62,8 @@ func SelectButton():
 		button.Selected(false)
 	CurrentSelectedButton= Buttons[Currentindex]
 	CurrentSelectedButton.Selected(true)
-	print_debug(CurrentSelectedButton)
+
+
 
 func ChangeVisibility(Visibility):
 	visible = Visibility
