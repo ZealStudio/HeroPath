@@ -20,10 +20,10 @@ func _unhandled_input(event):
 	if !Player.CanAct:
 		return
 	if event.is_action_pressed("Interact"):
-		CurrentSelectedButton.Press()
-		SelectButton()
-		if CurrentSelectedButton.MainMenuToOpen != null:
-			GetButtonsForMenu(CurrentSelectedButton.MainMenuToOpen)
+		CurrentSelectedButton.OnUse()
+		#SelectButton()
+		#if CurrentSelectedButton.MainMenuToOpen != null:
+			#GetButtonsForMenu(CurrentSelectedButton.MainMenuToOpen)
 		return
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):

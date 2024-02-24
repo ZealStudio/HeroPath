@@ -9,8 +9,6 @@ func RunFromBattle():
 	print_debug("End battle")
 
 
-
-
 func ProgressBattle():
 	var UnitsInPlay =  get_tree().get_nodes_in_group("BattleUnit")
 	#UnitsInPlay = sort_units_by_speed(UnitsInPlay).duplicate(false)

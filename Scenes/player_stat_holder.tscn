@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://dbec5eo5isepm"]
+[gd_scene load_steps=3 format=3 uid="uid://dt26kkyu4luo2"]
 
 [ext_resource type="Script" path="res://Code/Player/PlayerBase.gd" id="1_oatdd"]
 [ext_resource type="Resource" uid="uid://c3mgiwet84fsw" path="res://Code/Player/PlayerStats.tres" id="2_ko0gb"]

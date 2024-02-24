@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://3lnhapbqd8lh"]
+[gd_scene load_steps=3 format=3 uid="uid://bioevb3sfywhq"]
 
 [ext_resource type="Script" path="res://AttackHolderButton.gd" id="1_hd4u5"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_mpr4d"]

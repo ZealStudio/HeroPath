@@ -5,7 +5,6 @@
 
 [resource]
 script = ExtResource("1_skb0q")
-money = 0
 WeaponSlot = ExtResource("1_qwtue")
 Name = ""
 bIsDead = false

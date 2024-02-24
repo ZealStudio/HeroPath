@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_deaai")
 Name = "Stab"
-Type = "Physical"
+ApCost = null
+MaxUse = null
 AttackDamage = 2
-Debuffs = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])
-StrengthLevel = ""
+SkillEffects = null

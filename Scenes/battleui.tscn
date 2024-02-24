@@ -1,8 +1,8 @@
 [gd_scene load_steps=8 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
-[ext_resource type="PackedScene" uid="uid://dbec5eo5isepm" path="res://Scenes/player_stat_holder.tscn" id="2_cq0af"]
-[ext_resource type="PackedScene" uid="uid://cxxkcxvomd7o6" path="res://menu_controler.tscn" id="3_71hno"]
+[ext_resource type="PackedScene" uid="uid://dt26kkyu4luo2" path="res://Scenes/player_stat_holder.tscn" id="2_cq0af"]
+[ext_resource type="PackedScene" uid="uid://7ahhv11xhdyh" path="res://menu_controler.tscn" id="3_71hno"]
 [ext_resource type="Shader" path="res://shaders/Diamond-based Screen Transition.gdshader" id="4_m5v3j"]
 [ext_resource type="Script" path="res://Code/Ui/Screen Transition OverLay.gd" id="5_wk34d"]
 [ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]

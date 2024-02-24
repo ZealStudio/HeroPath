@@ -2,7 +2,7 @@ extends Ability
 
 class_name  Attacks
 
-
+@export_enum("Magic", "Physical") var Type: String
 
 func TotalDamage():
 	if Type =="Magic":

@@ -1,0 +1,43 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtdvjw5eyj02d"]
+
+[ext_resource type="PackedScene" uid="uid://52e1na4alymu" path="res://Scenes/card/CardBase.tscn" id="1_bdhbw"]
+
+[node name="Node2D" type="Node2D"]
+position = Vector2(2, 361)
+scale = Vector2(0.5, 0.5)
+
+[node name="CardBase" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(102, 587)
+
+[node name="CardBase2" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(303, 588)
+
+[node name="CardBase3" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(504, 590)
+
+[node name="CardBase4" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(704, 590)
+
+[node name="CardBase5" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(905, 592)
+
+[node name="CardBase6" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(1105, 594)
+
+[node name="CardBase7" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(1308, 592)
+
+[node name="CardBase8" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(1498, 594)
+
+[node name="CardBase9" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(1702, 592)
+
+[node name="CardBase10" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(1906, 588)
+
+[node name="CardBase11" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(2106, 586)
+
+[node name="CardBase12" parent="." instance=ExtResource("1_bdhbw")]
+position = Vector2(2310, 586)
