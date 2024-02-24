@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://d0y4rtv8xujqb"]
+[gd_scene load_steps=13 format=3 uid="uid://d0y4rtv8xujqb"]
 
 [ext_resource type="Script" path="res://Code/Inventory/inventory_UI.gd" id="1_rxfxn"]
 [ext_resource type="PackedScene" uid="uid://d1pjmndfn7rmj" path="res://Code/Inventory/inventory_slots.tscn" id="2_4jdqv"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="2_klhhw"]
 [ext_resource type="Resource" uid="uid://djiky7c2xvm" path="res://Code/Inventory/TestItems/test_item2.tres" id="3_y6u2f"]
 [ext_resource type="Resource" uid="uid://dmydvjqo368xx" path="res://Code/Inventory/TestItems/test_item3.tres" id="4_o1fd7"]
+[ext_resource type="Resource" uid="uid://db7h2q8j6ilt3" path="res://Code/Inventory/inventory.tres" id="4_pik4j"]
 [ext_resource type="Resource" uid="uid://dqnedb3apqsco" path="res://Code/Inventory/TestItems/test_item4.tres" id="5_t5vei"]
 [ext_resource type="Resource" uid="uid://dfmfn7prx4pub" path="res://Code/Inventory/TestItems/test_item5.tres" id="6_thfe0"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="8_1jujh"]
@@ -30,6 +31,7 @@ runtime_data = ExtResource("2_klhhw")
 grid_container = NodePath("BG/ItemGridContainer")
 item_slot_preload = ExtResource("2_4jdqv")
 item_description = NodePath("DescriptionBackground/ItemDescription")
+inv = ExtResource("4_pik4j")
 test_item = Array[Resource("res://Code/Inventory/inventory_items.gd")]([ExtResource("2_jfhpp"), ExtResource("3_y6u2f"), ExtResource("4_o1fd7"), ExtResource("5_t5vei"), ExtResource("6_thfe0"), ExtResource("8_xcoyy"), ExtResource("9_rwxs5")])
 
 [node name="BG" type="ColorRect" parent="."]
