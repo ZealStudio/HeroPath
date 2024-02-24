@@ -1,0 +1,2 @@
+for card assests:
+Bg, text, ect.
