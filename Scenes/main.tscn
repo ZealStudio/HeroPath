@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://bbsldorqxh778"]
+[gd_scene load_steps=8 format=3 uid="uid://bbsldorqxh778"]
 
 [ext_resource type="PackedScene" uid="uid://cmlvniw5qjq4j" path="res://Scenes/player.tscn" id="1_be1nw"]
 [ext_resource type="PackedScene" uid="uid://c1j0pal3ppg25" path="res://Code/Dialog/dialog_ui.tscn" id="4_jmxbn"]
 [ext_resource type="PackedScene" uid="uid://bvxulgjhnnk5v" path="res://NPCQuest/default_npc.tscn" id="4_nyms7"]
 [ext_resource type="PackedScene" uid="uid://d0y4rtv8xujqb" path="res://Code/Inventory/inventory_UI.tscn" id="4_rspxh"]
 [ext_resource type="Resource" uid="uid://db7h2q8j6ilt3" path="res://Code/Inventory/inventory.tres" id="5_mr4tg"]
+[ext_resource type="PackedScene" uid="uid://cu43cajl3e6sl" path="res://Code/Shop/shop_interact.tscn" id="6_tyof3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm4ej"]
 size = Vector2(146, 60)
@@ -43,3 +44,6 @@ offset_top = 207.0
 offset_right = 636.0
 offset_bottom = 355.0
 inv = ExtResource("5_mr4tg")
+
+[node name="ShopInteract" parent="." instance=ExtResource("6_tyof3")]
+position = Vector2(574, 172)

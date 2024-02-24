@@ -4,8 +4,9 @@ signal dialog_initiated(dialogue)
 signal dialog_finished
 
 signal npc_interact
+signal shop_interact
 
-enum GameState {FREEWALK, IN_MENU, IN_DIALOG}
+enum GameState {FREEWALK, IN_MENU, IN_DIALOG, IN_SHOP}
 
 func GetPlayer():
 	var player = get_tree().get_nodes_in_group("Player")
