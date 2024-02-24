@@ -4,9 +4,8 @@ class_name  UnitStats
 
 @export_group("Basic Properties")
 @export var Name : String
-@export var Speed: int
 @export var Sprite :Texture
-
+@export var bIsDead  = false
 @export_group("Level Properties")
 @export var Level: int
 var ExpForNextLevel:int

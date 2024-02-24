@@ -7,5 +7,6 @@ script = ExtResource("1_5txjw")
 Name = "Holy Slash"
 Type = "Magic"
 Cost = 0
+MaxUse = 2
 AttackDamage = 2
-Debuffs = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])
+SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

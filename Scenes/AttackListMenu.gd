@@ -5,8 +5,8 @@ var Holder= preload("res://Scenes/attack_holder.tscn")
 @export var Skillholder : GridContainer
 
 func _ready():
-	MakeListOfAttacks()
-
+	#MakeListOfAttacks()
+	pass
 
 func MakeListOfAttacks():
 	PlayerStat = GameManager.GetPlayerStats()

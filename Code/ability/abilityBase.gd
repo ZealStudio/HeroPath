@@ -12,7 +12,6 @@ class_name Ability
 
 @export_group("Skill Properties")
 @export var AttackDamage :int
-@export var Debuffs :Array[Effect]
-
+@export var SkillEffects :Array[Effect]
 func MakeDescription():
 	pass

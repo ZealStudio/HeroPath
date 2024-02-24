@@ -1,19 +1,20 @@
-[gd_resource type="Resource" script_class="PlayerStats" load_steps=4 format=3 uid="uid://ciq15neo6fmwk"]
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://c3mgiwet84fsw"]
 
-[ext_resource type="Resource" uid="uid://bqc6tx8rs1oir" path="res://Code/Attacks/Slash.tres" id="1_jcgje"]
-[ext_resource type="Script" path="res://Code/Player/PlayerStats.gd" id="1_yq10n"]
-[ext_resource type="Resource" uid="uid://cs6oj685k3bkc" path="res://Code/Attacks/HolySlash.tres" id="2_ire2t"]
+[ext_resource type="Resource" uid="uid://codd8frhqvfqe" path="res://Code/Equipment/Weapon/Sword.tres" id="1_qwtue"]
+[ext_resource type="Script" path="res://Code/Player/PlayerStats.gd" id="1_skb0q"]
 
 [resource]
-script = ExtResource("1_yq10n")
-Name = "Hero"
-Level = 1
-Speed = 0
-PhysicalAttack = 5
-MagicAttack = 5
-MaxHealth = 20
-Health = 20
-PhysicalDefense = 3
-MagicDefense = 3
-Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([ExtResource("1_jcgje"), ExtResource("2_ire2t")])
-Skill = Array[Resource("res://Code/Skills/Skills.gd")]([])
+script = ExtResource("1_skb0q")
+money = 0
+WeaponSlot = ExtResource("1_qwtue")
+Name = ""
+bIsDead = false
+Level = 0
+PhysicalAttack = 0
+MagicAttack = 0
+MaxHealth = 0
+Health = 0
+MaxMana = 0
+Mana = 0
+PhysicalDefense = 0
+MagicDefense = 0

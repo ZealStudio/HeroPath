@@ -1,33 +1,11 @@
-[gd_scene load_steps=16 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=8 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
-[ext_resource type="Script" path="res://Code/Ui/MenuControlInputManger.gd" id="2_2mg2b"]
 [ext_resource type="PackedScene" uid="uid://dbec5eo5isepm" path="res://Scenes/player_stat_holder.tscn" id="2_cq0af"]
-[ext_resource type="PackedScene" uid="uid://3y0rpxpn7vlv" path="res://Scenes/enemy/enemy_ui.tscn" id="3_db2q8"]
-[ext_resource type="PackedScene" uid="uid://b8o2cf1agybma" path="res://Scenes/ButtonBase.tscn" id="3_kurd8"]
-[ext_resource type="Script" path="res://Code/MenuControler.gd" id="3_vmn4x"]
-[ext_resource type="Script" path="res://Code/Ui/BaseMenu.gd" id="4_16vgc"]
+[ext_resource type="PackedScene" uid="uid://cxxkcxvomd7o6" path="res://menu_controler.tscn" id="3_71hno"]
 [ext_resource type="Shader" path="res://shaders/Diamond-based Screen Transition.gdshader" id="4_m5v3j"]
 [ext_resource type="Script" path="res://Code/Ui/Screen Transition OverLay.gd" id="5_wk34d"]
-[ext_resource type="Script" path="res://Scenes/AttackListMenu.gd" id="6_fpknq"]
-[ext_resource type="Resource" uid="uid://bms7bnk13dvaf" path="res://Code/enemyCode/MonsterStats/slime.tres" id="9_raa20"]
-[ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="10_webvd"]
-[ext_resource type="Script" path="res://Code/enemyCode/EnemyStats.gd" id="11_n8m8r"]
-
-[sub_resource type="Resource" id="Resource_wav4a"]
-script = ExtResource("11_n8m8r")
-Name = ""
-Speed = 0
-Sprite = ExtResource("10_webvd")
-Level = 1
-PhysicalAttack = 10
-MagicAttack = 0
-MaxHealth = 10
-Health = 10
-MaxMana = 0
-Mana = 0
-PhysicalDefense = 0
-MagicDefense = 0
+[ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc1qx"]
 shader = ExtResource("4_m5v3j")
@@ -43,181 +21,66 @@ layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8slk6")
 
-[node name="PlayerStatHolder" parent="." groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
+[node name="PlayerUnitHolder" type="Node2D" parent="." groups=["PlayerUnitHolderStat"]]
 
-[node name="MenuControler" type="Control" parent="." node_paths=PackedStringArray("HomeMenu")]
-layout_mode = 1
-anchors_preset = 0
-offset_right = 1082.0
-offset_bottom = 714.0
-script = ExtResource("2_2mg2b")
-HomeMenu = NodePath("PlayerUi/ButtonHolder")
+[node name="hero" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
 
-[node name="ColorRect" type="ColorRect" parent="MenuControler"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0, 0, 0, 1)
+[node name="SideKick" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
 
-[node name="PlayerUi" type="Control" parent="MenuControler" node_paths=PackedStringArray("MainMenu")]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("3_vmn4x")
-MainMenu = NodePath("ButtonHolder")
+[node name="MenuControler" parent="." node_paths=PackedStringArray("HomeMenu") instance=ExtResource("3_71hno")]
+visible = false
+HomeMenu = NodePath("CardHolder")
 
-[node name="ButtonHolder" type="HBoxContainer" parent="MenuControler/PlayerUi" groups=["BattleMenu"]]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_top = 673.0
-offset_right = -622.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/separation = 20
-alignment = 2
-script = ExtResource("4_16vgc")
+[node name="PositionHolder" type="Node2D" parent="MenuControler" groups=["PlayerPositionHolder"]]
 metadata/_edit_group_ = true
 
-[node name="Attack" parent="MenuControler/PlayerUi/ButtonHolder" node_paths=PackedStringArray("MainMenuToOpen") instance=ExtResource("3_kurd8")]
-layout_mode = 2
-MainMenuToOpen = NodePath("../../AttackList")
+[node name="1" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(30, 600)
 
-[node name="Skills" parent="MenuControler/PlayerUi/ButtonHolder" node_paths=PackedStringArray("MainMenuToOpen") instance=ExtResource("3_kurd8")]
-layout_mode = 2
-TextInLabel = "Skills"
-MainMenuToOpen = NodePath("../../SkillList")
+[node name="2" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(130, 600)
 
-[node name="Items" parent="MenuControler/PlayerUi/ButtonHolder" node_paths=PackedStringArray("MainMenuToOpen") instance=ExtResource("3_kurd8")]
-layout_mode = 2
-TextInLabel = "Items"
-MainMenuToOpen = NodePath("../../Item")
+[node name="3" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(230, 600)
 
-[node name="Run" parent="MenuControler/PlayerUi/ButtonHolder" instance=ExtResource("3_kurd8")]
-layout_mode = 2
-TextInLabel = "Run"
+[node name="4" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(330, 600)
 
-[node name="AttackList" type="Control" parent="MenuControler/PlayerUi" node_paths=PackedStringArray("Skillholder") groups=["2by2Menu", "BattleMenu"]]
-visible = false
-layout_mode = 1
-anchors_preset = 0
-offset_right = 1082.0
-offset_bottom = 714.0
-script = ExtResource("6_fpknq")
-Skillholder = NodePath("GridContainer")
+[node name="5" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(430, 600)
 
-[node name="back" parent="MenuControler/PlayerUi/AttackList" node_paths=PackedStringArray("MainMenuToOpen") instance=ExtResource("3_kurd8")]
-layout_mode = 2
-offset_top = 673.0
-offset_bottom = 713.0
-TextInLabel = "Back"
-MainMenuToOpen = NodePath("../../ButtonHolder")
+[node name="6" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(530, 600)
 
-[node name="GridContainer" type="GridContainer" parent="MenuControler/PlayerUi/AttackList"]
-layout_mode = 0
-offset_left = 119.0
-offset_top = -119.0
-offset_right = 368.0
-offset_bottom = 40.0
+[node name="7" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(630, 600)
 
-[node name="SkillList" type="Control" parent="MenuControler/PlayerUi" groups=["2by2Menu", "BattleMenu"]]
-visible = false
-anchors_preset = 0
-offset_right = 1082.0
-offset_bottom = 713.0
-script = ExtResource("4_16vgc")
+[node name="8" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(520, 600)
 
-[node name="ColorRect" type="ColorRect" parent="MenuControler/PlayerUi/SkillList"]
-layout_mode = 1
-offset_top = 526.0
-offset_right = 640.0
-offset_bottom = 713.0
-color = Color(0.545098, 0.545098, 0.545098, 1)
+[node name="9" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(580, 600)
 
-[node name="back" parent="MenuControler/PlayerUi/SkillList" node_paths=PackedStringArray("MainMenuToOpen") instance=ExtResource("3_kurd8")]
-layout_mode = 0
-offset_top = 683.0
-offset_bottom = 714.0
-TextInLabel = "Back"
-MainMenuToOpen = NodePath("../../ButtonHolder")
+[node name="10" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(650, 600)
 
-[node name="Item" type="Control" parent="MenuControler/PlayerUi" groups=["BattleMenu"]]
-visible = false
-anchors_preset = 0
-offset_right = 1082.0
-offset_bottom = 715.0
-script = ExtResource("4_16vgc")
+[node name="11" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(720, 600)
 
-[node name="ColorRect" type="ColorRect" parent="MenuControler/PlayerUi/Item"]
-layout_mode = 1
-offset_right = 1082.0
-offset_bottom = 714.0
-color = Color(0.894118, 0.894118, 0.894118, 1)
+[node name="12" type="Marker2D" parent="MenuControler/PositionHolder"]
+position = Vector2(790, 600)
 
-[node name="back" parent="MenuControler/PlayerUi/Item" node_paths=PackedStringArray("MainMenuToOpen") instance=ExtResource("3_kurd8")]
-layout_mode = 0
-offset_top = 683.0
-offset_bottom = 714.0
-TextInLabel = "Back"
-MainMenuToOpen = NodePath("../../ButtonHolder")
-
-[node name="EnemyUIHolder" type="Control" parent="MenuControler"]
-anchors_preset = 0
-offset_right = 1080.0
-offset_bottom = 715.0
-
-[node name="HBoxContainer" type="VBoxContainer" parent="MenuControler/EnemyUIHolder"]
-custom_minimum_size = Vector2(100, 100)
-layout_mode = 1
-offset_left = 981.0
-offset_top = 65.0
-offset_right = 1081.0
-offset_bottom = 582.0
-theme_override_constants/separation = 135
-metadata/_edit_group_ = true
-
-[node name="EnemyUi" parent="MenuControler/EnemyUIHolder/HBoxContainer" instance=ExtResource("3_db2q8")]
-layout_mode = 2
-Stat = ExtResource("9_raa20")
-
-[node name="EnemyUi2" parent="MenuControler/EnemyUIHolder/HBoxContainer" instance=ExtResource("3_db2q8")]
-layout_mode = 2
-Stat = SubResource("Resource_wav4a")
-
-[node name="EnemyUi3" parent="MenuControler/EnemyUIHolder/HBoxContainer" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") instance=ExtResource("3_db2q8")]
-layout_mode = 2
-NameLabel = NodePath("../EnemyUi/LabelHolder/Name")
-HealthLabel = NodePath("../EnemyUi/LabelHolder/HealthLabel")
-MonsterSprite = NodePath("../EnemyUi/MonsterSprite")
-Stat = ExtResource("9_raa20")
-
-[node name="EnemyUi4" parent="MenuControler/EnemyUIHolder/HBoxContainer" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") instance=ExtResource("3_db2q8")]
-layout_mode = 2
-NameLabel = NodePath("../EnemyUi/LabelHolder/Name")
-HealthLabel = NodePath("../EnemyUi/LabelHolder/HealthLabel")
-MonsterSprite = NodePath("../EnemyUi/MonsterSprite")
-Stat = ExtResource("9_raa20")
+[node name="CardHolder" type="Node2D" parent="MenuControler" node_paths=PackedStringArray("PlayerUnitHolder", "PositionHolder") groups=["PlayerGetCardHolder"]]
+script = ExtResource("12_8douu")
+PlayerUnitHolder = NodePath("../../PlayerUnitHolder")
+PositionHolder = NodePath("../PositionHolder")
 
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_uc1qx")
 layout_mode = 0
-offset_right = 1082.0
+offset_right = 1193.0
 offset_bottom = 715.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("5_wk34d")
 
-[connection signal="OnUse" from="MenuControler/PlayerUi/ButtonHolder/Attack" to="MenuControler/PlayerUi" method="OpenMenu"]
-[connection signal="OnUse" from="MenuControler/PlayerUi/ButtonHolder/Skills" to="MenuControler/PlayerUi" method="OpenMenu"]
-[connection signal="OnUse" from="MenuControler/PlayerUi/ButtonHolder/Items" to="MenuControler/PlayerUi" method="OpenMenu"]
-[connection signal="OnUse" from="MenuControler/PlayerUi/AttackList/back" to="MenuControler/PlayerUi" method="OpenMenu"]
-[connection signal="OnUse" from="MenuControler/PlayerUi/SkillList/back" to="MenuControler/PlayerUi" method="OpenMenu"]
-[connection signal="OnUse" from="MenuControler/PlayerUi/Item/back" to="MenuControler/PlayerUi" method="OpenMenu"]
 [connection signal="LoadBattleUI" from="Screen Transition OverLay" to="MenuControler" method="ChangeVisibility"]

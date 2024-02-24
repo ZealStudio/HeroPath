@@ -7,5 +7,6 @@ script = ExtResource("1_hxv4b")
 Name = "Slash"
 Type = "Physical"
 Cost = 0
+MaxUse = 2
 AttackDamage = 3
-Debuffs = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])
+SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

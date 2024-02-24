@@ -1,0 +1,200 @@
+[gd_scene load_steps=11 format=3 uid="uid://dae71r3l0gv60"]
+
+[ext_resource type="Script" path="res://Code/Ui/MenuControlInputManger.gd" id="1_iay7o"]
+[ext_resource type="Script" path="res://Code/MenuControler.gd" id="2_clhyf"]
+[ext_resource type="Script" path="res://Code/Ui/BaseMenu.gd" id="3_rgfiy"]
+[ext_resource type="PackedScene" uid="uid://b8o2cf1agybma" path="res://Scenes/ButtonBase.tscn" id="4_1ekuk"]
+[ext_resource type="Script" path="res://Scenes/AttackListMenu.gd" id="5_46qwp"]
+[ext_resource type="PackedScene" uid="uid://3y0rpxpn7vlv" path="res://Scenes/enemy/enemy_ui.tscn" id="6_1mrk7"]
+[ext_resource type="Resource" uid="uid://bms7bnk13dvaf" path="res://Code/enemyCode/MonsterStats/slime.tres" id="7_1rfyn"]
+[ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="8_kbcx3"]
+[ext_resource type="Script" path="res://Code/enemyCode/EnemyStats.gd" id="9_2xhav"]
+
+[sub_resource type="Resource" id="Resource_wav4a"]
+script = ExtResource("9_2xhav")
+Name = ""
+Sprite = ExtResource("8_kbcx3")
+bIsDead = false
+Level = 1
+PhysicalAttack = 10
+MagicAttack = 0
+MaxHealth = 10
+Health = 10
+MaxMana = 0
+Mana = 0
+PhysicalDefense = 0
+MagicDefense = 0
+
+[node name="MenuControler" type="Control" node_paths=PackedStringArray("HomeMenu")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 1082.0
+offset_bottom = 714.0
+script = ExtResource("1_iay7o")
+HomeMenu = NodePath("")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = -1
+offset_right = 1200.0
+offset_bottom = 732.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="PlayerUi" type="Control" parent="." node_paths=PackedStringArray("MainMenu")]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("2_clhyf")
+MainMenu = NodePath("")
+
+[node name="ButtonHolder" type="HBoxContainer" parent="PlayerUi" groups=["BattleMenu"]]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -742.0
+offset_bottom = -682.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 20
+alignment = 2
+script = ExtResource("3_rgfiy")
+metadata/_edit_group_ = true
+
+[node name="Skills" parent="PlayerUi/ButtonHolder" node_paths=PackedStringArray("ButtonLabel", "MainMenuToOpen") instance=ExtResource("4_1ekuk")]
+layout_mode = 2
+ButtonLabel = NodePath("")
+TextInLabel = "Skills"
+MainMenuToOpen = NodePath("")
+
+[node name="Items" parent="PlayerUi/ButtonHolder" node_paths=PackedStringArray("ButtonLabel", "MainMenuToOpen") instance=ExtResource("4_1ekuk")]
+layout_mode = 2
+ButtonLabel = NodePath("")
+TextInLabel = "Items"
+MainMenuToOpen = NodePath("")
+
+[node name="Run" parent="PlayerUi/ButtonHolder" node_paths=PackedStringArray("ButtonLabel") instance=ExtResource("4_1ekuk")]
+layout_mode = 2
+ButtonLabel = NodePath("")
+TextInLabel = "Run"
+
+[node name="AttackList" type="Control" parent="PlayerUi" node_paths=PackedStringArray("Skillholder") groups=["2by2Menu", "BattleMenu"]]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+offset_right = 1082.0
+offset_bottom = 714.0
+script = ExtResource("5_46qwp")
+Skillholder = NodePath("")
+
+[node name="back" parent="PlayerUi/AttackList" node_paths=PackedStringArray("ButtonLabel", "MainMenuToOpen") instance=ExtResource("4_1ekuk")]
+layout_mode = 2
+offset_top = 673.0
+offset_bottom = 713.0
+ButtonLabel = NodePath("")
+TextInLabel = "Back"
+MainMenuToOpen = NodePath("")
+
+[node name="GridContainer" type="GridContainer" parent="PlayerUi/AttackList"]
+layout_mode = 0
+offset_left = 119.0
+offset_top = -119.0
+offset_right = 368.0
+offset_bottom = 40.0
+
+[node name="SkillList" type="Control" parent="PlayerUi" groups=["2by2Menu", "BattleMenu"]]
+visible = false
+anchors_preset = 0
+offset_right = 1082.0
+offset_bottom = 713.0
+script = ExtResource("3_rgfiy")
+
+[node name="ColorRect" type="ColorRect" parent="PlayerUi/SkillList"]
+layout_mode = 1
+offset_top = 526.0
+offset_right = 640.0
+offset_bottom = 713.0
+color = Color(0.545098, 0.545098, 0.545098, 1)
+
+[node name="back" parent="PlayerUi/SkillList" node_paths=PackedStringArray("ButtonLabel", "MainMenuToOpen") instance=ExtResource("4_1ekuk")]
+layout_mode = 0
+offset_top = 683.0
+offset_bottom = 714.0
+ButtonLabel = NodePath("")
+TextInLabel = "Back"
+MainMenuToOpen = NodePath("")
+
+[node name="Item" type="Control" parent="PlayerUi" groups=["BattleMenu"]]
+visible = false
+anchors_preset = 0
+offset_right = 1082.0
+offset_bottom = 715.0
+script = ExtResource("3_rgfiy")
+
+[node name="ColorRect" type="ColorRect" parent="PlayerUi/Item"]
+layout_mode = 1
+offset_right = 1082.0
+offset_bottom = 714.0
+color = Color(0.894118, 0.894118, 0.894118, 1)
+
+[node name="back" parent="PlayerUi/Item" node_paths=PackedStringArray("ButtonLabel", "MainMenuToOpen") instance=ExtResource("4_1ekuk")]
+layout_mode = 0
+offset_top = 683.0
+offset_bottom = 714.0
+ButtonLabel = NodePath("")
+TextInLabel = "Back"
+MainMenuToOpen = NodePath("")
+
+[node name="EnemyUIHolder" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 1200.0
+offset_bottom = 715.0
+
+[node name="HBoxContainer" type="VBoxContainer" parent="EnemyUIHolder"]
+custom_minimum_size = Vector2(100, 100)
+layout_mode = 1
+offset_left = 1093.0
+offset_top = 4.0
+offset_right = 1193.0
+offset_bottom = 521.0
+theme_override_constants/separation = 135
+metadata/_edit_group_ = true
+
+[node name="EnemyUi" parent="EnemyUIHolder/HBoxContainer" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") instance=ExtResource("6_1mrk7")]
+layout_mode = 2
+NameLabel = NodePath("")
+HealthLabel = NodePath("")
+MonsterSprite = NodePath("")
+Stat = ExtResource("7_1rfyn")
+
+[node name="EnemyUi2" parent="EnemyUIHolder/HBoxContainer" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") instance=ExtResource("6_1mrk7")]
+layout_mode = 2
+NameLabel = NodePath("")
+HealthLabel = NodePath("")
+MonsterSprite = NodePath("")
+Stat = SubResource("Resource_wav4a")
+
+[node name="EnemyUi3" parent="EnemyUIHolder/HBoxContainer" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") instance=ExtResource("6_1mrk7")]
+layout_mode = 2
+NameLabel = NodePath("")
+HealthLabel = NodePath("")
+MonsterSprite = NodePath("")
+Stat = ExtResource("7_1rfyn")
+
+[node name="EnemyUi4" parent="EnemyUIHolder/HBoxContainer" node_paths=PackedStringArray("NameLabel", "HealthLabel", "MonsterSprite") instance=ExtResource("6_1mrk7")]
+layout_mode = 2
+NameLabel = NodePath("")
+HealthLabel = NodePath("")
+MonsterSprite = NodePath("")
+Stat = ExtResource("7_1rfyn")
+
+[connection signal="OnUse" from="PlayerUi/ButtonHolder/Skills" to="PlayerUi" method="OpenMenu"]
+[connection signal="OnUse" from="PlayerUi/ButtonHolder/Items" to="PlayerUi" method="OpenMenu"]
+[connection signal="OnUse" from="PlayerUi/AttackList/back" to="PlayerUi" method="OpenMenu"]
+[connection signal="OnUse" from="PlayerUi/SkillList/back" to="PlayerUi" method="OpenMenu"]
+[connection signal="OnUse" from="PlayerUi/Item/back" to="PlayerUi" method="OpenMenu"]

@@ -6,8 +6,8 @@
 [resource]
 script = ExtResource("1_20uc2")
 Name = "Slime"
-Speed = 1505
 Sprite = ExtResource("1_hpm0p")
+bIsDead = false
 Level = 1
 PhysicalAttack = 10
 MagicAttack = 0

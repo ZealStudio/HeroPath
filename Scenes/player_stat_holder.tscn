@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dbec5eo5isepm"]
 
 [ext_resource type="Script" path="res://Code/Player/PlayerBase.gd" id="1_oatdd"]
-[ext_resource type="Resource" uid="uid://ciq15neo6fmwk" path="res://Code/Player/PlayerStats.tres" id="2_ko0gb"]
+[ext_resource type="Resource" uid="uid://c3mgiwet84fsw" path="res://Code/Player/PlayerStats.tres" id="2_ko0gb"]
 
 [node name="PlayerStatHolder" type="Node2D" groups=["PlayerStatHolder"]]
 script = ExtResource("1_oatdd")

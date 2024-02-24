@@ -13,6 +13,4 @@ class_name  Weapon
 @export_group("Attack List")
 @export var  Attack : Array[Attacks]
 
-@export_group("Skill List")
-@export var  Skill : Array[Skills]
 

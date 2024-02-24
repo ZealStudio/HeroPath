@@ -1,14 +1,13 @@
 extends Control
 
 
-var CurrentMenu : BaseMenu
-@export var HomeMenu : BaseMenu
-
+var CurrentMenu : Node2D
+@export var HomeMenu : Node2D
 var Currentindex = 0
 var NewMenuIndex = 0
 var Buttons : Array
 var MenuChildren
-var CurrentSelectedButton :ButtonBase
+var CurrentSelectedButton :Node2D
 var Player : PlayerBase
 @export var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
@@ -16,11 +15,8 @@ var Player : PlayerBase
 			"down": Vector2.DOWN}
 # Called when the node enters the scene tree for the first time.
 
-func _ready():
-	GetButtonsForMenu(HomeMenu)
-	SelectButton()
-	Player =  get_tree().get_nodes_in_group("PlayerStatHolder")[0]
 func _unhandled_input(event):
+
 	if !Player.CanAct:
 		return
 	if event.is_action_pressed("Interact"):
@@ -38,7 +34,6 @@ func _unhandled_input(event):
 				Currentindex += 1
 			UpdateIndex()
 
-
 func GetButtonsForMenu(Menu):
 	#get  the useAble UI part
 	CurrentMenu = Menu
@@ -48,9 +43,6 @@ func GetButtonsForMenu(Menu):
 		var ChildOfButton = button.get_children()
 		if button.is_in_group("PlayerButton"):
 			Buttons.append(button)
-		for Child in ChildOfButton:
-			if Child.is_in_group("PlayerButton"):
-				Buttons.append(Child)
 	CurrentSelectedButton = Buttons[0]
 	SelectButton()
 
@@ -64,15 +56,18 @@ func UpdateIndex():
 		Currentindex = Buttons.size() - 1
 	SelectButton()
 func SelectButton():
-	if Buttons.size() ==1:
+	if Buttons.size() == 1:
 		Currentindex = 0
 	for button in Buttons:
-		button.bIsSelected = false
-		button.Selected()
+		button.Selected(false)
 	CurrentSelectedButton= Buttons[Currentindex]
-	CurrentSelectedButton.bIsSelected = true
-	CurrentSelectedButton.Selected()
+	CurrentSelectedButton.Selected(true)
+	print_debug(CurrentSelectedButton)
+
 func ChangeVisibility(Visibility):
 	visible = Visibility
 
-
+func GetButtonToUse():
+	GetButtonsForMenu(HomeMenu)
+	SelectButton()
+	Player =  get_tree().get_nodes_in_group("PlayerStatHolder")[0]

@@ -7,7 +7,7 @@ class_name  UnitBase
 signal EndTurnSignal
 @export var Stat :UnitStats
 var CurretTarget :UnitBase
-var bDead = false
+
 var CanAct = false
 
 
@@ -20,7 +20,9 @@ func TakeDamage(Attack: Attacks ,Attacker:UnitStats):
 	var DamageAmount = Attack.AttackDamage
 	DamageAmount = CheckDefense(DamageAmount,Attack.Type, Attacker)
 	Stat.Health -=	DamageAmount
-
+	if Stat.Health <= 0:
+		Stat.bIsAlive = false
+		Stat.Health = 0
 
 
 

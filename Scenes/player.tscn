@@ -7,8 +7,9 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mt8v4"]
 size = Vector2(62, 61)
 
-[node name="player" type="Area2D"]
+[node name="player" type="Area2D" node_paths=PackedStringArray("PlayerStat")]
 script = ExtResource("1_m42du")
+PlayerStat = NodePath("PlayerStatHolder")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

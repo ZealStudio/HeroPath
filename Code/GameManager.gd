@@ -12,3 +12,7 @@ func GetPlayerStats():
 	var playerStats =get_tree().get_nodes_in_group("PlayerStatHolder")
 	if playerStats:
 		return playerStats[0].Stat
+func GetPlayerGetCardHolder():
+	var CardHolder =get_tree().get_nodes_in_group("PlayerGetCardHolder")
+	if CardHolder:
+		return CardHolder[0]

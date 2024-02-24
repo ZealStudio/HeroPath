@@ -1,13 +1,15 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://dnrlesgb731aj"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=5 format=3 uid="uid://codd8frhqvfqe"]
 
 [ext_resource type="Script" path="res://Code/Equipment/Weapon/WeaponBase.gd" id="1_4oxrb"]
+[ext_resource type="Resource" uid="uid://cs6oj685k3bkc" path="res://Code/ability/Attacks/HolySlash.tres" id="1_bkbc3"]
+[ext_resource type="Resource" uid="uid://bqc6tx8rs1oir" path="res://Code/ability/Attacks/Slash.tres" id="2_owlk2"]
+[ext_resource type="Resource" uid="uid://bygvyh2lv8hux" path="res://Code/ability/Attacks/Stab.tres" id="3_a7es4"]
 
 [resource]
 script = ExtResource("1_4oxrb")
-WeaponType = "Sword"
-PhysicalAttack = 3
+WeaponType = ""
+PhysicalAttack = 0
 MagicAttack = 0
-Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
-Skill = Array[Resource("res://Code/Skills/Skills.gd")]([])
-Name = "Hero Sword"
+Attack = Array[Resource("res://Code/ability/Attacks/Attacks.gd")]([ExtResource("1_bkbc3"), ExtResource("2_owlk2"), ExtResource("3_a7es4")])
+Name = ""
 description = ""
