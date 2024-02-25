@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_deaai")
 Type = ""
-Name = "Stab"
+Name = "last"
 ApCost = null
 MaxUse = null
 AttackDamage = 2

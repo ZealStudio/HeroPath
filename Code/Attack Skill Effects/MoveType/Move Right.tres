@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Move" load_steps=2 format=3 uid="uid://2wbq7v0v4ihe"]
+
+[ext_resource type="Script" path="res://Code/Attack Skill Effects/MoveType/MoveEffect.gd" id="1_8xool"]
+
+[resource]
+script = ExtResource("1_8xool")
+Directions = -1
+Name = ""
+Type = ""
+description = ""
+Amount = 0

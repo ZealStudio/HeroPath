@@ -38,7 +38,8 @@ func Selected(bSelected:bool):
 
 func ZoomIn():
 	pass
-
+## Move The Card
+# @pa
 func MoveCard(NewPosition ):
 	self.global_position = lerp(self.global_position, NewPosition ,.1 )
 
@@ -47,6 +48,7 @@ func MoveWhenSelected():
 		self.global_position.y = lerp(self.global_position.y, global_position.y -  150 ,.1)
 	else :
 		self.global_position.y = lerp(self.global_position.y, global_position.y  ,.1)
+
 
 func SetLabels():
 	NameOfAtack.text =AttackToMakeIntoCard.Name
@@ -75,3 +77,4 @@ func FindThisCardPosition():
 
 func _on_hover_timer_timeout():
 	bCanMoveUp = true
+

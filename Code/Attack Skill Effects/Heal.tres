@@ -1,8 +1,0 @@
-[gd_resource type="Resource" script_class="Effect" load_steps=2 format=3 uid="uid://cy0r5dpelqai0"]
-
-[ext_resource type="Script" path="res://Code/Attack Skill Effects/EffectBase.gd" id="1_k5mkr"]
-
-[resource]
-script = ExtResource("1_k5mkr")
-Type = "Healling"
-Amount = 0

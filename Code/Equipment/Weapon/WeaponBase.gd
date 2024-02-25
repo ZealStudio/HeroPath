@@ -3,7 +3,6 @@ extends Equipment
 class_name  Weapon
 
 
-@export_enum("Sword", "Spear") var WeaponType: String
 
 @export_group("Attack Properties")
 @export var PhysicalAttack: int
