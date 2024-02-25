@@ -8,12 +8,11 @@ class_name  FindTarget
 var inputs = {
 
 
-	"Self": GetTarget(),
-	"Enemy": Vector2.LEFT,
-	"TeamMate": Vector2.UP,
-	"SelfIndexBased": Vector2.RIGHT,
-	"EnemyIndexBased": Vector2.LEFT,
-	"TeamMateIndexBased": Vector2.UP,
+	"Self": GetSelfTarget(),
+	"Enemy":  GetEnemyTarget(),
+	"TeamMate": GetTeamMateTarget(),
+	"EnemySelected":  GetSelectedEnemy(),
+	"TeamMateSelected": Vector2.UP,
 	"Random": Vector2.DOWN}
 
 
@@ -23,8 +22,21 @@ var inputs = {
 
 
 func  WhenUsed():
-	return GetTarget()
+	return inputs[TargetType]
 
-func GetTarget():
-	if TargetType == "self":
-		pass
+
+
+func GetSelfTarget():
+	pass
+func  GetEnemyTarget():
+	pass
+func  GetTeamMateTarget():
+	pass
+func  GetSelectedEnemy():
+	pass
+func TeamMateSelected():
+	pass
+func GetRandomEnemy():
+	pass
+func GetRandomTeamMate():
+	pass

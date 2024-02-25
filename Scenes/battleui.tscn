@@ -9,7 +9,7 @@
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc1qx"]
 shader = ExtResource("4_m5v3j")
-shader_parameter/progress = 0.0
+shader_parameter/progress = 0.58
 shader_parameter/multiplier = 3.0
 shader_parameter/angle = 45.0
 shader_parameter/anchor = Vector2(0.5, 0.5)
@@ -84,3 +84,4 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("5_wk34d")
 
 [connection signal="LoadBattleUI" from="Screen Transition OverLay" to="MenuControler" method="ChangeVisibility"]
+[connection signal="mouse_entered" from="Screen Transition OverLay" to="Screen Transition OverLay" method="_on_mouse_entered"]

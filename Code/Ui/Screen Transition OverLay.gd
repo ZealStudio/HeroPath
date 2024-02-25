@@ -34,3 +34,7 @@ func StartBattle():
 
 
 	#get_tree().change_scene_to_file("res://Scenes/main.tscn")
+
+
+func _on_mouse_entered():
+	print_debug("enter ")
