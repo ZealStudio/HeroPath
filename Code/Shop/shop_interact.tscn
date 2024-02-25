@@ -1,0 +1,18 @@
+[gd_scene load_steps=5 format=3 uid="uid://cu43cajl3e6sl"]
+
+[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="1_h4pk8"]
+[ext_resource type="Script" path="res://Code/Shop/shop_interact.gd" id="1_hlil5"]
+[ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="2_fcd5b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vipqm"]
+size = Vector2(126, 126)
+
+[node name="ShopInteract" type="Area2D" groups=["Shop"]]
+script = ExtResource("1_hlil5")
+runtime_data = ExtResource("2_fcd5b")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_h4pk8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_vipqm")

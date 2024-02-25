@@ -24,8 +24,10 @@ func _unhandled_input(event):
 		elif ray.get_collider() and ray.get_collider().is_in_group("NPC")\
 		 and runtime_data.current_gameplay_state == GameManager.GameState.FREEWALK:
 			GameManager.emit_signal("npc_interact", inventory)
-
-
+		elif ray.get_collider() and ray.get_collider().is_in_group("Shop")\
+		 and (runtime_data.current_gameplay_state == GameManager.GameState.FREEWALK\
+		 or runtime_data.current_gameplay_state == GameManager.GameState.IN_SHOP):
+			GameManager.emit_signal("shop_interact")
 	for dir in inputs.keys():
 		if runtime_data.current_gameplay_state == GameManager.GameState.FREEWALK:
 			if event.is_action_pressed(dir) and bCanMove:
