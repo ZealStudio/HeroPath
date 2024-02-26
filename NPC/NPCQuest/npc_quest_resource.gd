@@ -1,6 +1,6 @@
 extends Resource
 
-class_name DefaultNPCResource
+class_name NPCQuestResource
 
 @export var intro_dialogue: Dialogue
 @export var pending_dialogue: Dialogue

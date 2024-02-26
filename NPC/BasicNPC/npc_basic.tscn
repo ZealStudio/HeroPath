@@ -1,0 +1,21 @@
+[gd_scene load_steps=6 format=3 uid="uid://ccc6702voxml6"]
+
+[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="1_76w72"]
+[ext_resource type="Script" path="res://NPC/BasicNPC/npc_basic.gd" id="1_l5li4"]
+[ext_resource type="Resource" uid="uid://be1a0llx3lfuc" path="res://NPC/BasicNPC/NPCResource/default_npc_basic_resource.tres" id="2_1b0io"]
+[ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="3_1l7qb"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mraw7"]
+size = Vector2(125, 125)
+
+[node name="NPCBasic" type="Area2D" groups=["NPC"]]
+script = ExtResource("1_l5li4")
+npc_resource = ExtResource("2_1b0io")
+runtime_data = ExtResource("3_1l7qb")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_76w72")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -0.5)
+shape = SubResource("RectangleShape2D_mraw7")

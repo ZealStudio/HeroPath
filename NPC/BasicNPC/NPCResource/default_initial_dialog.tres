@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Dialogue" load_steps=3 format=3 uid="uid://v72o4pf3duvt"]
+
+[ext_resource type="Script" path="res://Code/Dialog/dialogue.gd" id="1_2qwbe"]
+[ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="1_a1r42"]
+
+[resource]
+script = ExtResource("1_2qwbe")
+avatars = Array[Texture]([ExtResource("1_a1r42")])
+dialog_slides = Array[String](["initial"])

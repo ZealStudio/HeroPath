@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="NPCBasicResource" load_steps=4 format=3 uid="uid://be1a0llx3lfuc"]
+
+[ext_resource type="Resource" uid="uid://v72o4pf3duvt" path="res://NPC/BasicNPC/NPCResource/default_initial_dialog.tres" id="1_p7hym"]
+[ext_resource type="Script" path="res://NPC/BasicNPC/npc_basic_resource.gd" id="1_pushq"]
+[ext_resource type="Resource" uid="uid://bg71eywq2p06f" path="res://NPC/BasicNPC/NPCResource/default_post_dialog.tres" id="2_meol4"]
+
+[resource]
+script = ExtResource("1_pushq")
+initial_dialogue = ExtResource("1_p7hym")
+post_dialogue = ExtResource("2_meol4")

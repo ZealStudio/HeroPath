@@ -1,14 +1,14 @@
 [gd_scene load_steps=6 format=3 uid="uid://bvxulgjhnnk5v"]
 
-[ext_resource type="Script" path="res://NPCQuest/default_npc.gd" id="1_rahi0"]
+[ext_resource type="Script" path="res://NPC/NPCQuest/npc_quest.gd" id="1_rahi0"]
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="2_0gdrq"]
-[ext_resource type="Resource" uid="uid://bcl51buqbj3k3" path="res://NPCQuest/NPCResource/default_npc_resource.tres" id="2_3u1w3"]
+[ext_resource type="Resource" uid="uid://bcl51buqbj3k3" path="res://NPC/NPCQuest/NPCResource/default_npc_resource.tres" id="2_3u1w3"]
 [ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="3_kbx0y"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aprh6"]
 size = Vector2(125, 125)
 
-[node name="DefaultNPC" type="Area2D" groups=["NPC"]]
+[node name="NPCQuest" type="Area2D" groups=["NPC"]]
 script = ExtResource("1_rahi0")
 npc_resource = ExtResource("2_3u1w3")
 runtime_data = ExtResource("3_kbx0y")

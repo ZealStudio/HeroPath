@@ -1,6 +1,6 @@
 extends Area2D
 
-@export var npc_resource: DefaultNPCResource
+@export var npc_resource: NPCQuestResource
 @export var runtime_data: RuntimeData
 
 enum npc_interact_state {INTRO, PENDING, COMPLETE}

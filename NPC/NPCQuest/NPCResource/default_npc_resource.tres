@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="NPCQuestResource" load_steps=6 format=3 uid="uid://bcl51buqbj3k3"]
+
+[ext_resource type="Resource" uid="uid://dikxvr1nmyhgo" path="res://NPC/NPCQuest/NPCResource/default_complete_dialog.tres" id="1_63upo"]
+[ext_resource type="Resource" uid="uid://c5p02i3hij5el" path="res://NPC/NPCQuest/NPCResource/default_intro_dialog.tres" id="2_xap8i"]
+[ext_resource type="Resource" uid="uid://g71w8eaq6ufm" path="res://NPC/NPCQuest/NPCResource/default_pending_dialog.tres" id="3_drjta"]
+[ext_resource type="Resource" uid="uid://blcvolxij7oka" path="res://Code/Inventory/TestItems/test_item.tres" id="4_cdc5k"]
+[ext_resource type="Script" path="res://NPC/NPCQuest/npc_quest_resource.gd" id="5_0kkil"]
+
+[resource]
+script = ExtResource("5_0kkil")
+intro_dialogue = ExtResource("2_xap8i")
+pending_dialogue = ExtResource("3_drjta")
+complete_dialogue = ExtResource("1_63upo")
+quest_item = ExtResource("4_cdc5k")
