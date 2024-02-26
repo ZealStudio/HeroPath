@@ -2,6 +2,5 @@ extends Resource
 
 class_name MenuSelection
 
-func pressed():
-	pass
-
+@export var name: String
+@export var scene: PackedScene

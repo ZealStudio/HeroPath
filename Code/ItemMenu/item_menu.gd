@@ -11,8 +11,8 @@ func insert(selection: MenuSelection):
 	#if item exists in inv, add amount by 1
 	var item_slots = menu_slots.filter(func(slot): return slot.selection == selection)
 	if not item_slots.is_empty():
-		#item_slots[0].amount += 1
-		pass
+		emit_signal("resize")
+		print("full")
 	else:
 		var empty_slots = menu_slots.filter(func(slot): return slot.selection == null)
 		if not empty_slots.is_empty():
@@ -20,7 +20,7 @@ func insert(selection: MenuSelection):
 			#empty_slots[0].amount = 1
 		else:
 			resize_array(selection)
-	update.emit()
+		update.emit()
 
 
 func resize_array(selection: MenuSelection):

@@ -18,36 +18,25 @@ var num_of_slots := 4
 var bIsOpen: bool = false
 
 @export var test_selection: Array[MenuSelection]
+
 func _ready():
 	item_menu.connect("resize", add_selection_slots)
 	item_menu.connect("update", update_slots)
-	
 	item_menu.insert(test_selection[0])
 	item_menu.insert(test_selection[1])
-	
+	update_slots()
 	GetButtonsForMenu(grid_container)
 	SelectButton()
-
-
-func _input(event):
-	#opens inventory
-	if event.is_action_pressed("i")\
-	 and (runtime_data.current_gameplay_state == GameManager.GameState.FREEWALK\
-	 or runtime_data.current_gameplay_state == GameManager.GameState.IN_MENU):
-		print(runtime_data.current_gameplay_state)
-		if bIsOpen:
-			close()
-		else:
-			open()
 
 
 func _unhandled_input(event):
 	if runtime_data.current_gameplay_state == GameManager.GameState.IN_MENU:
 		if event.is_action_pressed("Interact"):
-			CurrentSelectedButton.Press()
+			CurrentSelectedButton.Press(item_menu.menu_slots[Currentindex])
 			SelectButton()
-			if CurrentSelectedButton.MainMenuToOpen != null:
-				GetButtonsForMenu(CurrentSelectedButton.MainMenuToOpen)
+			get_parent().remove_child(self)
+			#if CurrentSelectedButton.MainMenuToOpen != null:
+				#GetButtonsForMenu(CurrentSelectedButton.MainMenuToOpen)
 			return
 		for dir in inputs.keys():
 			if event.is_action_pressed(dir):
@@ -63,17 +52,17 @@ func _unhandled_input(event):
 				UpdateIndex()
 
 
-func open():
-	visible = true
-	bIsOpen = true
-	runtime_data.current_gameplay_state = GameManager.GameState.IN_MENU
-
-
-func close():
-	visible = false
-	bIsOpen = false
-	runtime_data.current_gameplay_state = GameManager.GameState.FREEWALK
-
+#func open():
+	#visible = true
+	#bIsOpen = true
+	#runtime_data.current_gameplay_state = GameManager.GameState.IN_MENU
+#
+#
+#func close():
+	#visible = false
+	#bIsOpen = false
+	#runtime_data.current_gameplay_state = GameManager.GameState.FREEWALK
+#
 
 func update_slots():
 	Currentindex = clamp(Currentindex, 0, item_menu.menu_slots.size() - 1)
@@ -113,9 +102,10 @@ func SelectButton():
 		select.bIsSelected = false
 		select.Selected()
 	var clamped_index = clamp(Currentindex, 0, num_of_slots - 1)
-	CurrentSelectedButton = selections[clamped_index]
-	CurrentSelectedButton.bIsSelected = true
-	CurrentSelectedButton.Selected()
+	if selections.size() > 0:
+		CurrentSelectedButton = selections[clamped_index]
+		CurrentSelectedButton.bIsSelected = true
+		CurrentSelectedButton.Selected()
 
 
 func GetButtonsForMenu(Grid):
@@ -123,5 +113,6 @@ func GetButtonsForMenu(Grid):
 	var GridChildren = Grid.get_children()
 	for item in GridChildren:
 		selections.append(item)
-	CurrentSelectedButton = selections[0]
+	if selections.size() > 0:
+		CurrentSelectedButton = selections[0]
 	SelectButton()

@@ -5,6 +5,7 @@
 [node name="MenuSlotUI" type="Control" node_paths=PackedStringArray("BG", "selection_name")]
 custom_minimum_size = Vector2(150, 40)
 layout_mode = 3
+anchors_preset = 0
 offset_right = 150.0
 offset_bottom = 40.0
 grow_horizontal = 2
@@ -12,6 +13,7 @@ grow_vertical = 2
 script = ExtResource("1_duq3e")
 BG = NodePath("ItemBackground")
 selection_name = NodePath("CenterContainer/Panel/SelectionName")
+NotSelectedColor = Color(0.462745, 0.462745, 0.462745, 1)
 SelectedColor = Color(0.65098, 0.65098, 0.65098, 1)
 
 [node name="ItemBackground" type="ColorRect" parent="."]

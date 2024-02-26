@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbsldorqxh778"]
+[gd_scene load_steps=5 format=3 uid="uid://bbsldorqxh778"]
 
 [ext_resource type="PackedScene" uid="uid://cmlvniw5qjq4j" path="res://Scenes/player.tscn" id="1_be1nw"]
-[ext_resource type="PackedScene" uid="uid://bjc1ltw844mvj" path="res://Code/ItemMenu/UI/item_menu_UI.tscn" id="2_vba0f"]
+[ext_resource type="PackedScene" uid="uid://emfaehntryat" path="res://Code/MenuHolder/menu_holder.tscn" id="2_fqmgd"]
+[ext_resource type="PackedScene" uid="uid://cu43cajl3e6sl" path="res://Code/Shop/shop_interact.tscn" id="3_ygp7f"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm4ej"]
 size = Vector2(146, 60)
@@ -22,8 +23,11 @@ shape = SubResource("RectangleShape2D_bm4ej")
 
 [node name="Node2D" type="Node2D" parent="StaticBody2D"]
 
-[node name="ItemMenuUI" parent="." instance=ExtResource("2_vba0f")]
-offset_left = 434.0
-offset_top = 212.0
-offset_right = 639.0
-offset_bottom = 360.0
+[node name="ShopInteract" parent="." instance=ExtResource("3_ygp7f")]
+position = Vector2(69, 261)
+
+[node name="MenuHolder" parent="." instance=ExtResource("2_fqmgd")]
+offset_left = 507.0
+offset_top = 262.0
+offset_right = 563.0
+offset_bottom = 298.0

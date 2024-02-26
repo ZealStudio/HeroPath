@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://emfaehntryat"]
+
+[ext_resource type="Script" path="res://Code/MenuHolder/menu_holder.gd" id="1_5x7kg"]
+[ext_resource type="PackedScene" uid="uid://bjc1ltw844mvj" path="res://Code/ItemMenu/UI/item_menu_UI.tscn" id="2_apbom"]
+[ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="3_oqbyp"]
+
+[node name="MenuHolder" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5x7kg")
+item_menu = ExtResource("2_apbom")
+runtime_data = ExtResource("3_oqbyp")

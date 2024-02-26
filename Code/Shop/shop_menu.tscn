@@ -5,11 +5,13 @@ layout_mode = 3
 anchors_preset = 0
 
 [node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
 offset_right = 639.0
 offset_bottom = 359.0
 color = Color(0.878431, 0.431373, 0.458824, 1)
 
 [node name="Stall" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = -1.0
 offset_top = 173.0
 offset_right = 641.0
@@ -17,6 +19,7 @@ offset_bottom = 359.0
 color = Color(0.360784, 0.0784314, 0.0156863, 1)
 
 [node name="ShopKeep" type="ColorRect" parent="."]
+layout_mode = 0
 offset_left = 279.0
 offset_top = 77.0
 offset_right = 379.0
