@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="WeaponMenu" load_steps=2 format=3 uid="uid://jtxr8axlwtoo"]
+
+[ext_resource type="Script" path="res://Code/WeaponMenu/weapon_menu.gd" id="1_jm7yn"]
+
+[resource]
+script = ExtResource("1_jm7yn")
+menu_slots = Array[Resource("res://Code/WeaponMenu/weapon_slot.gd")]([])

@@ -1,0 +1,74 @@
+[gd_scene load_steps=6 format=3 uid="uid://colxxwupiqspq"]
+
+[ext_resource type="Script" path="res://Code/WeaponMenu/UI/weapon_menu_ui.gd" id="1_emnls"]
+[ext_resource type="Resource" uid="uid://jtxr8axlwtoo" path="res://Code/WeaponMenu/weapon_menu.tres" id="2_50maw"]
+[ext_resource type="PackedScene" uid="uid://btqp4bohdvoga" path="res://Code/WeaponMenu/UI/weapon_slots_ui.tscn" id="3_ko8dp"]
+[ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="4_6imve"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="7_1f23b"]
+
+[node name="WeaponMenuUI" type="Control" node_paths=PackedStringArray("grid_container")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -74.0
+offset_right = 102.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_emnls")
+item_menu = ExtResource("2_50maw")
+grid_container = NodePath("BG/MenuGridContainer")
+menu_slot_preload = ExtResource("3_ko8dp")
+runtime_data = ExtResource("4_6imve")
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 205.0
+offset_bottom = 148.0
+color = Color(0.8, 0.631373, 0.360784, 0.560784)
+
+[node name="MenuGridContainer" type="GridContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -64.0
+offset_right = 86.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DescriptionBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -74.0
+offset_right = -41.0
+offset_bottom = 74.0
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="ItemDescription" type="Label" parent="DescriptionBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("7_1f23b")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
+autowrap_mode = 3
