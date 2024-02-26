@@ -1,0 +1,77 @@
+[gd_scene load_steps=8 format=3 uid="uid://bjc1ltw844mvj"]
+
+[ext_resource type="Script" path="res://Code/ItemMenu/UI/item_menu_UI.gd" id="1_58ifn"]
+[ext_resource type="Resource" uid="uid://b3etucsbu6121" path="res://Code/ItemMenu/item_menu.tres" id="2_mlx3n"]
+[ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="2_n7m4v"]
+[ext_resource type="Resource" uid="uid://cn6xc7lh5npdn" path="res://Code/ItemMenu/Selections/menu_selection.tres" id="3_07142"]
+[ext_resource type="PackedScene" uid="uid://cdd0gghpc6i01" path="res://Code/ItemMenu/UI/menu_slot_ui.tscn" id="4_4th0e"]
+[ext_resource type="Resource" uid="uid://dwdslblihsftg" path="res://Code/ItemMenu/Selections/menu_selection2.tres" id="6_husvy"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="11_4bh05"]
+
+[node name="ItemMenuUI" type="Control" node_paths=PackedStringArray("grid_container")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -74.0
+offset_right = 102.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_58ifn")
+item_menu = ExtResource("2_mlx3n")
+grid_container = NodePath("BG/MenuGridContainer")
+menu_slot_preload = ExtResource("4_4th0e")
+runtime_data = ExtResource("2_n7m4v")
+test_selection = Array[Resource("res://Code/ItemMenu/menu_selections.gd")]([ExtResource("3_07142"), ExtResource("6_husvy")])
+
+[node name="BG" type="ColorRect" parent="."]
+layout_mode = 1
+offset_right = 205.0
+offset_bottom = 148.0
+color = Color(0.8, 0.631373, 0.360784, 0.560784)
+
+[node name="MenuGridContainer" type="GridContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -64.0
+offset_right = 86.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DescriptionBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -74.0
+offset_right = -41.0
+offset_bottom = 74.0
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="ItemDescription" type="Label" parent="DescriptionBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("11_4bh05")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
+autowrap_mode = 3

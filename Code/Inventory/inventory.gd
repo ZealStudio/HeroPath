@@ -5,7 +5,6 @@ class_name Inventory
 signal update
 signal resize
 
-@export var empty_item_slot: InventorySlot
 @export var slots: Array[InventorySlot]
 
 #when you collect item -> use this function to insert it into inventory
@@ -27,5 +26,5 @@ func insert(item: InventoryItem):
 func resize_array(item: InventoryItem):
 	slots.resize(slots.size() + 1)
 	slots[slots.size() - 1] = InventorySlot.new()
-	emit_signal("resize")
+	resize.emit()
 	insert(item)

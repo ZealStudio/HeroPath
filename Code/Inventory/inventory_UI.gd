@@ -9,6 +9,7 @@ extends Control
 @export var item_slot_preload: PackedScene
 @export var item_description: Label
 @export var inv: Inventory
+
 @onready var slots: Array = grid_container.get_children()
 
 var Currentindex = 0

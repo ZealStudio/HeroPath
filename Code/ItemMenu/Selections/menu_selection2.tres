@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="MenuSelection" load_steps=2 format=3 uid="uid://dwdslblihsftg"]
+
+[ext_resource type="Script" path="res://Code/ItemMenu/menu_selections.gd" id="1_mywbl"]
+
+[resource]
+script = ExtResource("1_mywbl")

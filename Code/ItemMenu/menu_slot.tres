@@ -1,0 +1,8 @@
+[gd_resource type="Resource" script_class="MenuSlot" load_steps=3 format=3 uid="uid://d1n0t5cmem7y5"]
+
+[ext_resource type="Script" path="res://Code/ItemMenu/menu_slot.gd" id="1_cn8iw"]
+[ext_resource type="Resource" uid="uid://cn6xc7lh5npdn" path="res://Code/ItemMenu/Selections/menu_selection.tres" id="2_ofutb"]
+
+[resource]
+script = ExtResource("1_cn8iw")
+selection = ExtResource("2_ofutb")
