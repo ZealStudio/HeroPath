@@ -1,0 +1,1 @@
+For Ruby's sprite sheets, profile icons, ect.

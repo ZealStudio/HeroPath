@@ -12,3 +12,5 @@ MaxHealth = 20
 Health = 0
 PhysicalDefense = 0
 MagicDefense = 0
+Attack = Array[Resource("res://Code/Attacks/Attacks.gd")]([])
+Skills = Array[Resource("res://Code/Attacks/Attacks.gd")]([])

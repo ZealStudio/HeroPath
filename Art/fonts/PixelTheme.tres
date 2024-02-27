@@ -1,7 +1,0 @@
-[gd_resource type="Theme" load_steps=2 format=3 uid="uid://4i8x1qypd4n2"]
-
-[ext_resource type="FontFile" uid="uid://cy1wkpyaf1by5" path="res://Art/fonts/Passage 7 Basic.ttf" id="1_pxgl3"]
-
-[resource]
-default_font = ExtResource("1_pxgl3")
-default_font_size = 16

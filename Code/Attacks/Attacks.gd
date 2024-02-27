@@ -10,6 +10,7 @@ class_name  Attacks
 
 @export_group("Attack Properties")
 @export var AttackDamage :int
+@export var Debuffs :Array[Effect]
 
 
 

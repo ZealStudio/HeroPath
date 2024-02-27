@@ -1,0 +1,24 @@
+[gd_scene load_steps=3 format=3 uid="uid://b8o2cf1agybma"]
+
+[ext_resource type="Script" path="res://Code/Ui/ButtonBase.gd" id="1_4vw8r"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_7vo7h"]
+
+[node name="Attack" type="ColorRect" node_paths=PackedStringArray("ButtonLabel") groups=["PlayerButton"]]
+custom_minimum_size = Vector2(100, 10)
+offset_right = 100.0
+offset_bottom = 32.0
+color = Color(0, 0, 0, 1)
+script = ExtResource("1_4vw8r")
+ButtonLabel = NodePath("Label")
+SelectedColor = Color(1, 1, 1, 1)
+TextInLabel = "Attack"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 32.0
+theme = ExtResource("2_7vo7h")
+theme_override_font_sizes/font_size = 32
+text = "Attack"
+horizontal_alignment = 1
+vertical_alignment = 1

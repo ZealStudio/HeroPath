@@ -45,6 +45,7 @@ fit_content = true
 scroll_active = false
 
 [node name="HealthLabel" type="RichTextLabel" parent="LabelHolder"]
+layout_mode = 0
 offset_top = 21.0
 offset_right = 81.0
 offset_bottom = 49.0
