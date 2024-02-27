@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Damage" load_steps=2 format=3 uid="uid://yg4wj4r4r7p2"]
+
+[ext_resource type="Script" path="res://Code/Attack Skill Effects/AttackType/DealDamage.gd" id="1_4u5yl"]
+
+[resource]
+script = ExtResource("1_4u5yl")
+baseAmount = 1
+Name = "Deal Damage"
+TargetType = "TeamMateSelected"
+description = ""
+Amount = 0

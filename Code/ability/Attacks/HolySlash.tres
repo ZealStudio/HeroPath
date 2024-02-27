@@ -1,12 +1,14 @@
-[gd_resource type="Resource" script_class="Attacks" load_steps=2 format=3 uid="uid://cs6oj685k3bkc"]
+[gd_resource type="Resource" script_class="Attacks" load_steps=4 format=3 uid="uid://cs6oj685k3bkc"]
 
 [ext_resource type="Script" path="res://Code/ability/Attacks/Attacks.gd" id="1_5txjw"]
+[ext_resource type="Resource" uid="uid://yg4wj4r4r7p2" path="res://Code/Attack Skill Effects/AttackType/DamageToOneUnit.tres" id="1_nigql"]
+[ext_resource type="Resource" uid="uid://2wbq7v0v4ihe" path="res://Code/Attack Skill Effects/MoveType/Move Right.tres" id="2_m5dc4"]
 
 [resource]
 script = ExtResource("1_5txjw")
 Type = "Magic"
-Name = "Holy Slash"
+Name = "holy slash"
 ApCost = 0
 MaxUse = 2
 AttackDamage = 2
-SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])
+SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([ExtResource("1_nigql"), ExtResource("2_m5dc4")])

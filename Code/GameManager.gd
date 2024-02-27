@@ -16,3 +16,7 @@ func GetPlayerGetCardHolder():
 	var CardHolder =get_tree().get_nodes_in_group("PlayerGetCardHolder")
 	if CardHolder:
 		return CardHolder[0]
+func GetPlayerStateMachine():
+	var StateMachine=get_tree().get_nodes_in_group("StateMachine")
+	if StateMachine:
+		return StateMachine[0]

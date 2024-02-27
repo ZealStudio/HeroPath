@@ -6,6 +6,6 @@
 script = ExtResource("1_bmdgk")
 Directions = -1
 Name = ""
-Type = ""
+TargetType = ""
 description = ""
 Amount = 0

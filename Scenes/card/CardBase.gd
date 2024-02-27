@@ -8,14 +8,18 @@ signal Use
 @onready var OutlineValues =$BackGround.material
 @export var NameOfAtack :RichTextLabel
 @export var DescriptionOfAtack :RichTextLabel
-@export var AttackToMakeIntoCard :Ability
+@export var AbilityToMakeIntoCard :Ability
+
+
+
+
+var ActionTimeline =[]
 var CurrentSpotOnBoard : Marker2D
 var WhoOwnsThisCard : PlayerBase
 var bIsSelected = false
 var bCanMoveUp =false
 var NeighborCards ={"CardToRight": Card,
 "CardToleft": Card}
-
 
 func _physics_process(delta):
 	MoveCard(CurrentSpotOnBoard.global_position)
@@ -36,10 +40,6 @@ func Selected(bSelected:bool):
 		#if TimerForHover.wait_time:
 			#bCanMoveUp = false
 
-func ZoomIn():
-	pass
-## Move The Card
-# @pa
 func MoveCard(NewPosition ):
 	self.global_position = lerp(self.global_position, NewPosition ,.1 )
 
@@ -51,10 +51,13 @@ func MoveWhenSelected():
 
 
 func SetLabels():
-	NameOfAtack.text =AttackToMakeIntoCard.Name
+	NameOfAtack.text =AbilityToMakeIntoCard.Name
 
 func OnUse():
 	print_debug(NameOfAtack.text + " was used.")
+	OnUseCallEffects()
+
+
 	emit_signal("Use")
 
 func SetNeighborCards():
@@ -69,12 +72,65 @@ func SetNeighborCards():
 		NeighborCards["CardToRight"] = null
 	else:
 		NeighborCards["CardToRight"] = CardsInHolder[FindThisCardPosition() + 1]
-		print_debug(NeighborCards["CardToRight"].AttackToMakeIntoCard.Name)
 func FindThisCardPosition():
 	var CardHolder = GameManager.GetPlayerGetCardHolder().get_children()
 	var SelfIndex = CardHolder.find(self)
 	return SelfIndex
 
+
+func OnUseCallEffects():
+	for effect in AbilityToMakeIntoCard.SkillEffects:
+		print_debug(effect.Name)
+		effect.Target = await SetTarget(effect.TargetType)
+		effect.GetSelf()
+
+func OnBattleStartEffect():
+	pass
+
+
+
+
 func _on_hover_timer_timeout():
 	bCanMoveUp = true
+
+
+
+func SetTarget(Target):
+	if Target == "Self":
+		return GetSelfTarget()
+	if  Target == "EnemyIndex":
+		return GetEnemyTarget()
+	if Target == "TeamMateIndex":
+		return GetTeamMateIndex()
+	if Target == "EnemySelected":
+		return GetSelectedEnemy()
+	if Target == "TeamMateSelected":
+		return await GetSelectedTeamMate()
+	if Target == "RandomEnemy":
+		return GetRandomEnemy()
+	if Target == "RandomTeamMate":
+		return GetRandomTeamMate()
+
+
+
+
+
+## Get the differnt Targets
+func GetSelfTarget():
+	return self
+
+func  GetEnemyTarget():
+	pass
+func  GetTeamMateIndex():
+	pass
+func  GetSelectedEnemy():
+	pass
+func GetSelectedTeamMate():
+	var SignalToWaitFor = GameManager.GetPlayerStateMachine().GetState("pickteamcard").CardPicked
+	GameManager.GetPlayerStateMachine().ChangeState("pickteamcard")
+	return await SignalToWaitFor
+func GetRandomEnemy():
+	pass
+func GetRandomTeamMate():
+	pass
 

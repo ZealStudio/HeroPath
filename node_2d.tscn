@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dtdvjw5eyj02d"]
 
-[ext_resource type="PackedScene" uid="uid://52e1na4alymu" path="res://Scenes/card/CardBase.tscn" id="1_bdhbw"]
+[ext_resource type="PackedScene" uid="uid://52e1na4alymu" path="res://Scenes/card/CardBase1.tscn" id="1_bdhbw"]
 
 [node name="Node2D" type="Node2D"]
 position = Vector2(2, 361)

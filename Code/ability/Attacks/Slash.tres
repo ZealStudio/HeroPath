@@ -6,7 +6,7 @@
 script = ExtResource("1_hxv4b")
 Type = ""
 Name = "Slash"
-ApCost = null
-MaxUse = null
+ApCost = 0
+MaxUse = 2
 AttackDamage = 3
-SkillEffects = null
+SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

@@ -93,8 +93,7 @@ initial_state = NodePath("PickAbility")
 script = ExtResource("8_tw5dc")
 HomeMenu = NodePath("../../MenuControler/CardHolder")
 
-[node name="pickteamcard" parent="State Machine" node_paths=PackedStringArray("HomeMenu") instance=ExtResource("8_dft8y")]
-HomeMenu = NodePath("../../MenuControler/CardHolder")
+[node name="team" parent="State Machine" instance=ExtResource("8_dft8y")]
 
 [node name="EnemyTurn" type="Node" parent="State Machine"]
 script = ExtResource("9_asyh5")

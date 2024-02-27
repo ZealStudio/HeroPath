@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://csifm7ux32sb8"]
+
+[ext_resource type="Script" path="res://Code/State Machine For Battle/TeamSelect.gd" id="1_vbfp7"]
+
+[node name="TeamSelect" type="Node"]
+script = ExtResource("1_vbfp7")

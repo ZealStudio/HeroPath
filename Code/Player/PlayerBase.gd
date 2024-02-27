@@ -1,8 +1,7 @@
 extends UnitBase
 
 class_name  PlayerBase
-var CardBase = preload("res://Scenes/card/CardBase.tscn")
-
+var CardBase = preload("res://Scenes/card/CardBase1.tscn")
 func StartTurn():
 	CanAct = true
 func EndTurn():
@@ -19,13 +18,20 @@ func AddCardsToBattle():
 		#"CardToleft": Card}
 
 
-	for attacks in Stat.WeaponSlot.Attack:
+	for attacks in Stat.WeaponSlot.OnUse:
 		var NewCard = CardBase.instantiate()
-		NewCard.AttackToMakeIntoCard = attacks
+		NewCard.AbilityToMakeIntoCard = attacks
 		NewCard.WhoOwnsThisCard = self
+		#attacks
 		CardsToAdd.append(NewCard)
 		PlayerCardHolder.add_child(NewCard)
 
 
 
 	return CardsToAdd
+
+
+
+
+
+

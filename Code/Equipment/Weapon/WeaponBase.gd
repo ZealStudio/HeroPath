@@ -9,7 +9,5 @@ class_name  Weapon
 @export var MagicAttack:int
 
 
-@export_group("Attack List")
-@export var  Attack : Array[Attacks]
-
-
+@export var OnUse: Array[Attacks]
+@export var OnBattleStart:Array[Attacks]

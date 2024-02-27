@@ -9,6 +9,7 @@
 script = ExtResource("1_4oxrb")
 PhysicalAttack = 0
 MagicAttack = 0
-Attack = Array[Resource("res://Code/ability/Attacks/Attacks.gd")]([ExtResource("1_bkbc3"), ExtResource("2_owlk2"), ExtResource("3_a7es4")])
+OnUse = Array[Resource("res://Code/ability/Attacks/Attacks.gd")]([ExtResource("1_bkbc3"), ExtResource("2_owlk2"), ExtResource("3_a7es4")])
+OnBattleStart = Array[Resource("res://Code/ability/Attacks/Attacks.gd")]([])
 Name = ""
 description = ""

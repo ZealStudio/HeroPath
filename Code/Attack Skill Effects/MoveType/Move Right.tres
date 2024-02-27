@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_8xool")
 Directions = -1
-Name = ""
-Type = ""
+Name = "MoveRight"
+TargetType = "TeamMateSelected"
 description = ""
 Amount = 0

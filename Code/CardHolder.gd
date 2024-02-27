@@ -16,5 +16,7 @@ func CreateCards():
 		for card in Unit.AddCardsToBattle():
 			card.CurrentSpotOnBoard  =Positions[Temp]
 			Temp+= 1
-			$"..".GetButtonToUse()
+			$"../../State Machine/PickAbility".GetButtonToUse()
 	get_tree().call_group("ability", "SetNeighborCards")
+func SwitchCardsAround():
+	pass

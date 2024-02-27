@@ -6,7 +6,7 @@
 script = ExtResource("1_deaai")
 Type = ""
 Name = "last"
-ApCost = null
-MaxUse = null
+ApCost = 0
+MaxUse = 2
 AttackDamage = 2
-SkillEffects = null
+SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

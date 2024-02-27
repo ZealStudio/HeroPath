@@ -1,7 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://52e1na4alymu"]
+[gd_scene load_steps=7 format=3 uid="uid://52e1na4alymu"]
 
 [ext_resource type="Script" path="res://Scenes/card/CardBase.gd" id="1_6xh2s"]
-[ext_resource type="Resource" uid="uid://bqc6tx8rs1oir" path="res://Code/ability/Attacks/Slash.tres" id="2_0t2jl"]
 [ext_resource type="Shader" path="res://shaders/OutLine.gdshader" id="2_qili8"]
 [ext_resource type="Texture2D" uid="uid://cb2ykqbajs4a5" path="res://Art/Card/Card.png" id="3_c3blr"]
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="3_k1nib"]
@@ -20,7 +19,6 @@ shader_parameter/add_margins = true
 script = ExtResource("1_6xh2s")
 NameOfAtack = NodePath("LabelHolder/NameOfAttack")
 DescriptionOfAtack = NodePath("LabelHolder/RichTextLabel")
-AttackToMakeIntoCard = ExtResource("2_0t2jl")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7iv7a")

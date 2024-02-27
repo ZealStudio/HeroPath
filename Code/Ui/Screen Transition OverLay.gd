@@ -28,13 +28,10 @@ func StartBattle():
 	).from(1.0).set_trans(Tween.TRANS_SINE)
 	await tween.finished
 
-	print_debug(" Start battle")
+
 
 
 
 
 	#get_tree().change_scene_to_file("res://Scenes/main.tscn")
 
-
-func _on_mouse_entered():
-	print_debug("enter ")
