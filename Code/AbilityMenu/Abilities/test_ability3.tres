@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="Ability" load_steps=2 format=3 uid="uid://dh67kvw1b05j2"]
+
+[ext_resource type="Script" path="res://Code/AbilityMenu/ability.gd" id="1_hite6"]
+
+[resource]
+script = ExtResource("1_hite6")
+name = ""

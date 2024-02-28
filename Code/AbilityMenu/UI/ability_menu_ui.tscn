@@ -1,0 +1,76 @@
+[gd_scene load_steps=8 format=3 uid="uid://br6lmnjg63obd"]
+
+[ext_resource type="Script" path="res://Code/AbilityMenu/UI/ability_menu_ui.gd" id="1_8yby1"]
+[ext_resource type="Resource" uid="uid://d2xktcd5wwogh" path="res://Code/AbilityMenu/ability_menu.tres" id="2_33api"]
+[ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="2_gd85c"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="3_adbhy"]
+[ext_resource type="PackedScene" uid="uid://jmhyj1l0cd7c" path="res://Code/AbilityMenu/UI/ability_slot_ui.tscn" id="3_civms"]
+[ext_resource type="Resource" uid="uid://dfmw4k4s0whts" path="res://Code/AbilityMenu/Abilities/test_ability.tres" id="5_t470s"]
+[ext_resource type="Resource" uid="uid://dvv51f2nx0hy3" path="res://Code/AbilityMenu/Abilities/test_ability2.tres" id="6_2sp5n"]
+
+[node name="AbilityMenuUi" type="Control" node_paths=PackedStringArray("grid_container")]
+layout_mode = 3
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.5
+offset_top = -74.0
+offset_right = 102.5
+offset_bottom = 74.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_8yby1")
+item_menu = ExtResource("2_33api")
+grid_container = NodePath("BG/MenuGridContainer")
+menu_slot_preload = ExtResource("3_civms")
+runtime_data = ExtResource("2_gd85c")
+test_selection = Array[Resource("res://Code/AbilityMenu/ability.gd")]([ExtResource("5_t470s"), ExtResource("6_2sp5n")])
+
+[node name="BG" type="ColorRect" parent="."]
+offset_right = 205.0
+offset_bottom = 148.0
+color = Color(0.8, 0.631373, 0.360784, 0.560784)
+
+[node name="MenuGridContainer" type="GridContainer" parent="BG"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -86.0
+offset_top = -64.0
+offset_right = 86.0
+offset_bottom = 64.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="DescriptionBackground" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = -290.0
+offset_top = -74.0
+offset_right = -41.0
+offset_bottom = 74.0
+grow_vertical = 2
+metadata/_edit_group_ = true
+
+[node name="ItemDescription" type="Label" parent="DescriptionBackground"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 20.0
+offset_top = 20.0
+offset_right = -19.0
+offset_bottom = -20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_adbhy")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "test"
+autowrap_mode = 3

@@ -12,7 +12,6 @@ func insert(selection: Weapon):
 	var item_slots = menu_slots.filter(func(slot): return slot.weapon == selection)
 	if not item_slots.is_empty():
 		emit_signal("resize")
-		print("full")
 	else:
 		var empty_slots = menu_slots.filter(func(slot): return slot.weapon == null)
 		if not empty_slots.is_empty():

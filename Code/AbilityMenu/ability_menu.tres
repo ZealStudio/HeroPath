@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="AbilityMenu" load_steps=2 format=3 uid="uid://d2xktcd5wwogh"]
+
+[ext_resource type="Script" path="res://Code/AbilityMenu/ability_menu.gd" id="1_o18tl"]
+
+[resource]
+script = ExtResource("1_o18tl")
+menu_slots = Array[Resource("res://Code/AbilityMenu/ability_slot.gd")]([])

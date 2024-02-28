@@ -1,7 +1,9 @@
-[gd_resource type="Resource" script_class="Weapon" load_steps=2 format=3 uid="uid://bj7hh483nmt87"]
+[gd_resource type="Resource" script_class="Weapon" load_steps=3 format=3 uid="uid://bj7hh483nmt87"]
 
 [ext_resource type="Script" path="res://Code/CharacterMenu/weapon.gd" id="1_hv4q4"]
+[ext_resource type="PackedScene" uid="uid://br6lmnjg63obd" path="res://Code/AbilityMenu/UI/ability_menu_ui.tscn" id="1_ociqd"]
 
 [resource]
 script = ExtResource("1_hv4q4")
 name = "Spear"
+scene = ExtResource("1_ociqd")
