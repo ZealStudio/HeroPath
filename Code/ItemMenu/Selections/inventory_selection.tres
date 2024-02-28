@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="MenuSelection" load_steps=3 format=3 uid="uid://dwdslblihsftg"]
+
+[ext_resource type="PackedScene" uid="uid://d0y4rtv8xujqb" path="res://Code/Inventory/inventory_UI.tscn" id="1_4weld"]
+[ext_resource type="Script" path="res://Code/ItemMenu/menu_selections.gd" id="1_mywbl"]
+
+[resource]
+script = ExtResource("1_mywbl")
+name = "Name 2"
+scene = ExtResource("1_4weld")

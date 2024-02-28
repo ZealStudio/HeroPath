@@ -3,9 +3,9 @@
 [ext_resource type="Script" path="res://Code/ItemMenu/UI/item_menu_UI.gd" id="1_58ifn"]
 [ext_resource type="Resource" uid="uid://b3etucsbu6121" path="res://Code/ItemMenu/item_menu.tres" id="2_mlx3n"]
 [ext_resource type="Resource" uid="uid://nelojv8xdsdl" path="res://Code/runtime_data.tres" id="2_n7m4v"]
-[ext_resource type="Resource" uid="uid://cn6xc7lh5npdn" path="res://Code/ItemMenu/Selections/menu_selection.tres" id="3_07142"]
+[ext_resource type="Resource" uid="uid://cn6xc7lh5npdn" path="res://Code/ItemMenu/Selections/character_menu_selection.tres" id="3_07142"]
 [ext_resource type="PackedScene" uid="uid://cdd0gghpc6i01" path="res://Code/ItemMenu/UI/menu_slot_ui.tscn" id="4_4th0e"]
-[ext_resource type="Resource" uid="uid://dwdslblihsftg" path="res://Code/ItemMenu/Selections/menu_selection2.tres" id="6_husvy"]
+[ext_resource type="Resource" uid="uid://dwdslblihsftg" path="res://Code/ItemMenu/Selections/inventory_selection.tres" id="6_husvy"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="11_4bh05"]
 
 [node name="ItemMenuUI" type="Control" node_paths=PackedStringArray("grid_container")]

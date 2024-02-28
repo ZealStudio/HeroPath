@@ -1,9 +1,9 @@
 [gd_resource type="Resource" script_class="MenuSelection" load_steps=3 format=3 uid="uid://cn6xc7lh5npdn"]
 
 [ext_resource type="Script" path="res://Code/ItemMenu/menu_selections.gd" id="1_ldmhc"]
-[ext_resource type="PackedScene" uid="uid://d0y4rtv8xujqb" path="res://Code/Inventory/inventory_UI.tscn" id="1_vsw0s"]
+[ext_resource type="PackedScene" uid="uid://dj6v64x35ria8" path="res://Code/CharacterMenu/UI/character_menu_ui.tscn" id="1_lj357"]
 
 [resource]
 script = ExtResource("1_ldmhc")
 name = "Name 1"
-scene = ExtResource("1_vsw0s")
+scene = ExtResource("1_lj357")

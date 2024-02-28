@@ -18,7 +18,7 @@ func update(menu_slot: CharacterSlot):
 func Selected():
 	if bIsSelected:
 		BG.color = SelectedColor
-	else :
+	else:
 		BG.color = NotSelectedColor
 
 func Press(menu_slot: CharacterSlot):

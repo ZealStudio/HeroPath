@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://bbsldorqxh778"]
+[gd_scene load_steps=4 format=3 uid="uid://bbsldorqxh778"]
 
 [ext_resource type="PackedScene" uid="uid://cmlvniw5qjq4j" path="res://Scenes/player.tscn" id="1_be1nw"]
-[ext_resource type="PackedScene" uid="uid://c1j0pal3ppg25" path="res://Code/Dialog/dialog_ui.tscn" id="3_lp8jd"]
-[ext_resource type="PackedScene" uid="uid://ccc6702voxml6" path="res://NPC/BasicNPC/npc_basic.tscn" id="3_ltovi"]
+[ext_resource type="PackedScene" uid="uid://emfaehntryat" path="res://Code/MenuHolder/menu_holder.tscn" id="2_v56of"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm4ej"]
 size = Vector2(146, 60)
@@ -23,11 +22,8 @@ shape = SubResource("RectangleShape2D_bm4ej")
 
 [node name="Node2D" type="Node2D" parent="StaticBody2D"]
 
-[node name="DialogUI" parent="." instance=ExtResource("3_lp8jd")]
-offset_left = 639.0
-offset_top = 358.0
-offset_right = 639.0
-offset_bottom = 358.0
-
-[node name="NPCBasic" parent="." instance=ExtResource("3_ltovi")]
-position = Vector2(77, 292)
+[node name="MenuHolder" parent="." instance=ExtResource("2_v56of")]
+offset_left = 499.0
+offset_top = 274.0
+offset_right = 539.0
+offset_bottom = 314.0
