@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=13 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="PackedScene" uid="uid://dt26kkyu4luo2" path="res://Scenes/player_stat_holder.tscn" id="2_cq0af"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://csifm7ux32sb8" path="res://Code/State Machine For Battle/TeamSelect.tscn" id="8_dft8y"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/PickAbility.gd" id="8_tw5dc"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/EnemyTurn.gd" id="9_asyh5"]
+[ext_resource type="Script" path="res://Code/State Machine For Battle/Idle.gd" id="11_0ahw3"]
 [ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc1qx"]
@@ -30,6 +31,8 @@ script = ExtResource("1_8slk6")
 [node name="hero" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
 
 [node name="SideKick" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
+
+[node name="SideKick2" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
 
 [node name="MenuControler" parent="." instance=ExtResource("3_71hno")]
 
@@ -58,19 +61,19 @@ position = Vector2(530, 600)
 position = Vector2(630, 600)
 
 [node name="8" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(520, 600)
+position = Vector2(730, 600)
 
 [node name="9" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(580, 600)
+position = Vector2(830, 600)
 
 [node name="10" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(650, 600)
+position = Vector2(930, 600)
 
 [node name="11" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(720, 600)
+position = Vector2(1030, 600)
 
 [node name="12" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(790, 600)
+position = Vector2(1130, 600)
 
 [node name="CardHolder" type="Node2D" parent="MenuControler" node_paths=PackedStringArray("PlayerUnitHolder", "PositionHolder") groups=["PlayerGetCardHolder"]]
 script = ExtResource("12_8douu")
@@ -80,8 +83,8 @@ PositionHolder = NodePath("../PositionHolder")
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_uc1qx")
 layout_mode = 0
-offset_right = 1193.0
-offset_bottom = 715.0
+offset_right = 1200.0
+offset_bottom = 714.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("5_wk34d")
 
@@ -89,14 +92,35 @@ script = ExtResource("5_wk34d")
 script = ExtResource("7_a25ud")
 initial_state = NodePath("PickAbility")
 
-[node name="PickAbility" type="Node" parent="State Machine" node_paths=PackedStringArray("HomeMenu")]
+[node name="PickAbility" type="Node" parent="State Machine" node_paths=PackedStringArray("HomeMenu", "StateMachine")]
 script = ExtResource("8_tw5dc")
 HomeMenu = NodePath("../../MenuControler/CardHolder")
+StateMachine = NodePath("..")
 
-[node name="pickteamcard" parent="State Machine" node_paths=PackedStringArray("HomeMenu") instance=ExtResource("8_dft8y")]
+[node name="pickteamcard" parent="State Machine" node_paths=PackedStringArray("HomeMenu", "StateMachine") instance=ExtResource("8_dft8y")]
 HomeMenu = NodePath("../../MenuControler/CardHolder")
+StateMachine = NodePath("..")
 
-[node name="EnemyTurn" type="Node" parent="State Machine"]
+[node name="EnemyTurn" type="Node" parent="State Machine" node_paths=PackedStringArray("StateMachine")]
 script = ExtResource("9_asyh5")
+StateMachine = NodePath("..")
+
+[node name="Idle" type="Node" parent="State Machine"]
+script = ExtResource("11_0ahw3")
+
+[node name="PlayerUiHolder" type="Control" parent="."]
+anchors_preset = 0
+
+[node name="Box" type="VBoxContainer" parent="PlayerUiHolder"]
+layout_mode = 0
+offset_right = 307.0
+offset_bottom = 391.0
+
+[node name="EnemyUiHolder" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+grow_horizontal = 2
 
 [connection signal="LoadBattleUI" from="Screen Transition OverLay" to="MenuControler" method="ChangeVisibility"]

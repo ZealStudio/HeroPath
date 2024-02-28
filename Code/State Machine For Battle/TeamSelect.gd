@@ -16,9 +16,9 @@ var CurrentSelectedButton :Node2D
 			"up": Vector2.UP,
 			"down": Vector2.DOWN}
 func  Enter():
+	Currentindex = 0
 	GetButtonToUse()
 	print_debug("pick a team mate")
-func Exit():
 	pass
 func  Update(_delta:float):
 	pass
@@ -67,3 +67,4 @@ func SelectButton():
 func GetButtonToUse():
 	GetButtonsForMenu(HomeMenu)
 	SelectButton()
+

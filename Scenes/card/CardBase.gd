@@ -82,8 +82,9 @@ func OnUseCallEffects():
 	for effect in AbilityToMakeIntoCard.SkillEffects:
 		print_debug(effect.Name)
 		effect.Target = await SetTarget(effect.TargetType)
+		await effect.WhenUsed()
 		effect.GetSelf()
-
+	GameManager.GetPlayerStateMachine().ChangeState("pickability")
 func OnBattleStartEffect():
 	pass
 
@@ -128,6 +129,7 @@ func  GetSelectedEnemy():
 func GetSelectedTeamMate():
 	var SignalToWaitFor = GameManager.GetPlayerStateMachine().GetState("pickteamcard").CardPicked
 	GameManager.GetPlayerStateMachine().ChangeState("pickteamcard")
+	GameManager.GetPlayerStateMachine().GetState("pickteamcard").GetButtonToUse()
 	return await SignalToWaitFor
 func GetRandomEnemy():
 	pass

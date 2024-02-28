@@ -8,6 +8,7 @@ class_name  Move
 
 func  WhenUsed():
 	MoveCard()
+
+
 func  MoveCard():
-	#get target then Move card
 	pass

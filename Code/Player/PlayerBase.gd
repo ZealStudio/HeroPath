@@ -1,7 +1,7 @@
 extends UnitBase
 
 class_name  PlayerBase
-var CardBase = preload("res://Scenes/card/CardBase1.tscn")
+var CardBase = preload("res://Scenes/card/CardBase.tscn")
 func StartTurn():
 	CanAct = true
 func EndTurn():

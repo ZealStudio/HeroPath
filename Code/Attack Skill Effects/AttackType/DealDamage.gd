@@ -7,5 +7,8 @@ class_name Damage
 
 
 
+func  WhenUsed():
+	pass
+
 func DoDamage(Target):
 	pass

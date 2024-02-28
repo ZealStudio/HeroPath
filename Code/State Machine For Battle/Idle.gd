@@ -1,10 +1,9 @@
-extends Node
-class_name State
-@export var StateMachine:Node
-signal  Transitioned
+extends State
+
+class_name Idle
 
 func  Enter():
-	pass
+	print_debug("Is in idle")
 func Exit():
 	pass
 func  Update(_delta:float):
