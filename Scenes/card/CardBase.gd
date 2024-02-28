@@ -104,7 +104,7 @@ func SetTarget(Target):
 	if Target == "TeamMateIndex":
 		return GetTeamMateIndex()
 	if Target == "EnemySelected":
-		return GetSelectedEnemy()
+		return await GetSelectedEnemy()
 	if Target == "TeamMateSelected":
 		return await GetSelectedTeamMate()
 	if Target == "RandomEnemy":
@@ -125,7 +125,10 @@ func  GetEnemyTarget():
 func  GetTeamMateIndex():
 	pass
 func  GetSelectedEnemy():
-	pass
+	var SignalToWaitFor = GameManager.GetPlayerStateMachine().GetState("pickenemycard").CardPicked
+	GameManager.GetPlayerStateMachine().ChangeState("pickenemycard")
+	GameManager.GetPlayerStateMachine().GetState("pickenemycard").GetButtonToUse()
+	return await SignalToWaitFor
 func GetSelectedTeamMate():
 	var SignalToWaitFor = GameManager.GetPlayerStateMachine().GetState("pickteamcard").CardPicked
 	GameManager.GetPlayerStateMachine().ChangeState("pickteamcard")

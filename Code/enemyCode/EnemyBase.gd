@@ -2,25 +2,36 @@ extends UnitBase
 
 class_name  Enemy
 
-@export var NameLabel : RichTextLabel
-@export var HealthLabel: RichTextLabel
-@export var MonsterSprite :TextureRect
+var CardBase = preload("res://Scenes/card/CardBase.tscn")
 func  _ready():
 	SetLabels()
 
 func SetLabels():
-	NameLabel.text =  "Lv " + str(Stat.Level) + ": " + Stat.Name
-	HealthLabel.text = "Health: " + str(Stat.Health )
-	MonsterSprite.texture = Stat.Sprite
-
+	pass
 func UpdateLabel():
-	HealthLabel.text = "Health: " + str(Stat.Health )
+	pass
 func TakeDamage(Attack: Attacks ,Attacker:UnitStats):
 	super.TakeDamage(Attack,Attacker)
 	UpdateLabel()
 
 func StartTurn():
-	await get_tree().create_timer(1).timeout
-	super.StartTurn()
-	var BattleManager = get_tree().get_nodes_in_group("BattleManager")[0]
-	BattleManager.ProgressBattle()
+	pass
+func AddCardsToBattle():
+	var EnemyCardHolder = GameManager.GetEnemyGetCardHolder()
+	var CardsToAdd = []
+	if Stat.bIsDead:
+		print_debug("Dead")
+		return
+		#CardsToEffect ={"CardToRight": Card,
+		#"CardToleft": Card}
+	for attacks in Stat.OnUse:
+		var NewCard = CardBase.instantiate()
+		NewCard.AbilityToMakeIntoCard = attacks
+		NewCard.WhoOwnsThisCard = self
+		#attacks
+		CardsToAdd.append(NewCard)
+		EnemyCardHolder.add_child(NewCard)
+
+
+
+	return CardsToAdd

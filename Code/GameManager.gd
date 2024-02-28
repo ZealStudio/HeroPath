@@ -20,3 +20,7 @@ func GetPlayerStateMachine():
 	var StateMachine=get_tree().get_nodes_in_group("StateMachine")
 	if StateMachine:
 		return StateMachine[0]
+func GetEnemyGetCardHolder():
+	var CardHolder =get_tree().get_nodes_in_group("EnemyGetCardHolder")
+	if CardHolder:
+		return CardHolder[0]

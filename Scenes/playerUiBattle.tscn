@@ -1,17 +1,19 @@
 [gd_scene load_steps=4 format=3 uid="uid://c4vipg4takqal"]
 
-[ext_resource type="Script" path="res://Code/Player/player_unit_holder.gd" id="1_dj57v"]
-[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="1_q4vyj"]
-[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_6uohv"]
+[ext_resource type="Script" path="res://Code/Player/player_unit_holder.gd" id="1_gjaui"]
+[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="2_ol7xe"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="3_vv6jk"]
 
-[node name="PlayerUnitHolder" type="Control"]
+[node name="PlayerUnitHolder" type="Control" node_paths=PackedStringArray("NameLabel", "HealthLabel")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_dj57v")
+script = ExtResource("1_gjaui")
+NameLabel = NodePath("Name")
+HealthLabel = NodePath("Health")
 
 [node name="BackGround" type="ColorRect" parent="."]
 layout_mode = 0
@@ -22,7 +24,7 @@ offset_bottom = 128.0
 layout_mode = 0
 offset_right = 40.0
 offset_bottom = 40.0
-texture = ExtResource("1_q4vyj")
+texture = ExtResource("2_ol7xe")
 
 [node name="Name" type="Label" parent="."]
 layout_mode = 0
@@ -30,17 +32,18 @@ offset_left = 142.0
 offset_top = 8.0
 offset_right = 316.0
 offset_bottom = 31.0
-theme = ExtResource("2_6uohv")
+theme = ExtResource("3_vv6jk")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Hero"
 
 [node name="Health" type="Label" parent="."]
+layout_mode = 0
 offset_left = 142.0
 offset_top = 40.0
 offset_right = 316.0
 offset_bottom = 72.0
-theme = ExtResource("2_6uohv")
+theme = ExtResource("3_vv6jk")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Health: 100"

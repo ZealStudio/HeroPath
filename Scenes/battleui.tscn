@@ -1,14 +1,17 @@
-[gd_scene load_steps=13 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=16 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
+[ext_resource type="PackedScene" uid="uid://d0xonda5le2oq" path="res://Scenes/enemy_base.tscn" id="2_0awor"]
 [ext_resource type="PackedScene" uid="uid://dt26kkyu4luo2" path="res://Scenes/player_stat_holder.tscn" id="2_cq0af"]
 [ext_resource type="PackedScene" uid="uid://7ahhv11xhdyh" path="res://menu_controler.tscn" id="3_71hno"]
 [ext_resource type="Shader" path="res://shaders/Diamond-based Screen Transition.gdshader" id="4_m5v3j"]
+[ext_resource type="Script" path="res://Scenes/EnemyCardHolder.gd" id="5_cy4jw"]
 [ext_resource type="Script" path="res://Code/Ui/Screen Transition OverLay.gd" id="5_wk34d"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/StateMachine.gd" id="7_a25ud"]
 [ext_resource type="PackedScene" uid="uid://csifm7ux32sb8" path="res://Code/State Machine For Battle/TeamSelect.tscn" id="8_dft8y"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/PickAbility.gd" id="8_tw5dc"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/EnemyTurn.gd" id="9_asyh5"]
+[ext_resource type="Script" path="res://Code/State Machine For Battle/pickenemycard.gd" id="10_j1gef"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/Idle.gd" id="11_0ahw3"]
 [ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]
 
@@ -25,6 +28,10 @@ shader_parameter/diamondPixelSize = 32.0
 layout_mode = 3
 anchors_preset = 0
 script = ExtResource("1_8slk6")
+
+[node name="EnemyUnitHolder" type="Node2D" parent="." groups=["EnemyUnitHolderStat"]]
+
+[node name="Slime" parent="EnemyUnitHolder" instance=ExtResource("2_0awor")]
 
 [node name="PlayerUnitHolder" type="Node2D" parent="." groups=["PlayerUnitHolderStat"]]
 
@@ -80,6 +87,51 @@ script = ExtResource("12_8douu")
 PlayerUnitHolder = NodePath("../../PlayerUnitHolder")
 PositionHolder = NodePath("../PositionHolder")
 
+[node name="EnemyCardHolder" type="Node2D" parent="MenuControler" node_paths=PackedStringArray("EnemyUnitHolder", "EnemyPositionHolder") groups=["EnemyGetCardHolder"]]
+script = ExtResource("5_cy4jw")
+EnemyUnitHolder = NodePath("../../EnemyUnitHolder")
+EnemyPositionHolder = NodePath("../EnemyPositionHolder")
+
+[node name="EnemyPositionHolder" type="Node2D" parent="MenuControler" groups=["EnemyPositionHolder"]]
+position = Vector2(32.7, 0)
+metadata/_edit_group_ = true
+
+[node name="1" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(30, 20)
+
+[node name="2" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(130, 20)
+
+[node name="3" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(230, 20)
+
+[node name="4" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(330, 20)
+
+[node name="5" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(430, 20)
+
+[node name="6" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(530, 20)
+
+[node name="7" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(630, 20)
+
+[node name="8" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(730, 20)
+
+[node name="9" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(830, 20)
+
+[node name="10" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(930, 20)
+
+[node name="11" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(1030, 20)
+
+[node name="12" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
+position = Vector2(1130, 20)
+
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
 material = SubResource("ShaderMaterial_uc1qx")
 layout_mode = 0
@@ -100,6 +152,10 @@ StateMachine = NodePath("..")
 [node name="pickteamcard" parent="State Machine" node_paths=PackedStringArray("HomeMenu", "StateMachine") instance=ExtResource("8_dft8y")]
 HomeMenu = NodePath("../../MenuControler/CardHolder")
 StateMachine = NodePath("..")
+
+[node name="pickenemycard" type="Node" parent="State Machine" node_paths=PackedStringArray("HomeMenu")]
+script = ExtResource("10_j1gef")
+HomeMenu = NodePath("../../MenuControler/EnemyCardHolder")
 
 [node name="EnemyTurn" type="Node" parent="State Machine" node_paths=PackedStringArray("StateMachine")]
 script = ExtResource("9_asyh5")

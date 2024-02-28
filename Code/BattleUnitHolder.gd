@@ -6,7 +6,7 @@ class_name  UI_UnitHolder
 @export var NameLabel:Label
 @export var HealthLabel:Label
 
-
+var Unitstats :UnitBase
 
 
 # Called when the node enters the scene tree for the first time.
@@ -14,6 +14,6 @@ func _ready():
 	pass # Replace with function body.
 
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	pass
+func UpdateLabels():
+	NameLabel.text = Unitstats.Name
+

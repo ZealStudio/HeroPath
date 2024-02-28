@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://v5kxecwtprhm"]
+
+[ext_resource type="Script" path="res://Code/enemyCode/EnemyBase.gd" id="1_tg5pf"]
+
+[node name="EnemyStatHolder" type="Node2D"]
+script = ExtResource("1_tg5pf")

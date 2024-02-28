@@ -4,10 +4,7 @@ class_name  PlayerBase
 var CardBase = preload("res://Scenes/card/CardBase.tscn")
 func StartTurn():
 	CanAct = true
-func EndTurn():
-	super.EndTurn()
-	var BattleManager = get_tree().get_nodes_in_group("BattleManager")[0]
-	BattleManager.ProgressBattle()
+
 func AddCardsToBattle():
 	var PlayerCardHolder = GameManager.GetPlayerGetCardHolder()
 	var CardsToAdd = []
@@ -16,8 +13,6 @@ func AddCardsToBattle():
 		return
 		#CardsToEffect ={"CardToRight": Card,
 		#"CardToleft": Card}
-
-
 	for attacks in Stat.WeaponSlot.OnUse:
 		var NewCard = CardBase.instantiate()
 		NewCard.AbilityToMakeIntoCard = attacks
