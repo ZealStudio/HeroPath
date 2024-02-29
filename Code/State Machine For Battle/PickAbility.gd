@@ -14,7 +14,7 @@ var CurrentSelectedButton :Node2D
 			"up": Vector2.UP,
 			"down": Vector2.DOWN}
 func  Enter():
-	pass
+	GetButtonToUse()
 func Exit():
 	pass
 func  Update(_delta:float):

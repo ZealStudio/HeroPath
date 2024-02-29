@@ -12,8 +12,6 @@ signal Use
 
 
 
-
-var ActionTimeline =[]
 var CurrentSpotOnBoard : Marker2D
 var WhoOwnsThisCard : PlayerBase
 var bIsSelected = false
@@ -25,8 +23,10 @@ func _physics_process(delta):
 	MoveCard(CurrentSpotOnBoard.global_position)
 	if bCanMoveUp:
 		MoveWhenSelected()
+
 func  _ready():
 	SetLabels()
+
 func Selected(bSelected:bool):
 	if bSelected:
 		OutlineValues.set_shader_parameter("width",1)
@@ -56,10 +56,8 @@ func SetLabels():
 func OnUse():
 	print_debug(NameOfAtack.text + " was used.")
 	OnUseCallEffects()
-
-
 	emit_signal("Use")
-
+	return
 func SetNeighborCards():
 
 	var CardsInHolder = GameManager.GetPlayerGetCardHolder().get_children()
@@ -72,6 +70,7 @@ func SetNeighborCards():
 		NeighborCards["CardToRight"] = null
 	else:
 		NeighborCards["CardToRight"] = CardsInHolder[FindThisCardPosition() + 1]
+
 func FindThisCardPosition():
 	var CardHolder = GameManager.GetPlayerGetCardHolder().get_children()
 	var SelfIndex = CardHolder.find(self)
@@ -82,9 +81,12 @@ func OnUseCallEffects():
 	for effect in AbilityToMakeIntoCard.SkillEffects:
 		print_debug(effect.Name)
 		effect.Target = await SetTarget(effect.TargetType)
+		effect.Self = self
 		await effect.WhenUsed()
-		effect.GetSelf()
 	GameManager.GetPlayerStateMachine().ChangeState("pickability")
+
+
+
 func OnBattleStartEffect():
 	pass
 
@@ -100,7 +102,7 @@ func SetTarget(Target):
 	if Target == "Self":
 		return GetSelfTarget()
 	if  Target == "EnemyIndex":
-		return GetEnemyTarget()
+		return GetEnemyIndex()
 	if Target == "TeamMateIndex":
 		return GetTeamMateIndex()
 	if Target == "EnemySelected":
@@ -114,16 +116,36 @@ func SetTarget(Target):
 
 
 
+func  SwitchCard(CardToSwitchTo):
+	var PlayerCardholder =  GameManager.GetPlayerGetCardHolder()
+	var Temp = 	self.CurrentSpotOnBoard
+	var TempIndex = PlayerCardholder.get_children().find(self)
+	var TempIndex2 = PlayerCardholder.get_children().find(CardToSwitchTo)
+	#CardToSwitchTo.CurrentSpotOnBoard = self.CurrentSpotOnBoard
+	self.CurrentSpotOnBoard = CardToSwitchTo.CurrentSpotOnBoard
+	CardToSwitchTo.CurrentSpotOnBoard = Temp
+	#print_debug(Temp)
+
+	print_debug(TempIndex)
 
 
-## Get the differnt Targets
+	PlayerCardholder.move_child(CardToSwitchTo,TempIndex )
+	PlayerCardholder.move_child(self,TempIndex2 )
+	SetNeighborCards()
+	CardToSwitchTo.SetNeighborCards()
+	return
+
+
+
 func GetSelfTarget():
 	return self
 
-func  GetEnemyTarget():
+func  GetEnemyIndex():
 	pass
 func  GetTeamMateIndex():
-	pass
+
+	var EnemyCardsInField = GameManager.GetEnemyGetCardHolder().get_children()
+
 func  GetSelectedEnemy():
 	var SignalToWaitFor = GameManager.GetPlayerStateMachine().GetState("pickenemycard").CardPicked
 	GameManager.GetPlayerStateMachine().ChangeState("pickenemycard")
@@ -135,7 +157,14 @@ func GetSelectedTeamMate():
 	GameManager.GetPlayerStateMachine().GetState("pickteamcard").GetButtonToUse()
 	return await SignalToWaitFor
 func GetRandomEnemy():
-	pass
+	var rng = RandomNumberGenerator.new()
+	var my_random_number = rng.randi_range(0, GameManager.GetEnemyGetCardHolder().get_children().size()-1)
+	var EnemyCardsInField = GameManager.GetEnemyGetCardHolder().get_children()
+
+	return EnemyCardsInField[ my_random_number]
 func GetRandomTeamMate():
-	pass
+	var rng = RandomNumberGenerator.new()
+	var my_random_number = rng.randi_range(0, GameManager.GetPlayerGetCardHolder().get_children().size()-1)
+	var EnemyCardsInField = GameManager.GetEnemyGetCardHolder().get_children()
+	return EnemyCardsInField[my_random_number]
 

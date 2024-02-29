@@ -11,4 +11,4 @@ func  WhenUsed():
 
 
 func  MoveCard():
-	pass
+	Target.SwitchCard(Self)

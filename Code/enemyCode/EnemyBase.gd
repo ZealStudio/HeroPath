@@ -2,7 +2,7 @@ extends UnitBase
 
 class_name  Enemy
 
-var CardBase = preload("res://Scenes/card/CardBase.tscn")
+var CardBase = preload("res://Scenes/card/CardBase1.tscn")
 func  _ready():
 	SetLabels()
 

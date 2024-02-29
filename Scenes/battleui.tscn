@@ -42,6 +42,7 @@ script = ExtResource("1_8slk6")
 [node name="SideKick2" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
 
 [node name="MenuControler" parent="." instance=ExtResource("3_71hno")]
+offset_right = 1198.0
 
 [node name="PositionHolder" type="Node2D" parent="MenuControler" groups=["PlayerPositionHolder"]]
 metadata/_edit_group_ = true
