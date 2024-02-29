@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbsldorqxh778"]
+[gd_scene load_steps=6 format=3 uid="uid://bbsldorqxh778"]
 
 [ext_resource type="PackedScene" uid="uid://cmlvniw5qjq4j" path="res://Scenes/player.tscn" id="1_be1nw"]
 [ext_resource type="PackedScene" uid="uid://emfaehntryat" path="res://Code/MenuHolder/menu_holder.tscn" id="2_v56of"]
+[ext_resource type="PackedScene" uid="uid://bvxulgjhnnk5v" path="res://NPC/NPCQuest/npc_quest.tscn" id="3_jbpk6"]
+[ext_resource type="PackedScene" uid="uid://c1j0pal3ppg25" path="res://Code/Dialog/dialog_ui.tscn" id="4_wum76"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bm4ej"]
 size = Vector2(146, 60)
@@ -22,8 +24,17 @@ shape = SubResource("RectangleShape2D_bm4ej")
 
 [node name="Node2D" type="Node2D" parent="StaticBody2D"]
 
+[node name="DialogUI" parent="." instance=ExtResource("4_wum76")]
+offset_left = 637.0
+offset_top = 357.0
+offset_right = 637.0
+offset_bottom = 357.0
+
 [node name="MenuHolder" parent="." instance=ExtResource("2_v56of")]
 offset_left = 499.0
 offset_top = 274.0
 offset_right = 539.0
 offset_bottom = 314.0
+
+[node name="NPCQuest" parent="." instance=ExtResource("3_jbpk6")]
+position = Vector2(87, 281)

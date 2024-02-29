@@ -16,10 +16,11 @@ func npc_interact(inventory):
 	#inventory.slots.has(npc_resource.quest_item)
 	#add amount of items requirement as well
 	var correct_item = inventory.slots.filter(func(slot): return slot.item == npc_resource.quest_item)
+	print(correct_item)
 	if not correct_item.is_empty()\
+	 and correct_item[0].amount >= npc_resource.item_number\
 	 and current_state == npc_interact_state.PENDING:
 		current_state = npc_interact_state.COMPLETE
-	
 	if current_state == npc_interact_state.INTRO:
 		GameManager.emit_dialog_initiated(npc_resource.intro_dialogue)
 		current_state = npc_interact_state.PENDING
