@@ -1,11 +1,14 @@
-[gd_scene load_steps=19 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=23 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="PackedScene" uid="uid://d0xonda5le2oq" path="res://Scenes/enemy_base.tscn" id="2_0awor"]
 [ext_resource type="PackedScene" uid="uid://dt26kkyu4luo2" path="res://Scenes/player_stat_holder.tscn" id="2_cq0af"]
 [ext_resource type="PackedScene" uid="uid://7ahhv11xhdyh" path="res://menu_controler.tscn" id="3_71hno"]
+[ext_resource type="Resource" uid="uid://d0nq2xtw3h5nv" path="res://Code/ability/EnemyAttacks/Tackle.tres" id="3_vm78l"]
+[ext_resource type="Texture2D" uid="uid://b6u7nr7fgt277" path="res://Art/enemy/Slime.png" id="4_6i02d"]
 [ext_resource type="Resource" uid="uid://db57kbkf1r3ec" path="res://Code/Player/Hero.tres" id="4_hisrn"]
 [ext_resource type="Shader" path="res://shaders/Diamond-based Screen Transition.gdshader" id="4_m5v3j"]
+[ext_resource type="Script" path="res://Code/enemyCode/EnemyStats.gd" id="5_7ue22"]
 [ext_resource type="Script" path="res://Scenes/EnemyCardHolder.gd" id="5_cy4jw"]
 [ext_resource type="Resource" uid="uid://86gf27r5gssa" path="res://Code/Player/Hero2.tres" id="5_iec5c"]
 [ext_resource type="Script" path="res://Code/Ui/Screen Transition OverLay.gd" id="5_wk34d"]
@@ -17,6 +20,22 @@
 [ext_resource type="Script" path="res://Code/State Machine For Battle/pickenemycard.gd" id="10_j1gef"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/Idle.gd" id="11_0ahw3"]
 [ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]
+
+[sub_resource type="Resource" id="Resource_up8pp"]
+script = ExtResource("5_7ue22")
+OnUse = Array[Resource("res://Code/ability/abilityBase.gd")]([ExtResource("3_vm78l"), ExtResource("3_vm78l"), ExtResource("3_vm78l")])
+Name = "Slime"
+Sprite = ExtResource("4_6i02d")
+bIsDead = false
+Level = 1
+PhysicalAttack = 10
+MagicAttack = 0
+MaxHealth = 10
+Health = 10
+MaxMana = 0
+Mana = 0
+PhysicalDefense = 2
+MagicDefense = 0
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_uc1qx"]
 shader = ExtResource("4_m5v3j")
@@ -35,6 +54,9 @@ script = ExtResource("1_8slk6")
 [node name="EnemyUnitHolder" type="Node2D" parent="." groups=["EnemyUnitHolderStat"]]
 
 [node name="Slime" parent="EnemyUnitHolder" instance=ExtResource("2_0awor")]
+
+[node name="Slime2" parent="EnemyUnitHolder" instance=ExtResource("2_0awor")]
+Stat = SubResource("Resource_up8pp")
 
 [node name="PlayerUnitHolder" type="Node2D" parent="." groups=["PlayerUnitHolderStat"]]
 

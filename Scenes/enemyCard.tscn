@@ -1,29 +1,29 @@
-[gd_scene load_steps=7 format=3 uid="uid://52e1na4alymu"]
+[gd_scene load_steps=7 format=3 uid="uid://ba7sb7uc5140w"]
 
-[ext_resource type="Script" path="res://Code/PlayerCardBase.gd" id="1_fitx3"]
-[ext_resource type="Shader" path="res://shaders/OutLine.gdshader" id="2_qili8"]
-[ext_resource type="Texture2D" uid="uid://cb2ykqbajs4a5" path="res://Art/Card/Card.png" id="3_c3blr"]
-[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="3_k1nib"]
-[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="4_74phk"]
+[ext_resource type="Script" path="res://Code/EnemyCardBase.gd" id="1_am2qg"]
+[ext_resource type="Shader" path="res://shaders/OutLine.gdshader" id="2_8rl1b"]
+[ext_resource type="Texture2D" uid="uid://cb2ykqbajs4a5" path="res://Art/Card/Card.png" id="3_ngxel"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="4_dqmpd"]
+[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="5_xkms7"]
 
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_7iv7a"]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_wf0uj"]
 resource_local_to_scene = true
-shader = ExtResource("2_qili8")
+shader = ExtResource("2_8rl1b")
 shader_parameter/color = Color(1, 1, 1, 1)
 shader_parameter/width = 1.0
 shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardBase" type="Node2D" node_paths=PackedStringArray("NameOfAtack", "DescriptionOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
-script = ExtResource("1_fitx3")
+[node name="EnemyCard" type="Node2D" node_paths=PackedStringArray("NameOfAtack", "DescriptionOfAtack") groups=["PlayerButton", "ability"]]
+script = ExtResource("1_am2qg")
 NameOfAtack = NodePath("LabelHolder/NameOfAttack")
 DescriptionOfAtack = NodePath("LabelHolder/RichTextLabel")
 
 [node name="BackGround" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_7iv7a")
+material = SubResource("ShaderMaterial_wf0uj")
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_c3blr")
+texture = ExtResource("3_ngxel")
 
 [node name="LabelHolder" type="Control" parent="."]
 layout_mode = 3
@@ -49,7 +49,7 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-theme = ExtResource("4_74phk")
+theme = ExtResource("4_dqmpd")
 text = "Name of Attack"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="LabelHolder"]
@@ -68,13 +68,13 @@ grow_vertical = 0
 size_flags_horizontal = 4
 size_flags_vertical = 4
 mouse_filter = 2
-theme = ExtResource("4_74phk")
+theme = ExtResource("4_dqmpd")
 metadata/_edit_use_anchors_ = true
 
 [node name="FaceIcon" type="Sprite2D" parent="."]
 position = Vector2(48, -69)
 scale = Vector2(0.165365, 0.160156)
-texture = ExtResource("3_k1nib")
+texture = ExtResource("5_xkms7")
 
 [node name="EffectIconHolder" type="HBoxContainer" parent="."]
 offset_left = -57.0
@@ -85,34 +85,31 @@ offset_bottom = 71.0
 [node name="Effect" type="TextureRect" parent="EffectIconHolder"]
 custom_minimum_size = Vector2(26.76, 0)
 layout_mode = 2
-texture = ExtResource("3_k1nib")
+texture = ExtResource("5_xkms7")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="Effect2" type="TextureRect" parent="EffectIconHolder"]
 custom_minimum_size = Vector2(26.76, 0)
 layout_mode = 2
-texture = ExtResource("3_k1nib")
+texture = ExtResource("5_xkms7")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="Effect3" type="TextureRect" parent="EffectIconHolder"]
 custom_minimum_size = Vector2(26.76, 0)
 layout_mode = 2
-texture = ExtResource("3_k1nib")
+texture = ExtResource("5_xkms7")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="Effect4" type="TextureRect" parent="EffectIconHolder"]
 custom_minimum_size = Vector2(26.76, 0)
 layout_mode = 2
-texture = ExtResource("3_k1nib")
+texture = ExtResource("5_xkms7")
 expand_mode = 1
 stretch_mode = 4
 
 [node name="HoverTimer" type="Timer" parent="."]
 wait_time = 0.8
 one_shot = true
-
-[connection signal="mouse_entered" from="LabelHolder" to="." method="_on_label_holder_mouse_entered"]
-[connection signal="timeout" from="HoverTimer" to="." method="_on_hover_timer_timeout"]
