@@ -1,12 +1,13 @@
-[gd_resource type="Resource" script_class="Attacks" load_steps=2 format=3 uid="uid://bqc6tx8rs1oir"]
+[gd_resource type="Resource" script_class="Attacks" load_steps=3 format=3 uid="uid://bqc6tx8rs1oir"]
 
 [ext_resource type="Script" path="res://Code/ability/Attacks/Attacks.gd" id="1_hxv4b"]
+[ext_resource type="Resource" uid="uid://dh4avg1t2axvi" path="res://Code/Attack Skill Effects/MoveType/TeamMateRandom.tres" id="1_wvjwk"]
 
 [resource]
 script = ExtResource("1_hxv4b")
-Type = ""
 Name = "Slash"
 ApCost = 0
 MaxUse = 2
 AttackDamage = 3
-SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])
+description = ""
+SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([ExtResource("1_wvjwk")])

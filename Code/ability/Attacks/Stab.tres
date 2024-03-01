@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_deaai")
-Type = ""
-Name = "last"
+Name = ""
 ApCost = 0
 MaxUse = 2
 AttackDamage = 2
+description = "Switch with a random TeamMate"
 SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

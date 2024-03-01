@@ -1,0 +1,53 @@
+[gd_scene load_steps=4 format=3 uid="uid://cxg3dya77vxbb"]
+
+[ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="1_78ynk"]
+[ext_resource type="Script" path="res://Scenes/enemy_ui_battle.gd" id="1_qswwf"]
+[ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_yvfdh"]
+
+[node name="EnemyUIBattle" type="Control" node_paths=PackedStringArray("NameLabel", "HealthLabel")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 10.0
+offset_top = 5.0
+offset_right = 10.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qswwf")
+NameLabel = NodePath("Name")
+HealthLabel = NodePath("Health")
+
+[node name="BackGround" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 333.0
+offset_bottom = 128.0
+
+[node name="icon" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_78ynk")
+
+[node name="Name" type="Label" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 8.0
+offset_right = 316.0
+offset_bottom = 31.0
+theme = ExtResource("2_yvfdh")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Hero"
+
+[node name="Health" type="Label" parent="."]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 40.0
+offset_right = 316.0
+offset_bottom = 72.0
+theme = ExtResource("2_yvfdh")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 32
+text = "Health: 100"

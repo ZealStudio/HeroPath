@@ -6,6 +6,6 @@
 script = ExtResource("1_8xool")
 Directions = -1
 Name = "MoveRight"
-TargetType = "TeamMateSelected"
-description = ""
+TargetType = "RandomTeamMate"
+description = "Move Target to random TeamMate"
 Amount = 0

@@ -24,3 +24,17 @@ func GetEnemyGetCardHolder():
 	var CardHolder =get_tree().get_nodes_in_group("EnemyGetCardHolder")
 	if CardHolder:
 		return CardHolder[0]
+func GetEnemyUiHolder():
+	var EnemyUiHolder =get_tree().get_nodes_in_group("EnemyUiHolder")
+	if EnemyUiHolder:
+		return EnemyUiHolder[0]
+		#PlayerUnitHolderStat
+func GetPlayerUiHolder():
+	var PlayerUiHolder =get_tree().get_nodes_in_group("PlayerUiHolder")
+	if PlayerUiHolder:
+		return PlayerUiHolder[0]
+func GetPlayerUnitHolder():
+	var PlayerUnitHolder =get_tree().get_nodes_in_group("PlayerUnitHolderStat")
+	if PlayerUnitHolder:
+		return PlayerUnitHolder[0]
+

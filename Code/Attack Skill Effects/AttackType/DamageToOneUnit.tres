@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource("1_4u5yl")
 baseAmount = 1
+Type = "PhysicalDamage"
 Name = "Deal Damage"
 TargetType = "EnemySelected"
 description = ""

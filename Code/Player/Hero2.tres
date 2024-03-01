@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="PlayerStats" load_steps=3 format=3 uid="uid://86gf27r5gssa"]
+
+[ext_resource type="Resource" uid="uid://codd8frhqvfqe" path="res://Code/Equipment/Weapon/Sword.tres" id="1_gpxwj"]
+[ext_resource type="Script" path="res://Code/Player/PlayerStats.gd" id="1_ssbmu"]
+
+[resource]
+script = ExtResource("1_ssbmu")
+WeaponSlot = ExtResource("1_gpxwj")
+Name = "Hero2"
+bIsDead = false
+Level = 0
+PhysicalAttack = 0
+MagicAttack = 0
+MaxHealth = 0
+Health = 0
+MaxMana = 0
+Mana = 0
+PhysicalDefense = 0
+MagicDefense = 0

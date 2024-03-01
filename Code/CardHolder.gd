@@ -12,11 +12,16 @@ func CreateCards():
 	var Units = PlayerUnitHolder.get_children()
 	var Positions = PositionHolder.get_children()
 	var Temp = 0
+	var TempForUi =0
 	for Unit in Units:
 		for card in Unit.AddCardsToBattle():
-			card.CurrentSpotOnBoard  =Positions[Temp]
+			card.CurrentSpotOnBoard  = Positions[Temp]
 			Temp+= 1
+			card.ownerUI.global_position = Vector2(0,100 + TempForUi * 100)
+			#card.WhoOwnsThisCard.UpdateLabels.connect(NewUi.UpdateLabels)
 		$"../../State Machine/PickAbility".GetButtonToUse()
+
+		TempForUi +=1
 	get_tree().call_group("ability", "SetNeighborCards")
 func SwitchCardsAround():
 	pass

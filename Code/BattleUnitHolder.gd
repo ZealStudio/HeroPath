@@ -5,15 +5,16 @@ class_name  UI_UnitHolder
 @export var Icon : Texture
 @export var NameLabel:Label
 @export var HealthLabel:Label
-
-var Unitstats :UnitBase
+var WhoOwnsThisCard
+var Stats :UnitStats
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	UpdateLabels()
 
 
 func UpdateLabels():
-	NameLabel.text = Unitstats.Name
-
+	print("Update")
+	NameLabel.text = Stats.Name
+	HealthLabel.text = str(Stats.Health)

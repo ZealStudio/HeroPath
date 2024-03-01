@@ -1,7 +1,8 @@
 extends UnitBase
 
 class_name  PlayerBase
-var CardBase = preload("res://Scenes/card/CardBase1.tscn")
+var CardBase = preload("res://Scenes/card/CardBase.tscn")
+var Unitbase = preload("res://Scenes/playerUiBattle.tscn")
 func StartTurn():
 	CanAct = true
 
@@ -16,7 +17,10 @@ func AddCardsToBattle():
 	for attacks in Stat.WeaponSlot.OnUse:
 		var NewCard = CardBase.instantiate()
 		NewCard.AbilityToMakeIntoCard = attacks
+
 		NewCard.WhoOwnsThisCard = self
+		NewCard.ownerUI = GetUi()
+		self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
 		#attacks
 		CardsToAdd.append(NewCard)
 		PlayerCardHolder.add_child(NewCard)
@@ -24,9 +28,11 @@ func AddCardsToBattle():
 
 
 	return CardsToAdd
+func GetUi():
+	var UiHolder = GameManager.GetPlayerUiHolder()
+	var UiForPlayer = Unitbase.instantiate()
+	UiForPlayer.Stats = self.Stat
+	UiHolder.add_child(UiForPlayer)
 
-
-
-
-
+	return UiForPlayer
 

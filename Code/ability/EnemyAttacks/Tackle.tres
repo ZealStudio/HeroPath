@@ -4,9 +4,9 @@
 
 [resource]
 script = ExtResource("1_g2ub8")
-Type = "Physical"
 Name = "Tackle"
 ApCost = 0
 MaxUse = 2
 AttackDamage = 0
+description = ""
 SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

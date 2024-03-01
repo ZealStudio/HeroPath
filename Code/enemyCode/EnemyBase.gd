@@ -1,19 +1,14 @@
 extends UnitBase
 
 class_name  Enemy
-
-var CardBase = preload("res://Scenes/card/CardBase1.tscn")
+var Unitbase = preload("res://Scenes/enemy_ui_battle.tscn")
+var CardBase = preload("res://Scenes/card/CardBase.tscn")
 func  _ready():
-	SetLabels()
-
+	pass
 func SetLabels():
 	pass
 func UpdateLabel():
 	pass
-func TakeDamage(Attack: Attacks ,Attacker:UnitStats):
-	super.TakeDamage(Attack,Attacker)
-	UpdateLabel()
-
 func StartTurn():
 	pass
 func AddCardsToBattle():
@@ -28,6 +23,8 @@ func AddCardsToBattle():
 		var NewCard = CardBase.instantiate()
 		NewCard.AbilityToMakeIntoCard = attacks
 		NewCard.WhoOwnsThisCard = self
+		NewCard.ownerUI = GetUi()
+		self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
 		#attacks
 		CardsToAdd.append(NewCard)
 		EnemyCardHolder.add_child(NewCard)
@@ -35,3 +32,11 @@ func AddCardsToBattle():
 
 
 	return CardsToAdd
+func GetUi():
+	var UiHolder = GameManager.GetEnemyUiHolder()
+	var UiForPlayer = Unitbase.instantiate()
+	UiForPlayer.Stats = self.Stat
+	UiHolder.add_child(UiForPlayer)
+
+	return UiForPlayer
+

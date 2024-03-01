@@ -3,7 +3,7 @@ extends Node
 class_name  UnitBase
 # Called when the node enters the scene tree for the first time.
 
-
+signal UpdateLabels
 signal EndTurnSignal
 @export var Stat :UnitStats
 var CurretTarget :UnitBase
@@ -16,24 +16,24 @@ var CanAct = false
 
 
 
-func TakeDamage(Attack: Attacks ,Attacker:UnitStats):
-	var DamageAmount = Attack.AttackDamage
-	DamageAmount = CheckDefense(DamageAmount,Attack.Type, Attacker)
+func TakeDamage(AttackAmount,Type ):
+	var DamageAmount = AttackAmount
+	DamageAmount = CheckDefense(AttackAmount,Type )
 	Stat.Health -=	DamageAmount
 	if Stat.Health <= 0:
 		Stat.bIsAlive = false
 		Stat.Health = 0
+	emit_signal("UpdateLabels")
 
 
+func CheckDefense(DamageAmount,Type):
 
-func CheckDefense(DamageAmount, Type ,Attacker:UnitStats):
-
-	if Type ==" Magic" and DamageAmount +Attacker.MagicAttack > Stat.MagicDefense:
-		return DamageAmount - Stat.MagicDefense +Attacker.MagicAttack
+	if Type ==" Magic" and DamageAmount > Stat.MagicDefense:
+		return DamageAmount - Stat.MagicDefense
 	else:
 		return 0
-	if  Type =="Physical" and DamageAmount +Attacker.PhysicalAttack > Stat.Defense:
-		return DamageAmount - Stat.PhysicalDefense +Attacker.PhysicalAttack
+	if  Type =="Physical" and DamageAmount  > Stat.Defense:
+		return DamageAmount - Stat.PhysicalDefense
 	else:
 		return 0
 

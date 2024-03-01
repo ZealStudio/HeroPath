@@ -13,9 +13,10 @@ signal Use
 
 
 var CurrentSpotOnBoard : Marker2D
-var WhoOwnsThisCard : PlayerBase
+var WhoOwnsThisCard : UnitBase
 var bIsSelected = false
 var bCanMoveUp =false
+var ownerUI
 var NeighborCards ={"CardToRight": Card,
 "CardToleft": Card}
 
@@ -52,7 +53,7 @@ func MoveWhenSelected():
 
 func SetLabels():
 	NameOfAtack.text =AbilityToMakeIntoCard.Name
-
+	DescriptionOfAtack.text =AbilityToMakeIntoCard.description
 func OnUse():
 	print_debug(NameOfAtack.text + " was used.")
 	OnUseCallEffects()
@@ -79,9 +80,8 @@ func FindThisCardPosition():
 
 func OnUseCallEffects():
 	for effect in AbilityToMakeIntoCard.SkillEffects:
-		print_debug(effect.Name)
-		effect.Target = await SetTarget(effect.TargetType)
 		effect.Self = self
+		effect.Target = await SetTarget(effect.TargetType)
 		await effect.WhenUsed()
 	GameManager.GetPlayerStateMachine().ChangeState("pickability")
 
@@ -122,9 +122,10 @@ func  SwitchCard(CardToSwitchTo):
 	var TempIndex = PlayerCardholder.get_children().find(self)
 	var TempIndex2 = PlayerCardholder.get_children().find(CardToSwitchTo)
 	#CardToSwitchTo.CurrentSpotOnBoard = self.CurrentSpotOnBoard
+	print_debug()
 	self.CurrentSpotOnBoard = CardToSwitchTo.CurrentSpotOnBoard
 	CardToSwitchTo.CurrentSpotOnBoard = Temp
-	#print_debug(Temp)
+
 
 	print_debug(TempIndex)
 
@@ -165,6 +166,6 @@ func GetRandomEnemy():
 func GetRandomTeamMate():
 	var rng = RandomNumberGenerator.new()
 	var my_random_number = rng.randi_range(0, GameManager.GetPlayerGetCardHolder().get_children().size()-1)
-	var EnemyCardsInField = GameManager.GetEnemyGetCardHolder().get_children()
-	return EnemyCardsInField[my_random_number]
+	var TeamCardsInField = GameManager.GetPlayerGetCardHolder().get_children()
+	return TeamCardsInField[my_random_number]
 

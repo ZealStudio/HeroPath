@@ -11,7 +11,7 @@ class_name Ability
 #@export var SoundForAttack :
 @export_group("Skill Properties")
 @export var AttackDamage :int
-
+@export_multiline var description: String
 @export var SkillEffects :Array[Effect]
 
 

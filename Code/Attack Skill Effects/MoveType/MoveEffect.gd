@@ -11,4 +11,5 @@ func  WhenUsed():
 
 
 func  MoveCard():
+	print_debug(Self)
 	Target.SwitchCard(Self)
