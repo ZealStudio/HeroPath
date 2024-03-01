@@ -17,5 +17,5 @@ MaxHealth = 10
 Health = 10
 MaxMana = 0
 Mana = 0
-PhysicalDefense = 0
+PhysicalDefense = 2
 MagicDefense = 0

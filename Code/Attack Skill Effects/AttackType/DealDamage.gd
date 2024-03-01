@@ -4,7 +4,7 @@ class_name Damage
 
 
 @export var baseAmount :int = 0
-@export_enum("PhysicalDamage","MagicDamage") var Type: String
+@export_enum("Physical","Magic") var Type: String
 
 
 func  WhenUsed():
@@ -12,9 +12,9 @@ func  WhenUsed():
 
 func DoDamage(targetForAttack):
 	var TotalDamage =0
-	if Type =="PhysicalDamage":
+	if Type =="Physical":
 		TotalDamage += Self.WhoOwnsThisCard.Stat.PhysicalAttack
-	if Type =="MagicDamage":
+	if Type =="Magic":
 		TotalDamage += Self.WhoOwnsThisCard.Stat.MagicAttack
 
 	TotalDamage += baseAmount

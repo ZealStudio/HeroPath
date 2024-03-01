@@ -17,24 +17,27 @@ var CanAct = false
 
 
 func TakeDamage(AttackAmount,Type ):
+	print_debug(Stat.Name + " took "+ str(AttackAmount) +" amount of damage.")
 	var DamageAmount = AttackAmount
 	DamageAmount = CheckDefense(AttackAmount,Type )
 	Stat.Health -=	DamageAmount
 	if Stat.Health <= 0:
-		Stat.bIsAlive = false
+		Stat.bIsDead  = true
 		Stat.Health = 0
 	emit_signal("UpdateLabels")
 
 
 func CheckDefense(DamageAmount,Type):
 
-	if Type ==" Magic" and DamageAmount > Stat.MagicDefense:
+	if Type =="Magic" and DamageAmount > Stat.MagicDefense:
+
 		return DamageAmount - Stat.MagicDefense
-	else:
-		return 0
-	if  Type =="Physical" and DamageAmount  > Stat.Defense:
+
+	elif Type =="Physical" and DamageAmount  > Stat.PhysicalDefense:
+
 		return DamageAmount - Stat.PhysicalDefense
 	else:
+
 		return 0
 
 func StartTurn():

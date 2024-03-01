@@ -5,7 +5,7 @@
 [resource]
 script = ExtResource("1_yf5vj")
 baseAmount = 0
-Type = "MagicDamage"
+Type = "Magic"
 Name = "MagicDamage"
 TargetType = "TeamMateSelected"
 description = ""

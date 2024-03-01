@@ -15,6 +15,5 @@ func _ready():
 
 
 func UpdateLabels():
-	print("Update")
 	NameLabel.text = Stats.Name
 	HealthLabel.text = str(Stats.Health)

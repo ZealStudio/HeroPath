@@ -4,8 +4,8 @@
 
 [resource]
 script = ExtResource("1_5spkf")
-baseAmount = 4
-Type = "PhysicalDamage"
+baseAmount = 0
+Type = "Physical"
 Name = "PhysicalDamage"
 TargetType = "EnemySelected"
 description = ""
