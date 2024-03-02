@@ -29,14 +29,13 @@ func MoveCard(NewPosition ):
 
 func MoveWhenSelected():
 	if bIsSelected:
-		self.global_position.y = lerp(self.global_position.y, global_position.y -  150 ,.1)
+		self.global_position.x = lerp(self.global_position.x, global_position.x +  150 ,.1)
 	else :
-		self.global_position.y = lerp(self.global_position.y, global_position.y  ,.1)
+		self.global_position.x = lerp(self.global_position.y, global_position.y  ,.1)
 
 
 func SetLabels():
 	NameOfAtack.text =AbilityToMakeIntoCard.Name
-	DescriptionOfAtack.text =AbilityToMakeIntoCard.description
 func OnUse():
 	print_debug(NameOfAtack.text + " was used.")
 	OnUseCallEffects()

@@ -17,7 +17,7 @@ func CreateCards():
 		for card in Unit.AddCardsToBattle():
 			card.CurrentSpotOnBoard  = Positions[Temp]
 			Temp+= 1
-			card.ownerUI.global_position = Vector2(0,100 + TempForUi * 100)
+			card.ownerUI.global_position = Vector2(250+ TempForUi * 320,750 )
 			#card.WhoOwnsThisCard.UpdateLabels.connect(NewUi.UpdateLabels)
 		$"../../State Machine/PickAbility".GetButtonToUse()
 

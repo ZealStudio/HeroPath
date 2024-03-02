@@ -6,8 +6,7 @@ signal Use
 
 @onready var TimerForHover = $HoverTimer
 @onready var OutlineValues =$BackGround.material
-@export var NameOfAtack :RichTextLabel
-@export var DescriptionOfAtack :RichTextLabel
+@export var NameOfAtack :Label
 @export var AbilityToMakeIntoCard :Ability
 
 
@@ -67,7 +66,6 @@ func MoveWhenSelected():
 
 func SetLabels():
 	NameOfAtack.text =AbilityToMakeIntoCard.Name
-	DescriptionOfAtack.text =AbilityToMakeIntoCard.description
 func OnUse():
 	print_debug(NameOfAtack.text + " was used.")
 	OnUseCallEffects()

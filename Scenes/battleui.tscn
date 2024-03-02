@@ -70,48 +70,51 @@ Stat = ExtResource("5_iec5c")
 [node name="SideKick2" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
 Stat = ExtResource("6_4dc15")
 
+[node name="SideKick3" parent="PlayerUnitHolder" groups=["BattleUnit"] instance=ExtResource("2_cq0af")]
+Stat = ExtResource("6_4dc15")
+
 [node name="MenuControler" parent="." instance=ExtResource("3_71hno")]
 offset_right = 1200.0
 
 [node name="PositionHolder" type="Node2D" parent="MenuControler" groups=["PlayerPositionHolder"]]
-position = Vector2(0, 140)
+position = Vector2(122, -60)
 metadata/_edit_group_ = true
 
 [node name="1" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(30, 600)
+position = Vector2(0, 100)
 
 [node name="2" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(130, 600)
+position = Vector2(0, 170)
 
 [node name="3" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(230, 600)
+position = Vector2(0, 240)
 
 [node name="4" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(330, 600)
+position = Vector2(0, 310)
 
 [node name="5" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(430, 600)
+position = Vector2(0, 380)
 
 [node name="6" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(530, 600)
+position = Vector2(0, 450)
 
 [node name="7" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(630, 600)
+position = Vector2(0, 520)
 
 [node name="8" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(730, 600)
+position = Vector2(0, 590)
 
 [node name="9" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(830, 600)
+position = Vector2(0, 660)
 
 [node name="10" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(930, 600)
+position = Vector2(0, 730)
 
 [node name="11" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(1030, 600)
+position = Vector2(0, 800)
 
 [node name="12" type="Marker2D" parent="MenuControler/PositionHolder"]
-position = Vector2(1130, 600)
+position = Vector2(0, 870)
 
 [node name="CardHolder" type="Node2D" parent="MenuControler" node_paths=PackedStringArray("PlayerUnitHolder", "PositionHolder") groups=["PlayerGetCardHolder"]]
 script = ExtResource("12_8douu")
@@ -124,55 +127,59 @@ EnemyUnitHolder = NodePath("../../EnemyUnitHolder")
 EnemyPositionHolder = NodePath("../EnemyPositionHolder")
 
 [node name="EnemyPositionHolder" type="Node2D" parent="MenuControler" groups=["EnemyPositionHolder"]]
-position = Vector2(32.7, 88.605)
+position = Vector2(1500, 0)
 
 [node name="1" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(30, 20)
+position = Vector2(0, 100)
 
 [node name="2" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(130, 20)
+position = Vector2(0, 170)
 
 [node name="3" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(230, 20)
+position = Vector2(0, 240)
 
 [node name="4" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(330, 20)
+position = Vector2(0, 310)
 
 [node name="5" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(430, 20)
+position = Vector2(0, 380)
 
 [node name="6" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(530, 20)
+position = Vector2(0, 450)
 
 [node name="7" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(630, 20)
+position = Vector2(0, 520)
 
 [node name="8" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(730, 20)
+position = Vector2(0, 590)
 
 [node name="9" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(830, 20)
+position = Vector2(0, 660)
 
 [node name="10" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(930, 20)
+position = Vector2(0, 710)
 
 [node name="11" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(1030, 20)
+position = Vector2(0, 780)
 
 [node name="12" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
-position = Vector2(1130, 20)
+position = Vector2(0, 850)
 
 [node name="UiPlayerHolder" type="Node2D" parent="MenuControler" groups=["PlayerUiHolder"]]
 
 [node name="UiEnemyHolder" type="Node2D" parent="MenuControler" groups=["EnemyUiHolder"]]
 
+[node name="Marker2D" type="Marker2D" parent="MenuControler"]
+position = Vector2(400, 800)
+
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
+visible = false
 material = SubResource("ShaderMaterial_uc1qx")
 layout_mode = 0
 offset_left = -1.0
 offset_top = -4.0
-offset_right = 1201.0
-offset_bottom = 721.0
+offset_right = 1924.0
+offset_bottom = 1080.0
 color = Color(0, 0, 0, 1)
 script = ExtResource("5_wk34d")
 
@@ -221,7 +228,7 @@ position = Vector2(-545, 89)
 CurrentSpotOnBoard = NodePath("../hideMarkerCardUi2")
 
 [node name="ShowMarkerCardUi" type="Marker2D" parent="."]
-position = Vector2(630, 90)
+position = Vector2(733, 135)
 
 [node name="hideMarkerCardUi2" type="Marker2D" parent="."]
 position = Vector2(-545, 89)

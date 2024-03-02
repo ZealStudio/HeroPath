@@ -27,18 +27,23 @@ func Unhandled_input(event):
 
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
+
+
 			if dir == "left":
+				CurrentSelectedButton.ShowUi($"../../hideMarkerCardUi2")
 
-				Currentindex -= 1
-				UpdateIndex()
 			if dir =="right":
+				CurrentSelectedButton.ShowUi($"../../ShowMarkerCardUi")
 
+
+			if dir =="up":
+				Currentindex -= 1
+
+				UpdateIndex()
+
+			if dir =="down":
 				Currentindex += 1
 				UpdateIndex()
-			if dir =="up":
-				CurrentSelectedButton.ShowUi($"../../ShowMarkerCardUi")
-			if dir =="down":
-				CurrentSelectedButton.ShowUi($"../../hideMarkerCardUi2")
 			CurrentSelectedButton.UpdateUi()
 
 

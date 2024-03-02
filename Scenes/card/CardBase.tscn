@@ -2,8 +2,8 @@
 
 [ext_resource type="Script" path="res://Code/PlayerCardBase.gd" id="1_fitx3"]
 [ext_resource type="Shader" path="res://shaders/OutLine.gdshader" id="2_qili8"]
-[ext_resource type="Texture2D" uid="uid://cb2ykqbajs4a5" path="res://Art/Card/Card.png" id="3_c3blr"]
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="3_k1nib"]
+[ext_resource type="Texture2D" uid="uid://r4d6jhqlxuuy" path="res://Art/Card/SpellHolder2.png" id="3_ye5cl"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="4_74phk"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7iv7a"]
@@ -15,15 +15,14 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardBase" type="Node2D" node_paths=PackedStringArray("NameOfAtack", "DescriptionOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
+[node name="CardBase" type="Node2D" node_paths=PackedStringArray("NameOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
 script = ExtResource("1_fitx3")
 NameOfAtack = NodePath("LabelHolder/NameOfAttack")
-DescriptionOfAtack = NodePath("LabelHolder/RichTextLabel")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7iv7a")
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_c3blr")
+texture = ExtResource("3_ye5cl")
 
 [node name="LabelHolder" type="Control" parent="."]
 layout_mode = 3
@@ -33,82 +32,29 @@ offset_top = -80.0
 offset_right = 58.0
 offset_bottom = 79.0
 
-[node name="NameOfAttack" type="RichTextLabel" parent="LabelHolder"]
+[node name="NameOfAttack" type="Label" parent="LabelHolder"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = -1.6
 anchor_top = -1.6
 anchor_right = -1.6
 anchor_bottom = -1.6
-offset_left = 194.4
-offset_top = 256.4
-offset_right = 309.4
-offset_bottom = 413.4
+offset_left = 218.4
+offset_top = 306.4
+offset_right = 352.4
+offset_bottom = 341.4
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
 theme = ExtResource("4_74phk")
-text = "Name of Attack"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="LabelHolder"]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = -1.5916
-anchor_top = -1.59371
-anchor_right = -1.58319
-anchor_bottom = -1.58742
-offset_left = 194.4
-offset_top = 295.4
-offset_right = 308.4
-offset_bottom = 370.4
-grow_horizontal = 0
-grow_vertical = 0
-size_flags_horizontal = 4
-size_flags_vertical = 4
-mouse_filter = 2
-theme = ExtResource("4_74phk")
-metadata/_edit_use_anchors_ = true
+theme_override_font_sizes/font_size = 32
+text = "Name"
+autowrap_mode = 3
 
 [node name="FaceIcon" type="Sprite2D" parent="."]
-position = Vector2(47, -68)
-scale = Vector2(0.165365, 0.160156)
+position = Vector2(-80.7917, 0.375018)
+scale = Vector2(0.38737, 0.36914)
 texture = ExtResource("3_k1nib")
-
-[node name="EffectIconHolder" type="HBoxContainer" parent="."]
-offset_left = -57.0
-offset_top = 48.0
-offset_right = 58.0
-offset_bottom = 71.0
-
-[node name="Effect" type="TextureRect" parent="EffectIconHolder"]
-custom_minimum_size = Vector2(26.76, 0)
-layout_mode = 2
-texture = ExtResource("3_k1nib")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Effect2" type="TextureRect" parent="EffectIconHolder"]
-custom_minimum_size = Vector2(26.76, 0)
-layout_mode = 2
-texture = ExtResource("3_k1nib")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Effect3" type="TextureRect" parent="EffectIconHolder"]
-custom_minimum_size = Vector2(26.76, 0)
-layout_mode = 2
-texture = ExtResource("3_k1nib")
-expand_mode = 1
-stretch_mode = 4
-
-[node name="Effect4" type="TextureRect" parent="EffectIconHolder"]
-custom_minimum_size = Vector2(26.76, 0)
-layout_mode = 2
-texture = ExtResource("3_k1nib")
-expand_mode = 1
-stretch_mode = 4
 
 [node name="HoverTimer" type="Timer" parent="."]
 wait_time = 0.8

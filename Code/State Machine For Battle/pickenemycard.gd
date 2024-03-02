@@ -30,11 +30,14 @@ func Unhandled_input(event):
 
 	for dir in inputs.keys():
 		if event.is_action_pressed(dir):
-			if dir == "left":
+			if dir =="up":
 				Currentindex -= 1
-			if dir =="right":
+
+				UpdateIndex()
+			if dir =="down":
 				Currentindex += 1
-			UpdateIndex()
+
+				UpdateIndex()
 
 
 
