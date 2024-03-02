@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=24 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="PackedScene" uid="uid://d0xonda5le2oq" path="res://Scenes/enemy_base.tscn" id="2_0awor"]
@@ -20,6 +20,7 @@
 [ext_resource type="Script" path="res://Code/State Machine For Battle/pickenemycard.gd" id="10_j1gef"]
 [ext_resource type="Script" path="res://Code/State Machine For Battle/Idle.gd" id="11_0ahw3"]
 [ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]
+[ext_resource type="PackedScene" uid="uid://dq5hsq46nq3h8" path="res://Scenes/ui_for_card.tscn" id="21_cfdex"]
 
 [sub_resource type="Resource" id="Resource_up8pp"]
 script = ExtResource("5_7ue22")
@@ -73,6 +74,7 @@ Stat = ExtResource("6_4dc15")
 offset_right = 1200.0
 
 [node name="PositionHolder" type="Node2D" parent="MenuControler" groups=["PlayerPositionHolder"]]
+position = Vector2(0, 140)
 metadata/_edit_group_ = true
 
 [node name="1" type="Marker2D" parent="MenuControler/PositionHolder"]
@@ -122,7 +124,7 @@ EnemyUnitHolder = NodePath("../../EnemyUnitHolder")
 EnemyPositionHolder = NodePath("../EnemyPositionHolder")
 
 [node name="EnemyPositionHolder" type="Node2D" parent="MenuControler" groups=["EnemyPositionHolder"]]
-position = Vector2(32.7, 0)
+position = Vector2(32.7, 88.605)
 
 [node name="1" type="Marker2D" parent="MenuControler/EnemyPositionHolder"]
 position = Vector2(30, 20)
@@ -213,5 +215,15 @@ anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
 grow_horizontal = 2
+
+[node name="UiForCard" parent="." node_paths=PackedStringArray("CurrentSpotOnBoard") instance=ExtResource("21_cfdex")]
+position = Vector2(-545, 89)
+CurrentSpotOnBoard = NodePath("../hideMarkerCardUi2")
+
+[node name="ShowMarkerCardUi" type="Marker2D" parent="."]
+position = Vector2(630, 90)
+
+[node name="hideMarkerCardUi2" type="Marker2D" parent="."]
+position = Vector2(-545, 89)
 
 [connection signal="LoadBattleUI" from="Screen Transition OverLay" to="MenuControler" method="ChangeVisibility"]

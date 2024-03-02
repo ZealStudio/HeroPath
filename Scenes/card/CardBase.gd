@@ -14,6 +14,7 @@ signal Use
 
 var CurrentSpotOnBoard : Marker2D
 var WhoOwnsThisCard : UnitBase
+var CardInBattleUi
 var bIsSelected = false
 var bCanMoveUp =false
 var ownerUI
@@ -27,6 +28,19 @@ func _physics_process(delta):
 
 func  _ready():
 	SetLabels()
+
+
+
+# for book in battle
+func UpdateUi():
+	CardInBattleUi.AbilityToMakeIntoUi = AbilityToMakeIntoCard
+	CardInBattleUi.UpdateLabels()
+
+func ShowUi(PointToMoveTo):
+	CardInBattleUi.AbilityToMakeIntoUi = AbilityToMakeIntoCard
+	CardInBattleUi.CurrentSpotOnBoard = PointToMoveTo
+	CardInBattleUi.UpdateLabels()
+
 
 func Selected(bSelected:bool):
 	if bSelected:

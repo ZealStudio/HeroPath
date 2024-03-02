@@ -72,7 +72,7 @@ theme = ExtResource("4_74phk")
 metadata/_edit_use_anchors_ = true
 
 [node name="FaceIcon" type="Sprite2D" parent="."]
-position = Vector2(48, -69)
+position = Vector2(47, -68)
 scale = Vector2(0.165365, 0.160156)
 texture = ExtResource("3_k1nib")
 

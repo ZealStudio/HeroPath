@@ -8,7 +8,8 @@ func _ready():
 func RunFromBattle():
 	pass
 
-
+func CheckEnemyHolder():
+	var EnemiesInPlay =$EnemyUnitHolder.get_children()
 
 
 

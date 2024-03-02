@@ -20,6 +20,7 @@ func AddCardsToBattle():
 
 		NewCard.WhoOwnsThisCard = self
 		NewCard.ownerUI = GetUi()
+		NewCard.CardInBattleUi = $"../../UiForCard"
 		self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
 		#attacks
 		CardsToAdd.append(NewCard)
