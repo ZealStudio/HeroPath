@@ -1,5 +1,6 @@
 extends Control
 
+@export var runtime_data: RuntimeData
 @export var grid_container: GridContainer
 @export var inputs = {"right": Vector2.RIGHT,
 			"left": Vector2.LEFT,
@@ -47,7 +48,10 @@ func _ready():
 
 func _input(event):
 	#opens inventory
-	if event.is_action_pressed("i"):
+	if event.is_action_pressed("i")\
+	 and (runtime_data.current_gameplay_state == GameManager.GameState.FREEWALK\
+	 or runtime_data.current_gameplay_state == GameManager.GameState.IN_MENU):
+		print(runtime_data.current_gameplay_state)
 		if bIsOpen:
 			close()
 		else:
@@ -72,34 +76,35 @@ func update_slots():
 func open():
 	visible = true
 	bIsOpen = true
-	GameManager.state = GameManager.GameState.IN_MENU
+	runtime_data.current_gameplay_state = GameManager.GameState.IN_MENU
 
 
 func close():
 	visible = false
 	bIsOpen = false
-	GameManager.state = GameManager.GameState.FREEWALK
+	runtime_data.current_gameplay_state = GameManager.GameState.FREEWALK
 
 
 func _unhandled_input(event):
-	if event.is_action_pressed("Interact"):
-		CurrentSelectedButton.Press()
-		SelectButton()
-		if CurrentSelectedButton.MainMenuToOpen != null:
-			GetButtonsForMenu(CurrentSelectedButton.MainMenuToOpen)
-		return
-	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
-			#print_debug(dir)
-			if dir == "left":
-				Currentindex -= 1
-			if dir =="right":
-				Currentindex += 1
-			if dir == "up":
-				Currentindex -= grid_container.columns
-			if dir == "down":
-				Currentindex += grid_container.columns
-			UpdateIndex()
+	if runtime_data.current_gameplay_state == GameManager.GameState.IN_MENU:
+		if event.is_action_pressed("Interact"):
+			CurrentSelectedButton.Press()
+			SelectButton()
+			if CurrentSelectedButton.MainMenuToOpen != null:
+				GetButtonsForMenu(CurrentSelectedButton.MainMenuToOpen)
+			return
+		for dir in inputs.keys():
+			if event.is_action_pressed(dir):
+				#print_debug(dir)
+				if dir == "left":
+					Currentindex -= 1
+				if dir =="right":
+					Currentindex += 1
+				if dir == "up":
+					Currentindex -= grid_container.columns
+				if dir == "down":
+					Currentindex += grid_container.columns
+				UpdateIndex()
 
 
 func add_item_slots():

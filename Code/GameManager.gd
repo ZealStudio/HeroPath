@@ -1,8 +1,11 @@
 extends Node
 
-enum GameState {FREEWALK, IN_MENU, IN_DIALOG}
+signal dialog_initiated(dialogue)
+signal dialog_finished
 
-var state
+signal npc_interact
+
+enum GameState {FREEWALK, IN_MENU, IN_DIALOG}
 
 func GetPlayer():
 	var player = get_tree().get_nodes_in_group("Player")
@@ -38,3 +41,11 @@ func GetPlayerUnitHolder():
 	if PlayerUnitHolder:
 		return PlayerUnitHolder[0]
 
+
+
+func emit_dialog_initiated(dialogue: Dialogue):
+	call_deferred("emit_signal", "dialog_initiated", dialogue)
+
+
+func emit_dialog_finished():
+	call_deferred("emit_signal", "dialog_finished")
