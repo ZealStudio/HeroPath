@@ -1,10 +1,13 @@
-[gd_scene load_steps=7 format=3 uid="uid://52e1na4alymu"]
+[gd_scene load_steps=10 format=3 uid="uid://52e1na4alymu"]
 
 [ext_resource type="Script" path="res://Code/PlayerCardBase.gd" id="1_fitx3"]
 [ext_resource type="Shader" path="res://shaders/OutLine.gdshader" id="2_qili8"]
+[ext_resource type="Texture2D" uid="uid://duqgdhpxf2664" path="res://Art/Card/AttackHolder3.png" id="2_qufvi"]
+[ext_resource type="Texture2D" uid="uid://dhvlhskvspybc" path="res://Art/Card/AttackHolder1.png" id="3_jxg7s"]
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="3_k1nib"]
-[ext_resource type="Texture2D" uid="uid://r4d6jhqlxuuy" path="res://Art/Card/SpellHolder2.png" id="3_ye5cl"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="4_74phk"]
+[ext_resource type="Texture2D" uid="uid://dy5fkd8vgjjgh" path="res://Art/Card/AttackHolder4.png" id="4_gr3uf"]
+[ext_resource type="Texture2D" uid="uid://cf0uo8u0ighd" path="res://Art/Card/AttackHolder2.png" id="5_jbg5u"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7iv7a"]
 resource_local_to_scene = true
@@ -15,14 +18,21 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardBase" type="Node2D" node_paths=PackedStringArray("NameOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
+[node name="CardBase" type="Node2D" node_paths=PackedStringArray("Background", "NameOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
 script = ExtResource("1_fitx3")
+Background = NodePath("BackGround")
+CardFrames = {
+"Blue": ExtResource("2_qufvi"),
+"Green": ExtResource("3_jxg7s"),
+"Pink": ExtResource("4_gr3uf"),
+"Red": ExtResource("5_jbg5u")
+}
 NameOfAtack = NodePath("LabelHolder/NameOfAttack")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7iv7a")
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_ye5cl")
+texture = ExtResource("3_jxg7s")
 
 [node name="LabelHolder" type="Control" parent="."]
 layout_mode = 3
@@ -39,20 +49,43 @@ anchor_left = -1.6
 anchor_top = -1.6
 anchor_right = -1.6
 anchor_bottom = -1.6
-offset_left = 218.4
-offset_top = 306.4
-offset_right = 352.4
-offset_bottom = 341.4
+offset_left = 174.4
+offset_top = 298.4
+offset_right = 246.4
+offset_bottom = 333.4
 grow_horizontal = 0
 grow_vertical = 0
+scale = Vector2(2, 2)
 size_flags_horizontal = 4
 theme = ExtResource("4_74phk")
-theme_override_font_sizes/font_size = 32
-text = "Name"
+theme_override_font_sizes/font_size = 16
+text = "Claw of the hell drangon "
 autowrap_mode = 3
 
+[node name="Ap Cost" type="Label" parent="LabelHolder"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 41.0
+offset_right = 182.0
+offset_bottom = 73.0
+theme = ExtResource("4_74phk")
+theme_override_font_sizes/font_size = 32
+text = "2"
+horizontal_alignment = 1
+
+[node name="ManaCost" type="Label" parent="LabelHolder"]
+layout_mode = 0
+offset_left = 141.0
+offset_top = 83.0
+offset_right = 181.0
+offset_bottom = 115.0
+theme = ExtResource("4_74phk")
+theme_override_font_sizes/font_size = 32
+text = "2"
+horizontal_alignment = 1
+
 [node name="FaceIcon" type="Sprite2D" parent="."]
-position = Vector2(-80.7917, 0.375018)
+position = Vector2(-121, 5.96046e-08)
 scale = Vector2(0.38737, 0.36914)
 texture = ExtResource("3_k1nib")
 

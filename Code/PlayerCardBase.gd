@@ -1,5 +1,15 @@
 extends Card
 
+var FrameColor
+
+@export var Background: Sprite2D
+@export var CardFrames = {
+	"Blue": Texture,
+	"Red": Texture,
+	"Pink": Texture,
+	"Green": Texture
+}
+
 
 
 
@@ -36,6 +46,7 @@ func MoveWhenSelected():
 
 func SetLabels():
 	NameOfAtack.text =AbilityToMakeIntoCard.Name
+	Background.texture = CardFrames[FrameColor]
 func OnUse():
 	print_debug(NameOfAtack.text + " was used.")
 	OnUseCallEffects()

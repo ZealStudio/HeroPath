@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://r4d6jhqlxuuy"
-path="res://.godot/imported/SpellHolder2.png-885133a40eabf823011f19dda888fc62.ctex"
+uid="uid://bl7slcgxhku5u"
+path="res://.godot/imported/SpellHoldericon2.png-331b0fe3fbdbbcd8bf2a7b84adf8d975.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Art/Card/SpellHolder2.png"
-dest_files=["res://.godot/imported/SpellHolder2.png-885133a40eabf823011f19dda888fc62.ctex"]
+source_file="res://Art/Card/SpellHoldericon2.png"
+dest_files=["res://.godot/imported/SpellHoldericon2.png-331b0fe3fbdbbcd8bf2a7b84adf8d975.ctex"]
 
 [params]
 

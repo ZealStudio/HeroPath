@@ -1,8 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://cxg3dya77vxbb"]
+[gd_scene load_steps=7 format=3 uid="uid://cxg3dya77vxbb"]
 
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="1_78ynk"]
 [ext_resource type="Script" path="res://Scenes/enemy_ui_battle.gd" id="1_qswwf"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_yvfdh"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gp2a6"]
+load_path = "res://.godot/imported/IconHolder1.png-1ae4ceb47f73d580aa4d4d5b3018b1a7.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o3a5s"]
+load_path = "res://.godot/imported/IconHolder3.png-e6a70b6ad0532b318bf84b350edcccab.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ucug"]
+load_path = "res://.godot/imported/IconHolder2.png-77992740ff1051369222c6e419c4eb8d.ctex"
 
 [node name="EnemyUIBattle" type="Control" node_paths=PackedStringArray("NameLabel", "HealthLabel")]
 layout_mode = 3
@@ -14,6 +23,11 @@ offset_bottom = 5.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_qswwf")
+CardFrames = {
+"Blue": SubResource("CompressedTexture2D_gp2a6"),
+"Green": SubResource("CompressedTexture2D_o3a5s"),
+"Red": SubResource("CompressedTexture2D_1ucug")
+}
 NameLabel = NodePath("Name")
 HealthLabel = NodePath("Health")
 

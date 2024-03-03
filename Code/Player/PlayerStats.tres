@@ -6,6 +6,7 @@
 [resource]
 script = ExtResource("1_skb0q")
 WeaponSlot = ExtResource("1_qwtue")
+ColorOfCards = ""
 Name = ""
 bIsDead = false
 Level = 0

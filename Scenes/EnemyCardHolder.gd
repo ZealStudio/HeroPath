@@ -18,7 +18,7 @@ func CreateCards():
 		for card in Unit.AddCardsToBattle():
 			card.CurrentSpotOnBoard  =Positions[Temp]
 			Temp+= 1
-			card.ownerUI.global_position = Vector2(900,100 + TempForUi * 100)
+			card.ownerUI.global_position = Vector2(250+ TempForUi * 320,0 )
 		TempForUi +=1
 		#$"../../State Machine/PickAbility".GetButtonToUse()
 	get_tree().call_group("ability", "SetNeighborCards")

@@ -21,6 +21,7 @@ func AddCardsToBattle():
 		NewCard.WhoOwnsThisCard = self
 		NewCard.ownerUI = GetUi()
 		NewCard.CardInBattleUi = $"../../UiForCard"
+		NewCard.FrameColor = Stat.ColorOfCards
 		self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
 		#attacks
 		CardsToAdd.append(NewCard)
@@ -33,6 +34,7 @@ func GetUi():
 	var UiHolder = GameManager.GetPlayerUiHolder()
 	var UiForPlayer = Unitbase.instantiate()
 	UiForPlayer.Stats = self.Stat
+	UiForPlayer.ColorForFrame = Stat.ColorOfCards
 	UiHolder.add_child(UiForPlayer)
 
 	return UiForPlayer
