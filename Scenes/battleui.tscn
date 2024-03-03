@@ -238,7 +238,8 @@ script = ExtResource("11_0ahw3")
 StateMachine = NodePath("..")
 
 [node name="UiForCard" parent="." node_paths=PackedStringArray("CurrentSpotOnBoard") instance=ExtResource("21_cfdex")]
-position = Vector2(-545, 89)
+position = Vector2(-841, 240)
+scale = Vector2(10.7813, 10.5313)
 CurrentSpotOnBoard = NodePath("../hideMarkerCardUi2")
 
 [node name="Timer" type="Timer" parent="."]
@@ -246,12 +247,13 @@ wait_time = 0.2
 one_shot = true
 
 [node name="ShowMarkerCardUi" type="Marker2D" parent="."]
-position = Vector2(569, 200)
+position = Vector2(600, 240)
 
 [node name="hideMarkerCardUi2" type="Marker2D" parent="."]
-position = Vector2(-545, 89)
+position = Vector2(-841, 240)
 
 [node name="APHolder" type="VBoxContainer" parent="."]
+visible = false
 layout_mode = 0
 offset_left = 431.0
 offset_top = 686.0
@@ -276,5 +278,8 @@ layout_mode = 2
 texture = ExtResource("24_mgtky")
 expand_mode = 5
 stretch_mode = 4
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(581, 600)
 
 [connection signal="LoadBattleUI" from="Screen Transition OverLay" to="MenuControler" method="ChangeVisibility"]

@@ -74,7 +74,9 @@ func SelectButton():
 		Currentindex = 0
 	for button in Buttons:
 		button.Selected(false)
+		button.ownerUI.MovePoint =button.ownerUI.ReturnPoint
 	CurrentSelectedButton= Buttons[Currentindex]
+	CurrentSelectedButton.ownerUI.MovePoint =$"../../Marker2D".global_position
 	CurrentSelectedButton.Selected(true)
 func GetButtonToUse():
 	GetButtonsForMenu(HomeMenu)

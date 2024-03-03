@@ -14,6 +14,7 @@ func StartTurn():
 func AddCardsToBattle():
 	var EnemyCardHolder = GameManager.GetEnemyGetCardHolder()
 	var CardsToAdd = []
+	var UiToConnect
 	if Stat.bIsDead:
 		print_debug("Dead")
 		return
@@ -21,11 +22,14 @@ func AddCardsToBattle():
 		#"CardToleft": Card}
 	for attacks in Stat.OnUse:
 		var NewCard = CardBase.instantiate()
+
 		NewCard.AbilityToMakeIntoCard = attacks
 		NewCard.WhoOwnsThisCard = self
-		NewCard.ownerUI = GetUi()
-		self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
-		#attacks
+		if UiToConnect == null:
+			UiToConnect = GetUi()
+			NewCard.ownerUI = UiToConnect
+			self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
+		NewCard.ownerUI = UiToConnect
 		CardsToAdd.append(NewCard)
 		EnemyCardHolder.add_child(NewCard)
 

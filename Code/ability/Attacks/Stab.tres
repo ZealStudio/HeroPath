@@ -8,5 +8,5 @@ Name = ""
 ApCost = 0
 MaxUse = 2
 AttackDamage = 2
-description = "Switch with a random TeamMate"
+description = ""
 SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([])

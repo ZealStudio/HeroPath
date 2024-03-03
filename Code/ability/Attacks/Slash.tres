@@ -17,5 +17,5 @@ Name = "Slash"
 ApCost = 0
 MaxUse = 2
 AttackDamage = 3
-description = ""
+description = "Switch with a random TeamMate"
 SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([SubResource("Resource_rgsur")])
