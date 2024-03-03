@@ -15,8 +15,6 @@ var FrameColor
 
 func _physics_process(delta):
 	MoveCard(CurrentSpotOnBoard.global_position)
-	if bCanMoveUp:
-		MoveWhenSelected()
 
 func  _ready():
 	SetLabels()
@@ -40,8 +38,6 @@ func MoveCard(NewPosition ):
 func MoveWhenSelected():
 	if bIsSelected:
 		self.global_position.x = lerp(self.global_position.x, global_position.x +  150 ,.1)
-	else :
-		self.global_position.x = lerp(self.global_position.y, global_position.y  ,.1)
 
 
 func SetLabels():

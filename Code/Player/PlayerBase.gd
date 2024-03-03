@@ -9,6 +9,7 @@ func StartTurn():
 func AddCardsToBattle():
 	var PlayerCardHolder = GameManager.GetPlayerGetCardHolder()
 	var CardsToAdd = []
+	var UiToConnect
 	if Stat.bIsDead:
 		print_debug("Dead")
 		return
@@ -17,12 +18,14 @@ func AddCardsToBattle():
 	for attacks in Stat.WeaponSlot.OnUse:
 		var NewCard = CardBase.instantiate()
 		NewCard.AbilityToMakeIntoCard = attacks
-
+		if UiToConnect == null:
+			UiToConnect = GetUi()
+			NewCard.ownerUI = UiToConnect
+			self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
 		NewCard.WhoOwnsThisCard = self
-		NewCard.ownerUI = GetUi()
+		NewCard.ownerUI = UiToConnect
 		NewCard.CardInBattleUi = $"../../UiForCard"
 		NewCard.FrameColor = Stat.ColorOfCards
-		self.UpdateLabels.connect(NewCard.ownerUI.UpdateLabels)
 		#attacks
 		CardsToAdd.append(NewCard)
 		PlayerCardHolder.add_child(NewCard)

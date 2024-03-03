@@ -5,6 +5,7 @@ class_name  TeamMateSelect
 
 signal CardPicked
 var CurrentMenu : Node2D
+@export var InputTimer :Timer
 @export var HomeMenu : Node2D
 var Currentindex = 0
 var NewMenuIndex = 0
@@ -25,11 +26,14 @@ func  Update(_delta:float):
 func Physics_Update(_delta:float):
 	pass
 func Unhandled_input(event):
+	if InputTimer.time_left:
+			return
+	InputTimer.start()
 	if event.is_action_pressed("Interact"):
 		emit_signal("CardPicked", CurrentSelectedButton)
 
 	for dir in inputs.keys():
-		if event.is_action_pressed(dir):
+		if event.is_action(dir):
 
 			if dir =="up":
 

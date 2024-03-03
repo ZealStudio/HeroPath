@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=28 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="PackedScene" uid="uid://d0xonda5le2oq" path="res://Scenes/enemy_base.tscn" id="2_0awor"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Code/Player/PlayerStats.gd" id="11_duoyw"]
 [ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]
 [ext_resource type="PackedScene" uid="uid://dq5hsq46nq3h8" path="res://Scenes/ui_for_card.tscn" id="21_cfdex"]
+[ext_resource type="Texture2D" uid="uid://crlggpgwfu46v" path="res://Art/Card/ChargePoints2.png" id="24_mgtky"]
 
 [sub_resource type="Resource" id="Resource_up8pp"]
 script = ExtResource("5_7ue22")
@@ -75,6 +76,12 @@ script = ExtResource("1_8slk6")
 [node name="Slime" parent="EnemyUnitHolder" instance=ExtResource("2_0awor")]
 
 [node name="Slime2" parent="EnemyUnitHolder" instance=ExtResource("2_0awor")]
+Stat = SubResource("Resource_up8pp")
+
+[node name="Slime3" parent="EnemyUnitHolder" instance=ExtResource("2_0awor")]
+Stat = SubResource("Resource_up8pp")
+
+[node name="Slime4" parent="EnemyUnitHolder" instance=ExtResource("2_0awor")]
 Stat = SubResource("Resource_up8pp")
 
 [node name="PlayerUnitHolder" type="Node2D" parent="." groups=["PlayerUnitHolderStat"]]
@@ -205,17 +212,20 @@ script = ExtResource("5_wk34d")
 script = ExtResource("7_a25ud")
 initial_state = NodePath("PickAbility")
 
-[node name="PickAbility" type="Node" parent="State Machine" node_paths=PackedStringArray("HomeMenu", "StateMachine")]
+[node name="PickAbility" type="Node" parent="State Machine" node_paths=PackedStringArray("InputTimer", "HomeMenu", "StateMachine")]
 script = ExtResource("8_tw5dc")
+InputTimer = NodePath("../../Timer")
 HomeMenu = NodePath("../../MenuControler/CardHolder")
 StateMachine = NodePath("..")
 
-[node name="pickteamcard" parent="State Machine" node_paths=PackedStringArray("HomeMenu", "StateMachine") instance=ExtResource("8_dft8y")]
+[node name="pickteamcard" parent="State Machine" node_paths=PackedStringArray("InputTimer", "HomeMenu", "StateMachine") instance=ExtResource("8_dft8y")]
+InputTimer = NodePath("../../Timer")
 HomeMenu = NodePath("../../MenuControler/CardHolder")
 StateMachine = NodePath("..")
 
-[node name="pickenemycard" type="Node" parent="State Machine" node_paths=PackedStringArray("HomeMenu", "StateMachine")]
+[node name="pickenemycard" type="Node" parent="State Machine" node_paths=PackedStringArray("InputTimer", "HomeMenu", "StateMachine")]
 script = ExtResource("10_j1gef")
+InputTimer = NodePath("../../Timer")
 HomeMenu = NodePath("../../MenuControler/EnemyCardHolder")
 StateMachine = NodePath("..")
 
@@ -223,32 +233,48 @@ StateMachine = NodePath("..")
 script = ExtResource("9_asyh5")
 StateMachine = NodePath("..")
 
-[node name="Idle" type="Node" parent="State Machine"]
+[node name="Idle" type="Node" parent="State Machine" node_paths=PackedStringArray("StateMachine")]
 script = ExtResource("11_0ahw3")
-
-[node name="PlayerUiHolder" type="Control" parent="."]
-anchors_preset = 0
-
-[node name="Box" type="VBoxContainer" parent="PlayerUiHolder"]
-layout_mode = 0
-offset_right = 307.0
-offset_bottom = 391.0
-
-[node name="EnemyUiHolder" type="Control" parent="."]
-layout_mode = 1
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-grow_horizontal = 2
+StateMachine = NodePath("..")
 
 [node name="UiForCard" parent="." node_paths=PackedStringArray("CurrentSpotOnBoard") instance=ExtResource("21_cfdex")]
 position = Vector2(-545, 89)
 CurrentSpotOnBoard = NodePath("../hideMarkerCardUi2")
 
+[node name="Timer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+
 [node name="ShowMarkerCardUi" type="Marker2D" parent="."]
-position = Vector2(733, 135)
+position = Vector2(569, 200)
 
 [node name="hideMarkerCardUi2" type="Marker2D" parent="."]
 position = Vector2(-545, 89)
+
+[node name="APHolder" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_left = 431.0
+offset_top = 686.0
+offset_right = 500.0
+offset_bottom = 1115.0
+metadata/_edit_group_ = true
+
+[node name="TextureRect" type="TextureRect" parent="APHolder"]
+layout_mode = 2
+texture = ExtResource("24_mgtky")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect2" type="TextureRect" parent="APHolder"]
+layout_mode = 2
+texture = ExtResource("24_mgtky")
+expand_mode = 5
+stretch_mode = 4
+
+[node name="TextureRect3" type="TextureRect" parent="APHolder"]
+layout_mode = 2
+texture = ExtResource("24_mgtky")
+expand_mode = 5
+stretch_mode = 4
 
 [connection signal="LoadBattleUI" from="Screen Transition OverLay" to="MenuControler" method="ChangeVisibility"]

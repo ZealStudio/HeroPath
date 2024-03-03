@@ -1,64 +1,50 @@
-[gd_scene load_steps=7 format=3 uid="uid://cxg3dya77vxbb"]
+[gd_scene load_steps=6 format=3 uid="uid://cxg3dya77vxbb"]
 
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="1_78ynk"]
 [ext_resource type="Script" path="res://Scenes/enemy_ui_battle.gd" id="1_qswwf"]
+[ext_resource type="Texture2D" uid="uid://b1iy571vsndhx" path="res://Art/Card/SpellHoldericon4.png" id="2_7ahqy"]
+[ext_resource type="Texture2D" uid="uid://bakefvk0h16dg" path="res://Art/Card/SpellHoldericon1.png" id="2_438u6"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="2_yvfdh"]
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gp2a6"]
-load_path = "res://.godot/imported/IconHolder1.png-1ae4ceb47f73d580aa4d4d5b3018b1a7.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_o3a5s"]
-load_path = "res://.godot/imported/IconHolder3.png-e6a70b6ad0532b318bf84b350edcccab.ctex"
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1ucug"]
-load_path = "res://.godot/imported/IconHolder2.png-77992740ff1051369222c6e419c4eb8d.ctex"
-
-[node name="EnemyUIBattle" type="Control" node_paths=PackedStringArray("NameLabel", "HealthLabel")]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 10.0
-offset_bottom = 5.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="EnemyUIBattle" type="Node2D" node_paths=PackedStringArray("NameLabel", "HealthLabel")]
 script = ExtResource("1_qswwf")
 CardFrames = {
-"Blue": SubResource("CompressedTexture2D_gp2a6"),
-"Green": SubResource("CompressedTexture2D_o3a5s"),
-"Red": SubResource("CompressedTexture2D_1ucug")
+"Red": ExtResource("2_7ahqy")
 }
-NameLabel = NodePath("Name")
-HealthLabel = NodePath("Health")
+NameLabel = NodePath("BackGround/Name")
+HealthLabel = NodePath("BackGround/Health")
 
-[node name="BackGround" type="ColorRect" parent="."]
-layout_mode = 0
-offset_right = 333.0
-offset_bottom = 128.0
+[node name="BackGround" type="TextureRect" parent="."]
+offset_right = 274.0
+offset_bottom = 402.0
+texture = ExtResource("2_438u6")
+stretch_mode = 4
+flip_v = true
 
-[node name="icon" type="TextureRect" parent="."]
+[node name="icon" type="TextureRect" parent="BackGround"]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 75.0
+offset_top = 213.0
+offset_right = 203.0
+offset_bottom = 341.0
 texture = ExtResource("1_78ynk")
 
-[node name="Name" type="Label" parent="."]
+[node name="Name" type="Label" parent="BackGround"]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 8.0
-offset_right = 316.0
-offset_bottom = 31.0
+offset_left = 66.0
+offset_right = 240.0
+offset_bottom = 32.0
 theme = ExtResource("2_yvfdh")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
 text = "Hero"
 
-[node name="Health" type="Label" parent="."]
+[node name="Health" type="Label" parent="BackGround"]
 layout_mode = 0
-offset_left = 142.0
-offset_top = 40.0
-offset_right = 316.0
-offset_bottom = 72.0
+offset_left = 66.0
+offset_top = 32.0
+offset_right = 240.0
+offset_bottom = 64.0
 theme = ExtResource("2_yvfdh")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_font_sizes/font_size = 32
