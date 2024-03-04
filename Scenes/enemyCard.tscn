@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://Code/EnemyCardBase.gd" id="1_am2qg"]
 [ext_resource type="Shader" path="res://shaders/OutLine.gdshader" id="2_8rl1b"]
-[ext_resource type="Texture2D" uid="uid://cf0uo8u0ighd" path="res://Art/Card/AttackHolder2.png" id="3_eovpu"]
+[ext_resource type="Texture2D" uid="uid://bfmt50m0jeodt" path="res://Art/Card/AttackHolderv2.png" id="3_0viu5"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="4_dqmpd"]
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="5_xkms7"]
 
@@ -22,7 +22,7 @@ NameOfAtack = NodePath("LabelHolder/NameOfAttack")
 [node name="BackGround" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_wf0uj")
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_eovpu")
+texture = ExtResource("3_0viu5")
 flip_h = true
 
 [node name="LabelHolder" type="Control" parent="."]

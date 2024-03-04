@@ -198,7 +198,6 @@ position = Vector2(0, 870)
 position = Vector2(400, 800)
 
 [node name="Screen Transition OverLay" type="ColorRect" parent="."]
-visible = false
 material = SubResource("ShaderMaterial_uc1qx")
 layout_mode = 0
 offset_left = -1.0
@@ -253,7 +252,6 @@ position = Vector2(600, 240)
 position = Vector2(-841, 240)
 
 [node name="APHolder" type="VBoxContainer" parent="."]
-visible = false
 layout_mode = 0
 offset_left = 431.0
 offset_top = 686.0

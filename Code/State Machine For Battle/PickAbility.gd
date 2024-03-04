@@ -28,6 +28,7 @@ func Unhandled_input(event):
 	InputTimer.start()
 	if event.is_action_pressed("Interact"):
 		CurrentSelectedButton.OnUse()
+		print_debug(CurrentSelectedButton.AbilityToMakeIntoCard.ApCost)
 
 	for dir in inputs.keys():
 		if event.is_action (dir):
@@ -81,3 +82,5 @@ func SelectButton():
 func GetButtonToUse():
 	GetButtonsForMenu(HomeMenu)
 	SelectButton()
+
+

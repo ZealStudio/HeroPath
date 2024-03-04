@@ -1,13 +1,14 @@
-[gd_scene load_steps=10 format=3 uid="uid://52e1na4alymu"]
+[gd_scene load_steps=11 format=3 uid="uid://52e1na4alymu"]
 
 [ext_resource type="Script" path="res://Code/PlayerCardBase.gd" id="1_fitx3"]
+[ext_resource type="Texture2D" uid="uid://dovwpgqtgtl1i" path="res://Art/Card/AttackHolderv4.png" id="2_owo81"]
 [ext_resource type="Shader" path="res://shaders/OutLine.gdshader" id="2_qili8"]
-[ext_resource type="Texture2D" uid="uid://duqgdhpxf2664" path="res://Art/Card/AttackHolder3.png" id="2_qufvi"]
-[ext_resource type="Texture2D" uid="uid://dhvlhskvspybc" path="res://Art/Card/AttackHolder1.png" id="3_jxg7s"]
+[ext_resource type="Texture2D" uid="uid://bfmt50m0jeodt" path="res://Art/Card/AttackHolderv2.png" id="3_6qdgp"]
 [ext_resource type="Texture2D" uid="uid://o24uoelqejrg" path="res://icon.svg" id="3_k1nib"]
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="4_74phk"]
-[ext_resource type="Texture2D" uid="uid://dy5fkd8vgjjgh" path="res://Art/Card/AttackHolder4.png" id="4_gr3uf"]
-[ext_resource type="Texture2D" uid="uid://cf0uo8u0ighd" path="res://Art/Card/AttackHolder2.png" id="5_jbg5u"]
+[ext_resource type="Texture2D" uid="uid://de74mm5v4v4nx" path="res://Art/Card/AttackHolderv5.png" id="4_tmhyd"]
+[ext_resource type="Texture2D" uid="uid://io8rw6njm1o2" path="res://Art/Card/AttackHolderv3.png" id="5_jgrij"]
+[ext_resource type="Script" path="res://Scenes/card/CostManagerForCard.gd" id="9_6vpwc"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7iv7a"]
 resource_local_to_scene = true
@@ -22,17 +23,17 @@ shader_parameter/add_margins = true
 script = ExtResource("1_fitx3")
 Background = NodePath("BackGround")
 CardFrames = {
-"Blue": ExtResource("2_qufvi"),
-"Green": ExtResource("3_jxg7s"),
-"Pink": ExtResource("4_gr3uf"),
-"Red": ExtResource("5_jbg5u")
+"Blue": ExtResource("2_owo81"),
+"Green": ExtResource("3_6qdgp"),
+"Pink": ExtResource("4_tmhyd"),
+"Red": ExtResource("5_jgrij")
 }
 NameOfAtack = NodePath("LabelHolder/NameOfAttack")
 
 [node name="BackGround" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7iv7a")
 scale = Vector2(2.5, 2.5)
-texture = ExtResource("3_jxg7s")
+texture = ExtResource("3_6qdgp")
 
 [node name="LabelHolder" type="Control" parent="."]
 layout_mode = 3
@@ -92,6 +93,9 @@ texture = ExtResource("3_k1nib")
 [node name="HoverTimer" type="Timer" parent="."]
 wait_time = 0.8
 one_shot = true
+
+[node name="CostManager" type="Node2D" parent="."]
+script = ExtResource("9_6vpwc")
 
 [connection signal="mouse_entered" from="LabelHolder" to="." method="_on_label_holder_mouse_entered"]
 [connection signal="timeout" from="HoverTimer" to="." method="_on_hover_timer_timeout"]

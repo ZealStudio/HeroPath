@@ -24,7 +24,7 @@ Amount = 0
 [resource]
 script = ExtResource("1_5txjw")
 Name = "holy slash"
-ApCost = 0
+ApCost = 1
 MaxUse = 2
 AttackDamage = 0
 description = "Deal damage to selected Enemy
