@@ -1,32 +1,25 @@
-[gd_resource type="Resource" script_class="Attacks" load_steps=6 format=3 uid="uid://cs6oj685k3bkc"]
+[gd_resource type="Resource" script_class="Attacks" load_steps=4 format=3 uid="uid://cs6oj685k3bkc"]
 
 [ext_resource type="Script" path="res://Code/ability/Attacks/Attacks.gd" id="1_5txjw"]
 [ext_resource type="Script" path="res://Code/Attack Skill Effects/AttackType/DealDamage.gd" id="1_nxslf"]
-[ext_resource type="Script" path="res://Code/Attack Skill Effects/MoveType/MoveEffect.gd" id="2_cwlb5"]
 
 [sub_resource type="Resource" id="Resource_05vbn"]
 script = ExtResource("1_nxslf")
 baseAmount = 4
 Type = "Physical"
 Name = "PhysicalDamage"
+targetNumberAmount = 1
 TargetType = "EnemySelected"
 description = ""
-Amount = 0
-
-[sub_resource type="Resource" id="Resource_d6i8r"]
-script = ExtResource("2_cwlb5")
-Directions = 0
-Name = "Move Selected Teammate"
-TargetType = "TeamMateSelected"
-description = ""
-Amount = 0
 
 [resource]
 script = ExtResource("1_5txjw")
 Name = "holy slash"
 ApCost = 1
+ManaCost = 0
+HealthCost = 1
 MaxUse = 2
 AttackDamage = 0
 description = "Deal damage to selected Enemy
 Switch with a selected TeamMate"
-SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([SubResource("Resource_05vbn"), SubResource("Resource_d6i8r")])
+SkillEffects = Array[Resource("res://Code/Attack Skill Effects/EffectBase.gd")]([SubResource("Resource_05vbn")])

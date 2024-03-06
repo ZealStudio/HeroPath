@@ -2,6 +2,11 @@ extends Card
 
 var FrameColor
 
+@export var CostUiAP : Sprite2D
+@export var CostUiHealth : Sprite2D
+@export var CostUiMana : Sprite2D
+
+
 @export var Background: Sprite2D
 @export var CardFrames = {
 	"Blue": Texture,
@@ -10,15 +15,12 @@ var FrameColor
 	"Green": Texture
 }
 
-
-
-
 func _physics_process(delta):
 	MoveCard(CurrentSpotOnBoard.global_position)
 
 func  _ready():
 	SetLabels()
-
+	UpdateCosts()
 func Selected(bSelected:bool):
 	if bSelected:
 		OutlineValues.set_shader_parameter("width",1)
@@ -38,7 +40,6 @@ func MoveCard(NewPosition ):
 func MoveWhenSelected():
 	if bIsSelected:
 		self.global_position.x = lerp(self.global_position.x, global_position.x +  150 ,.1)
-
 
 func SetLabels():
 	NameOfAtack.text =AbilityToMakeIntoCard.Name
@@ -66,43 +67,18 @@ func FindThisCardPosition():
 	var SelfIndex = CardHolder.find(self)
 	return SelfIndex
 
-
 func OnUseCallEffects():
 	for effect in AbilityToMakeIntoCard.SkillEffects:
 		effect.Self = self
-		effect.Target = await SetTarget(effect.TargetType)
+		effect.Target = await SetTarget(effect.TargetType,effect.targetNumberAmount)
 		await effect.WhenUsed()
 	GameManager.GetPlayerStateMachine().ChangeState("pickability")
-
-
 
 func OnBattleStartEffect():
 	pass
 
-
-
-
 func _on_hover_timer_timeout():
 	bCanMoveUp = true
-
-
-
-func SetTarget(Target):
-	if Target == "Self":
-		return GetSelfTarget()
-	if  Target == "EnemyIndex":
-		return GetEnemyIndex()
-	if Target == "TeamMateIndex":
-		return GetTeamMateIndex()
-	if Target == "EnemySelected":
-		return await GetSelectedEnemy()
-	if Target == "TeamMateSelected":
-		return await GetSelectedTeamMate()
-	if Target == "RandomEnemy":
-		return GetRandomEnemy()
-	if Target == "RandomTeamMate":
-		return GetRandomTeamMate()
-
 
 
 func  SwitchCard(CardToSwitchTo):
@@ -114,11 +90,7 @@ func  SwitchCard(CardToSwitchTo):
 	print_debug()
 	self.CurrentSpotOnBoard = CardToSwitchTo.CurrentSpotOnBoard
 	CardToSwitchTo.CurrentSpotOnBoard = Temp
-
-
 	print_debug(TempIndex)
-
-
 	PlayerCardholder.move_child(CardToSwitchTo,TempIndex )
 	PlayerCardholder.move_child(self,TempIndex2 )
 	SetNeighborCards()
@@ -126,4 +98,25 @@ func  SwitchCard(CardToSwitchTo):
 	return
 
 
+func MoveCostPoints(NewPoint,NewPoint2,NewPoint3 ):
+	self.global_position = lerp(self.global_position, NewPoint ,.1 )
+
+func UpdateCosts():
+	visible
+	var Temp = 0
+	if AbilityToMakeIntoCard .ApCost != 0:
+		Temp +=1
+		CostUiAP.visible= true
+		CostUiAP.position.x = 60 + 50 * Temp
+		CostUiAP.get_children()[0].text =str(AbilityToMakeIntoCard.ApCost)
+	if AbilityToMakeIntoCard .HealthCost != 0:
+		Temp +=1
+		CostUiHealth.visible = true
+		CostUiHealth.position.x = 60 + 50 * Temp
+		CostUiHealth.get_children()[0].text= str(AbilityToMakeIntoCard.HealthCost)
+	if  AbilityToMakeIntoCard .ManaCost != 0:
+		Temp +=1
+		CostUiMana.visible= true
+		CostUiMana.position.x = 60 + 50 * Temp
+		CostUiMana.get_children()[0].text= str(AbilityToMakeIntoCard.ManaCost)
 

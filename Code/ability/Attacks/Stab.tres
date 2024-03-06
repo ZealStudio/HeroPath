@@ -6,6 +6,8 @@
 script = ExtResource("1_deaai")
 Name = ""
 ApCost = 0
+ManaCost = 0
+HealthCost = 0
 MaxUse = 2
 AttackDamage = 2
 description = ""

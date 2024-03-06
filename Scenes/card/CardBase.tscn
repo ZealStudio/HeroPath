@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://52e1na4alymu"]
+[gd_scene load_steps=14 format=3 uid="uid://52e1na4alymu"]
 
 [ext_resource type="Script" path="res://Code/PlayerCardBase.gd" id="1_fitx3"]
 [ext_resource type="Texture2D" uid="uid://dovwpgqtgtl1i" path="res://Art/Card/AttackHolderv4.png" id="2_owo81"]
@@ -8,7 +8,10 @@
 [ext_resource type="Theme" uid="uid://4i8x1qypd4n2" path="res://Art/fonts/PixelTheme.tres" id="4_74phk"]
 [ext_resource type="Texture2D" uid="uid://de74mm5v4v4nx" path="res://Art/Card/AttackHolderv5.png" id="4_tmhyd"]
 [ext_resource type="Texture2D" uid="uid://io8rw6njm1o2" path="res://Art/Card/AttackHolderv3.png" id="5_jgrij"]
+[ext_resource type="Texture2D" uid="uid://crlggpgwfu46v" path="res://Art/Card/ChargePoints2.png" id="7_wvio8"]
+[ext_resource type="Texture2D" uid="uid://yqyfl5a4yuky" path="res://Art/Card/ContinerPoint4.png" id="9_02vyb"]
 [ext_resource type="Script" path="res://Scenes/card/CostManagerForCard.gd" id="9_6vpwc"]
+[ext_resource type="Texture2D" uid="uid://bhtq33v7ysw75" path="res://Art/Card/ContinerPoint3.png" id="10_w6gg2"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_7iv7a"]
 resource_local_to_scene = true
@@ -19,8 +22,11 @@ shader_parameter/pattern = 0
 shader_parameter/inside = false
 shader_parameter/add_margins = true
 
-[node name="CardBase" type="Node2D" node_paths=PackedStringArray("Background", "NameOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
+[node name="CardBase" type="Node2D" node_paths=PackedStringArray("CostUiAP", "CostUiHealth", "CostUiMana", "Background", "NameOfAtack") groups=["PlayerButton", "PlayerCards", "ability"]]
 script = ExtResource("1_fitx3")
+CostUiAP = NodePath("CostManager/Sprite2D")
+CostUiHealth = NodePath("CostManager/Sprite2D3")
+CostUiMana = NodePath("CostManager/Sprite2D2")
 Background = NodePath("BackGround")
 CardFrames = {
 "Blue": ExtResource("2_owo81"),
@@ -29,6 +35,62 @@ CardFrames = {
 "Red": ExtResource("5_jgrij")
 }
 NameOfAtack = NodePath("LabelHolder/NameOfAttack")
+
+[node name="CostManager" type="Node2D" parent="."]
+script = ExtResource("9_6vpwc")
+
+[node name="Sprite2D" type="Sprite2D" parent="CostManager"]
+position = Vector2(110, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("7_wvio8")
+
+[node name="Ap Cost" type="Label" parent="CostManager/Sprite2D"]
+offset_left = -9.70492
+offset_top = -9.33333
+offset_right = 30.2951
+offset_bottom = 22.6667
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_74phk")
+theme_override_font_sizes/font_size = 32
+text = "2"
+horizontal_alignment = 1
+
+[node name="Sprite2D2" type="Sprite2D" parent="CostManager"]
+position = Vector2(160, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("9_02vyb")
+metadata/_edit_group_ = true
+
+[node name="ManaCost" type="Label" parent="CostManager/Sprite2D2"]
+offset_left = -8.91803
+offset_top = -8.88889
+offset_right = 31.082
+offset_bottom = 23.1111
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_74phk")
+theme_override_font_sizes/font_size = 32
+text = "2"
+horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Sprite2D3" type="Sprite2D" parent="CostManager"]
+visible = false
+position = Vector2(238, 0)
+scale = Vector2(3, 3)
+texture = ExtResource("10_w6gg2")
+metadata/_edit_group_ = true
+
+[node name="health" type="Label" parent="CostManager/Sprite2D3"]
+offset_left = -8.91803
+offset_top = -8.88889
+offset_right = 31.082
+offset_bottom = 23.1111
+scale = Vector2(0.5, 0.5)
+theme = ExtResource("4_74phk")
+theme_override_font_sizes/font_size = 32
+text = "2"
+horizontal_alignment = 1
+metadata/_edit_group_ = true
 
 [node name="BackGround" type="Sprite2D" parent="."]
 material = SubResource("ShaderMaterial_7iv7a")
@@ -63,28 +125,6 @@ theme_override_font_sizes/font_size = 16
 text = "Claw of the hell drangon "
 autowrap_mode = 3
 
-[node name="Ap Cost" type="Label" parent="LabelHolder"]
-layout_mode = 0
-offset_left = 142.0
-offset_top = 41.0
-offset_right = 182.0
-offset_bottom = 73.0
-theme = ExtResource("4_74phk")
-theme_override_font_sizes/font_size = 32
-text = "2"
-horizontal_alignment = 1
-
-[node name="ManaCost" type="Label" parent="LabelHolder"]
-layout_mode = 0
-offset_left = 141.0
-offset_top = 83.0
-offset_right = 181.0
-offset_bottom = 115.0
-theme = ExtResource("4_74phk")
-theme_override_font_sizes/font_size = 32
-text = "2"
-horizontal_alignment = 1
-
 [node name="FaceIcon" type="Sprite2D" parent="."]
 position = Vector2(-121, 5.96046e-08)
 scale = Vector2(0.38737, 0.36914)
@@ -93,9 +133,6 @@ texture = ExtResource("3_k1nib")
 [node name="HoverTimer" type="Timer" parent="."]
 wait_time = 0.8
 one_shot = true
-
-[node name="CostManager" type="Node2D" parent="."]
-script = ExtResource("9_6vpwc")
 
 [connection signal="mouse_entered" from="LabelHolder" to="." method="_on_label_holder_mouse_entered"]
 [connection signal="timeout" from="HoverTimer" to="." method="_on_hover_timer_timeout"]

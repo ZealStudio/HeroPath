@@ -2,6 +2,7 @@ extends State
 
 
 class_name PickAbility
+signal  UpdateApUi(Amount)
 var CurrentMenu : Node2D
 @export var InputTimer :Timer
 @export var HomeMenu : Node2D
@@ -27,6 +28,8 @@ func Unhandled_input(event):
 			return
 	InputTimer.start()
 	if event.is_action_pressed("Interact"):
+		CurrentSelectedButton.ownerUI.MovePoint =$"../../Marker2D".global_position
+		emit_signal("UpdateApUi",CurrentSelectedButton.AbilityToMakeIntoCard.ApCost)
 		CurrentSelectedButton.OnUse()
 		print_debug(CurrentSelectedButton.AbilityToMakeIntoCard.ApCost)
 

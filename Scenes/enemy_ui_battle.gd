@@ -8,3 +8,8 @@ class_name EnemyUi
 	"Pink": Texture,
 	"Green": Texture
 }
+
+func ShowUiForATime(time):
+
+	await get_tree().create_timer(time).timeout
+	MovePoint = ReturnPoint

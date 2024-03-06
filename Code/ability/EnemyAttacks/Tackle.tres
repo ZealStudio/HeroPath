@@ -6,6 +6,8 @@
 script = ExtResource("1_g2ub8")
 Name = "Tackle"
 ApCost = 0
+ManaCost = 0
+HealthCost = 0
 MaxUse = 2
 AttackDamage = 0
 description = ""

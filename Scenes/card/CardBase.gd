@@ -93,7 +93,7 @@ func FindThisCardPosition():
 func OnUseCallEffects():
 	for effect in AbilityToMakeIntoCard.SkillEffects:
 		effect.Self = self
-		effect.Target = await SetTarget(effect.TargetType)
+		effect.Target = await SetTarget(effect.TargetType,effect.targetNumberAmount)
 		await effect.WhenUsed()
 	GameManager.GetPlayerStateMachine().ChangeState("pickability")
 
@@ -110,22 +110,25 @@ func _on_hover_timer_timeout():
 
 
 
-func SetTarget(Target):
+func SetTarget(Target,value):
 	if Target == "Self":
-		return GetSelfTarget()
+		return GetSelfTarget(value)
 	if  Target == "EnemyIndex":
-		return GetEnemyIndex()
+		return GetEnemyIndex(value)
 	if Target == "TeamMateIndex":
-		return GetTeamMateIndex()
+		return GetTeamMateIndex(value)
 	if Target == "EnemySelected":
-		return await GetSelectedEnemy()
+		return await GetSelectedEnemy(value)
 	if Target == "TeamMateSelected":
-		return await GetSelectedTeamMate()
+		return await GetSelectedTeamMate(value)
 	if Target == "RandomEnemy":
-		return GetRandomEnemy()
+		return GetRandomEnemy(value)
 	if Target == "RandomTeamMate":
-		return GetRandomTeamMate()
-
+		return GetRandomTeamMate(value)
+	if Target == "UpOrDownEnemy":
+		return GetRandomEnemy(value)
+	if Target == "UpOrDownTeamMate":
+		return GetRandomTeamMate(value)
 
 
 func  SwitchCard(CardToSwitchTo):
@@ -150,32 +153,36 @@ func  SwitchCard(CardToSwitchTo):
 
 
 
-func GetSelfTarget():
+func GetSelfTarget(value):
 	return self
 
-func  GetEnemyIndex():
-	pass
-func  GetTeamMateIndex():
-
+func  GetEnemyIndex(value):
 	var EnemyCardsInField = GameManager.GetEnemyGetCardHolder().get_children()
+	EnemyCardsInField[value -1].ownerUI.MovePoint =Vector2(0,0)
+	EnemyCardsInField[value -1].ownerUI.ShowUiForATime(2)
+	return EnemyCardsInField[value -1]
 
-func  GetSelectedEnemy():
+func  GetTeamMateIndex(value):
+	var  PlayerCardsInField = GameManager.GetPlayerGetCardHolder().get_children()
+
+	return PlayerCardsInField[value -1]
+func  GetSelectedEnemy(value):
 	var SignalToWaitFor = GameManager.GetPlayerStateMachine().GetState("pickenemycard").CardPicked
 	GameManager.GetPlayerStateMachine().ChangeState("pickenemycard")
 	GameManager.GetPlayerStateMachine().GetState("pickenemycard").GetButtonToUse()
 	return await SignalToWaitFor
-func GetSelectedTeamMate():
+func GetSelectedTeamMate(value):
 	var SignalToWaitFor = GameManager.GetPlayerStateMachine().GetState("pickteamcard").CardPicked
 	GameManager.GetPlayerStateMachine().ChangeState("pickteamcard")
 	GameManager.GetPlayerStateMachine().GetState("pickteamcard").GetButtonToUse()
 	return await SignalToWaitFor
-func GetRandomEnemy():
+func GetRandomEnemy(value):
 	var rng = RandomNumberGenerator.new()
 	var my_random_number = rng.randi_range(0, GameManager.GetEnemyGetCardHolder().get_children().size()-1)
 	var EnemyCardsInField = GameManager.GetEnemyGetCardHolder().get_children()
 
 	return EnemyCardsInField[ my_random_number]
-func GetRandomTeamMate():
+func GetRandomTeamMate(value):
 	var rng = RandomNumberGenerator.new()
 	var my_random_number = rng.randi_range(0, GameManager.GetPlayerGetCardHolder().get_children().size()-1)
 	var TeamCardsInField = GameManager.GetPlayerGetCardHolder().get_children()

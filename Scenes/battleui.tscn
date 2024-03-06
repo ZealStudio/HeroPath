@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=3 uid="uid://bm5xr01g7158p"]
+[gd_scene load_steps=29 format=3 uid="uid://bm5xr01g7158p"]
 
 [ext_resource type="Script" path="res://Code/Ui/battlePhase.gd" id="1_8slk6"]
 [ext_resource type="PackedScene" uid="uid://d0xonda5le2oq" path="res://Scenes/enemy_base.tscn" id="2_0awor"]
@@ -23,6 +23,7 @@
 [ext_resource type="Script" path="res://Code/Player/PlayerStats.gd" id="11_duoyw"]
 [ext_resource type="Script" path="res://Code/CardHolder.gd" id="12_8douu"]
 [ext_resource type="PackedScene" uid="uid://dq5hsq46nq3h8" path="res://Scenes/ui_for_card.tscn" id="21_cfdex"]
+[ext_resource type="Script" path="res://Code/APCostHolder.gd" id="24_154fd"]
 [ext_resource type="Texture2D" uid="uid://crlggpgwfu46v" path="res://Art/Card/ChargePoints2.png" id="24_mgtky"]
 
 [sub_resource type="Resource" id="Resource_up8pp"]
@@ -256,7 +257,8 @@ layout_mode = 0
 offset_left = 431.0
 offset_top = 686.0
 offset_right = 500.0
-offset_bottom = 1115.0
+offset_bottom = 901.0
+script = ExtResource("24_154fd")
 metadata/_edit_group_ = true
 
 [node name="TextureRect" type="TextureRect" parent="APHolder"]
@@ -281,3 +283,4 @@ stretch_mode = 4
 position = Vector2(581, 600)
 
 [connection signal="LoadBattleUI" from="Screen Transition OverLay" to="MenuControler" method="ChangeVisibility"]
+[connection signal="UpdateApUi" from="State Machine/PickAbility" to="APHolder" method="_on_pick_ability_update_ap_ui"]
